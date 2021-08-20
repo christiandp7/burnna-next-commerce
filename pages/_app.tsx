@@ -11,7 +11,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { themeSettigs } from '@burnna/theme'
 
-const theme = themeSettigs()
+const theme = themeSettigs({})
 
 const Noop: FC = ({ children }) => <>{children}</>
 
