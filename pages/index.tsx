@@ -2,8 +2,8 @@ import commerce from '@lib/api/commerce'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
 import { HomeLayout } from '@burnna/layouts'
+import { Layout } from '@components/common'
 
-// import { Layout } from '@components/common'
 // import { ProductCard } from '@components/product'
 // import { Grid, Marquee, Hero } from '@components/ui'
 // import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
@@ -44,4 +44,4 @@ export default function Home({
 	return <HomeLayout>Home Page</HomeLayout>
 }
 
-// Home.Layout = Layout
+Home.Layout = Layout
