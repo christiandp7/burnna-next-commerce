@@ -1,8 +1,14 @@
 import commerce from '@lib/api/commerce'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
+import { makeStyles, createStyles, Theme } from '@material-ui/core'
+import Grid from '@material-ui/core/Grid'
+import Box from '@material-ui/core/Box'
+import Typography from '@material-ui/core/Typography'
 import { HomeLayout } from '@burnna/layouts'
+import { HeroCard } from '@burnna/components'
 import { Layout } from '@components/common'
+import { LogoText } from '@burnna/svg'
 
 // import { ProductCard } from '@components/product'
 // import { Grid, Marquee, Hero } from '@components/ui'
@@ -41,7 +47,64 @@ export async function getStaticProps({
 export default function Home({
 	products,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-	return <HomeLayout>Home Page</HomeLayout>
+	const classes = useStyles()
+
+	const womenLink = { title: 'shop women', link: '/collection' }
+	const menLink = { title: 'shop men', link: '/collection' }
+
+	const menImage = { src: '/images/home/men.jpg', width: 1043, height: 1262 }
+	const womenImage = { src: '/images/home/women.jpg', width: 1071, height: 1262 }
+
+	return (
+		<HomeLayout>
+			<Box className={classes.heroContainer}>
+				<Grid container className={classes.container} spacing={0}>
+					<Grid className={classes.column} item xs={12} md={6}>
+						<HeroCard image={menImage} link={menLink} />
+					</Grid>
+					<Grid className={classes.column} item xs={12} md={6}>
+						<HeroCard image={womenImage} link={womenLink} />
+					</Grid>
+				</Grid>
+				<Box className={classes.logoContainer}>
+					<LogoText className={classes.logoImg} />
+				</Box>
+			</Box>
+		</HomeLayout>
+	)
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		heroContainer: {
+			position: 'relative',
+		},
+		container: {
+			height: 'calc(100vh - 55px)',
+		},
+		column: {
+			height: '100%',
+			[theme.breakpoints.down('sm')]: {
+				height: '50%',
+			},
+		},
+		// Logo
+		logoContainer: {
+			position: 'absolute',
+			top: '50%',
+			left: '50%',
+			transform: 'translateX(-50%) translateY(-50%)',
+			zIndex: 2,
+			width: '40%',
+		},
+		logoImg: {
+			userSelect: 'none',
+			userDrag: 'none',
+			'& path': {
+				fill: theme.palette.primary.contrastText,
+			},
+		},
+	}),
+)
 
 Home.Layout = Layout
