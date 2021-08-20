@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import HomeHeader from '../components/HomeHeader/HomeHeader'
-// import Footer from '../components/Footer/Footer'
+import { Footer } from '@burnna/components'
 // import { Scrollbars } from 'react-custom-scrollbars-2'
 
 interface Props {
@@ -18,7 +18,7 @@ const HomeLayout: FC<Props> = ({ children }) => {
 		<>
 			{/* <HomeHeader /> */}
 			<main className={classes.main}>{children}</main>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	)
 }
