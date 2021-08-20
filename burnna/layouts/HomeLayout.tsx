@@ -1,6 +1,5 @@
 import React, { FC, useState } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-
 import { Footer, HomeHeader } from '@burnna/components'
 
 interface Props {
