@@ -5,7 +5,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import { Scrollbars } from 'react-custom-scrollbars-2'
 import { Header, Footer } from '@burnna/components'
 
-const drawerWidth = 190
+// const drawerWidth = 190
 
 interface Props {
 	top?: string
@@ -15,8 +15,8 @@ interface Props {
 }
 
 const InfoLayout: FC<Props> = ({ children, ...props }) => {
-	const [sidebar, setSidebar] = useState(false)
-	const [cart, setCart] = useState(false)
+	// const [sidebar, setSidebar] = useState(false)
+	// const [cart, setCart] = useState(false)
 
 	const classes = useStyles(props)
 
