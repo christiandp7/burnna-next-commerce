@@ -48,16 +48,16 @@ const useStyles = makeStyles((theme: Theme) =>
 		root: {
 			display: 'flex',
 		},
-		main: props => ({
+		main: (props: Props) => ({
 			paddingTop: props.top || '65px',
 			paddingBottom: props.bottom || '30px',
 			minHeight: 'calc(100vh - 65px)',
 			display: props.alignItemsCenter ? 'flex' : 'block',
 			alignItems: 'center',
-			[theme.breakpoints.down('md')]: props => ({
+			[theme.breakpoints.down('md')]: {
 				paddingTop: props.mobTop || '40px',
 				paddingBottom: props.bottom || '12px',
-			}),
+			},
 		}),
 		scrollbars: {
 			[theme.breakpoints.up('md')]: {
