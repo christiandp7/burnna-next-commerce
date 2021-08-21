@@ -4,6 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import Header from '../components/Header/Header'
 // import Footer from '../components/Footer/Footer'
 // import Cart from '../components/Cart/Cart'
+import { Footer, Header } from '@burnna/components'
 
 interface Props {
 	children: React.ReactNode
@@ -12,18 +13,19 @@ interface Props {
 }
 
 const MainLayout: FC<Props> = ({ children, ...props }) => {
-	const [sidebar, setSidebar] = useState(false)
-	const [cart, setCart] = useState(false)
+	// const [sidebar, setSidebar] = useState(false)
+	// const [cart, setCart] = useState(false)
 
 	const classes = useStyles(props)
 
 	return (
 		<>
 			{/* <Sidebar open={sidebar} setOpen={setSidebar} />
-			<Cart open={cart} setOpen={setCart} />
-			<Header openSidebar={setSidebar} openCart={setCart} /> */}
+			<Cart open={cart} setOpen={setCart} /> */}
+			{/* <Header openSidebar={setSidebar} /> */}
+			<Header />
 			<main className={classes.main}>{children}</main>
-			{/* <Footer /> */}
+			<Footer />
 		</>
 	)
 }
