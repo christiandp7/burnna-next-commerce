@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react'
-import { createTheme, makeStyles, Theme } from '@material-ui/core/styles'
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import FAQSidebar from '../components/FAQSidebar/FAQSidebar'
 // import Cart from '../components/Cart/Cart'
 // import { Scrollbars } from 'react-custom-scrollbars-2'
@@ -44,7 +44,7 @@ const InfoLayout: FC<Props> = ({ children, ...props }) => {
 }
 
 const useStyles = makeStyles((theme: Theme) =>
-	createTheme({
+	createStyles({
 		root: {
 			display: 'flex',
 		},
