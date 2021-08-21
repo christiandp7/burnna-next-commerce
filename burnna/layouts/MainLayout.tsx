@@ -8,8 +8,6 @@ import { Footer, Header } from '@burnna/components'
 
 interface Props {
 	children: React.ReactNode
-	top: string
-	bottom: string
 }
 
 const MainLayout: FC<Props> = ({ children, ...props }) => {
