@@ -46,11 +46,15 @@ export async function getStaticProps({
 
 export default function Home({
 	products,
+	categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+	console.log(products)
+	console.log(categories)
+
 	const classes = useStyles()
 
-	const womenLink = { title: 'shop women', link: '/collection' }
-	const menLink = { title: 'shop men', link: '/collection' }
+	const womenLink = { title: 'shop women', link: '/collection/women' }
+	const menLink = { title: 'shop men', link: '/collection/men' }
 
 	const menImage = { src: '/images/home/men.jpg', width: 1043, height: 1262 }
 	const womenImage = { src: '/images/home/women.jpg', width: 1071, height: 1262 }
