@@ -11,23 +11,23 @@ const Burguer: FC = () => {
 			<path
 				d="M4 24.333H14.6667"
 				stroke="black"
-				stroke-width="1.6"
-				stroke-linecap="square"
-				stroke-linejoin="round"
+				strokeWidth="1.6"
+				strokeLinecap="square"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M4 15.333H21.3333"
 				stroke="black"
-				stroke-width="1.6"
-				stroke-linecap="square"
-				stroke-linejoin="round"
+				strokeWidth="1.6"
+				strokeLinecap="square"
+				strokeLinejoin="round"
 			/>
 			<path
 				d="M4 7H28"
 				stroke="black"
-				stroke-width="1.6"
-				stroke-linecap="square"
-				stroke-linejoin="round"
+				strokeWidth="1.6"
+				strokeLinecap="square"
+				strokeLinejoin="round"
 			/>
 		</svg>
 	)
