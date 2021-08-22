@@ -48,9 +48,6 @@ export default function Home({
 	products,
 	categories,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-	console.log(products)
-	console.log(categories)
-
 	const classes = useStyles()
 
 	const womenLink = { title: 'shop women', link: '/collection/women' }

@@ -80,7 +80,7 @@ const Header: FC<Props> = ({ openSidebar, infoLayout = false, ...props }) => {
 									</ul>
 								</Hidden>
 							</Grid>
-							<Grid item container justify="center" xs={4} sm={2}>
+							<Grid item container justifyContent="center" xs={4} sm={2}>
 								<div className="logoContainer">
 									<NextLink href="/" passHref>
 										<Link className={classes.logoLink}>
@@ -89,7 +89,7 @@ const Header: FC<Props> = ({ openSidebar, infoLayout = false, ...props }) => {
 									</NextLink>
 								</div>
 							</Grid>
-							<Grid item container xs justify="flex-end" alignItems="center">
+							<Grid item container xs justifyContent="flex-end" alignItems="center">
 								<Hidden mdDown>
 									<ul className={classes.linklist}>
 										<li>
