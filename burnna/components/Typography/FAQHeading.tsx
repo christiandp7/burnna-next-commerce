@@ -6,7 +6,7 @@ interface Props {
 	children?: any
 }
 
-const Heading: FC<Props> = ({ children, ...props }) => {
+const FAQHeading: FC<Props> = ({ children, ...props }) => {
 	const classes = useStyles(props)
 	return (
 		<Typography {...props} component="h2" variant="h4" className={classes.root}>
@@ -27,4 +27,4 @@ const useStyles = makeStyles((theme: Theme) =>
 	}),
 )
 
-export default Heading
+export default FAQHeading

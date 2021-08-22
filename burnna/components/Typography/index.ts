@@ -1,1 +1,1 @@
-export { default as FAQHeading } from './FAQHeading'
+export { default } from './FAQHeading'
