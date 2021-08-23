@@ -10,7 +10,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import { LogoText } from '@burnna/svg'
 import { CollectionGrid } from '@burnna/components'
 
-const Collection = ({ categories, brands }: SearchPropsType) => {
+const CollectionView = ({ categories, brands }: SearchPropsType) => {
 	// console.log(categories)
 
 	const router = useRouter()
@@ -71,6 +71,6 @@ const useStyles = makeStyles((theme: Theme) =>
 	}),
 )
 
-export default Collection
+export default CollectionView
 
-Collection.Layout = Layout
+CollectionView.Layout = Layout
