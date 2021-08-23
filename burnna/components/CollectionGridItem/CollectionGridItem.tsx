@@ -10,19 +10,23 @@ import Tooltip from '@material-ui/core/Tooltip'
 import Grow from '@material-ui/core/Grow'
 // import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import Fade from 'react-reveal/Fade'
-import { Product, ProductImage } from '@commerce/types/product'
+import { Product } from '@commerce/types/product'
 
 interface Props {
 	product: Product
 }
 
-const placeholderImg = {
-	src: '/product-img-placeholder.svg',
-	width: 800,
-	height: 800,
-}
+// const placeholderImg = {
+// 	src: '/product-img-placeholder.svg',
+// 	width: 800,
+// 	height: 800,
+// }
+
+const placeholderImg = '/product-img-placeholder.svg'
 
 const CollectionGridItem: FC<Props> = ({ product }) => {
+	// console.log(product)
+
 	const [showDetails, setShowDetails] = useState(false)
 
 	const handleMouseEnter = () => {
@@ -39,43 +43,43 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 			onMouseEnter={handleMouseEnter}
 			onMouseLeave={handleMouseLeave}>
 			<div className={classes.productImageRow}>
-				<NextLink href="/product">
-					{/* <LazyLoadImage
-						wrapperClassName={classes.lazyLoadWrapper}
-						className={classes.image}
-						src={product.img}
-						alt={product.name}
-						useIntersectionObserver={true}
-						effect="blur"
-					/> */}
-					{product?.images && (
-						<Image
-							quality="85"
-							alt={product.name || 'Product Image'}
-							src={product.images[0]?.url || placeholderImg.src}
-							// width={product.images[0]?.width || placeholderImg.width}
-							// height={product.images[0]?.height || placeholderImg.height}
-							layout="responsive"
-						/>
-					)}
-				</NextLink>
-				{/* <div className={classes.productVariantsContainer}>
-					{product.variants && (
-						<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
-							<div className={classes.productVariants}>
-								{product.variants.color &&
-									product.variants.color.map(color => (
-										<Tooltip title={color.name} placement="right">
-											<Box
-												className={classes.productColorVariantBadge}
-												bgcolor={color.hex}
-											/>
-										</Tooltip>
-									))}
-							</div>
-						</Grow>
-					)}
-				</div> */}
+				{product?.images && (
+					<NextLink href={`/product/${product.slug}`}>
+						<a className={classes.imageContainer}>
+							<Image
+								quality="85"
+								alt={product.name || 'Product Image'}
+								src={product.images[0]?.url || placeholderImg}
+								width={product.images[0]?.width || 800}
+								height={product.images[0]?.height || 800}
+								className={!product.images[0]?.url ? classes.imagePlaceholder : ''}
+								placeholder="blur"
+								blurDataURL={product.images[0]?.url || placeholderImg}
+								layout="responsive"
+							/>
+						</a>
+					</NextLink>
+				)}
+				{product.variants.length > 0 && (
+					<div className={classes.productVariantsContainer}>
+						variant
+						{/* {product.variants && (
+							<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
+								<div className={classes.productVariants}>
+									{product.variants.color &&
+										product.variants.color.map(color => (
+											<Tooltip title={color.name} placement="right">
+												<Box
+													className={classes.productColorVariantBadge}
+													bgcolor={color.hex}
+												/>
+											</Tooltip>
+										))}
+								</div>
+							</Grow>
+						)} */}
+					</div>
+				)}
 			</div>
 
 			<div className={classes.productCaptionRow}>
@@ -85,7 +89,7 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 					</Typography>
 				</NextLink>
 				<Typography variant="h6" component="h4" className={classes.productPrice}>
-					{product.price}
+					{product.price.value}
 				</Typography>
 			</div>
 		</div>
@@ -99,26 +103,6 @@ const useStyles = makeStyles(theme => ({
 		overflow: 'hidden',
 		display: 'flex',
 		flexDirection: 'column',
-		// '&:hover img': {
-		// 	transform: 'scale(1.05)',
-		// },
-		// '&:after': {
-		// 	content: '""',
-		// 	position: 'absolute',
-		// 	width: '100%',
-		// 	height: '100%',
-		// 	top: 0,
-		// 	left: 0,
-		// 	backgroundColor: theme.palette.primary.main,
-		// 	opacity: 0,
-		// 	transition: `opacity ${theme.transitions.easing.easeIn} 400ms`,
-		// 	transform: 'scale(1.1)',
-		// },
-		// '&:hover': {
-		// 	'&:after': {
-		// 		opacity: 0.25,
-		// 	},
-		// },
 	},
 	productImageRow: {
 		position: 'relative',
@@ -128,11 +112,23 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 		height: '100%',
 	},
-	image: {
+	imageContainer: {
+		display: 'block',
 		width: '100%',
 		height: '100%',
+		'& > div': {
+			height: '100%',
+		},
+	},
+	// image: {
+	// 	width: '100%',
+	// 	height: '100%',
+	// 	objectFit: 'cover',
+	// 	transition: `all ease-out 800ms !important`,
+	// },
+	imagePlaceholder: {
+		height: '100%',
 		objectFit: 'cover',
-		transition: `all ease-out 800ms !important`,
 	},
 	productVariantsContainer: {
 		position: 'absolute',

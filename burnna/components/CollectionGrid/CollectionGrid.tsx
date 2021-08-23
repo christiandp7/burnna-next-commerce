@@ -8,7 +8,7 @@ interface Props {
 }
 
 const CollectionGrid: FC<Props> = ({ products }) => {
-	console.log(products)
+	// console.log(products)
 	return (
 		<Grid container>
 			{products.map(product => (
