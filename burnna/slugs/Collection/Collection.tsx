@@ -6,6 +6,8 @@ import { useSearchMeta } from '@lib/search'
 import getSlug from '@lib/get-slug'
 import { Layout } from '@components/common'
 import { MainLayout } from '@burnna/layouts'
+import { makeStyles, createStyles, Theme } from '@material-ui/core'
+import { LogoText } from '@burnna/svg'
 
 const Collection = ({ categories, brands }: SearchPropsType) => {
 	// console.log(categories)
@@ -32,12 +34,41 @@ const Collection = ({ categories, brands }: SearchPropsType) => {
 	})
 	console.log(data)
 
+	const classes = useStyles()
+
 	return (
 		<MainLayout>
-			<h1>collections!!!</h1>
+			<div className={classes.collectionWrapper}>
+				<div className={classes.logoContainer}>
+					<LogoText className={classes.logo} />
+				</div>
+				{/* <CollectionGrid products={collectionItems} /> */}
+			</div>
 		</MainLayout>
 	)
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		collectionWrapper: {
+			position: 'relative',
+		},
+		logoContainer: {
+			position: 'absolute',
+			width: '100%',
+			top: 0,
+			textAlign: 'center',
+			paddingTop: theme.spacing(3),
+			zIndex: 1,
+			[theme.breakpoints.down('md')]: {
+				display: 'none',
+			},
+		},
+		logo: {
+			width: '200px',
+		},
+	}),
+)
 
 export default Collection
 
