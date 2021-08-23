@@ -8,6 +8,7 @@ import { Layout } from '@components/common'
 import { MainLayout } from '@burnna/layouts'
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import { LogoText } from '@burnna/svg'
+import { CollectionGrid } from '@burnna/components'
 
 const Collection = ({ categories, brands }: SearchPropsType) => {
 	// console.log(categories)
@@ -32,7 +33,7 @@ const Collection = ({ categories, brands }: SearchPropsType) => {
 		sort: typeof sort === 'string' ? sort : '',
 		locale,
 	})
-	console.log(data)
+	// console.log(data)
 
 	const classes = useStyles()
 
@@ -42,7 +43,7 @@ const Collection = ({ categories, brands }: SearchPropsType) => {
 				<div className={classes.logoContainer}>
 					<LogoText className={classes.logo} />
 				</div>
-				{/* <CollectionGrid products={collectionItems} /> */}
+				<CollectionGrid products={data?.products || []} />
 			</div>
 		</MainLayout>
 	)
