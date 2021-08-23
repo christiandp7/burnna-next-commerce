@@ -63,12 +63,12 @@ const Header: FC<Props> = ({ openSidebar, infoLayout = false, ...props }) => {
 								<Hidden mdDown>
 									<ul className={`${classes.linklist} ${classes.linklistLeft}`}>
 										<li>
-											<NextLink href="/collection?women" passHref>
+											<NextLink href="/collection/women" passHref>
 												<Link className={classes.link}>Women</Link>
 											</NextLink>
 										</li>
 										<li>
-											<NextLink href="/collection?men" passHref>
+											<NextLink href="/collection/men" passHref>
 												<Link className={classes.link}>Men</Link>
 											</NextLink>
 										</li>
