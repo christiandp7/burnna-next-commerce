@@ -1,9 +1,11 @@
 import React, { FC } from 'react'
 // import { Link } from 'react-router-dom'
+import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import Link from '@material-ui/core/Link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import { LocaleSwitcher } from '@burnna/components'
 
 const HomeHeader: FC = () => {
 	const classes = useStyles()
@@ -11,7 +13,7 @@ const HomeHeader: FC = () => {
 	return (
 		<ul className={classes.navbar}>
 			<li>
-				<NextLink href="/collection" passHref>
+				<NextLink href="/collection/all" passHref>
 					<Link>
 						<Typography variant="h5" color="primary">
 							Shop All
@@ -29,13 +31,7 @@ const HomeHeader: FC = () => {
 				</NextLink>
 			</li>
 			<li>
-				<NextLink href="/" passHref>
-					<Link>
-						<Typography variant="h5" color="primary">
-							Español
-						</Typography>
-					</Link>
-				</NextLink>
+				<LocaleSwitcher />
 			</li>
 		</ul>
 	)
