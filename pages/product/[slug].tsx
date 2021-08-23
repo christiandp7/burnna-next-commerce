@@ -6,7 +6,7 @@ import type {
 import { useRouter } from 'next/router'
 import commerce from '@lib/api/commerce'
 import { Layout } from '@components/common'
-import { ProductView } from '@components/product'
+import { ProductView } from '@burnna/views'
 
 export async function getStaticProps({
 	params,
@@ -76,8 +76,7 @@ export default function Slug({
 	return router.isFallback ? (
 		<h1>Loading...</h1>
 	) : (
-		<h1>{product.name}</h1>
-		// <ProductView product={product} relatedProducts={relatedProducts} />
+		<ProductView product={product} relatedProducts={relatedProducts} />
 	)
 }
 
