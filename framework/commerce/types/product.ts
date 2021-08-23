@@ -4,6 +4,7 @@ export type ProductImage = {
 	// Custom props added by christiandp7
 	width?: number | string
 	height?: number | string
+	altText?: string
 }
 
 export type ProductPrice = {
