@@ -19,11 +19,6 @@ module.exports = withCommerceConfig({
 	},
 	rewrites() {
 		return [
-			// custom
-			{
-				source: '/collection',
-				destination: '/collection/all',
-			},
 			//  Next.js Commerce Rewrites
 			(isBC || isShopify || isSwell || isVendure) && {
 				source: '/checkout',
