@@ -27,9 +27,8 @@ const ProductImageMobile: FC<Props> = ({ images }) => {
 			}}
 			className={classes.swiper}>
 			{images.map(img => (
-				<SwiperSlide>
+				<SwiperSlide key={img.url}>
 					<Image
-						key={img.url}
 						src={img.url}
 						alt={img.altText || 'product image'}
 						width={img.width}
