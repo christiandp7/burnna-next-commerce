@@ -10,9 +10,7 @@ const Payment: FC = () => {
 	return (
 		<FAQLayout top="50px" mobTop="30px" alignItemsCenter>
 			<Container>
-				<FAQHeading component="h2" variant="h4">
-					Payment
-				</FAQHeading>
+				<FAQHeading>Payment</FAQHeading>
 				<Typography paragraph>
 					<u>
 						We accept MasterCard, VISA, VISA Electron, American Express, Discover,

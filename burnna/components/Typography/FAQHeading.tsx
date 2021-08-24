@@ -3,7 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 
 interface Props {
-	children?: any
+	children?: React.ReactNode | string
 }
 
 const FAQHeading: FC<Props> = ({ children, ...props }) => {
