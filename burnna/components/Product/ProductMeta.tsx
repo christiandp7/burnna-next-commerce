@@ -13,9 +13,11 @@ import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
 // import LinkButton from '../Button/LinkButton'
 // import DrawerContext from '../../context/DrawerContext'
+import usePrice from '@framework/product/use-price'
 import Sticky from 'react-sticky-el'
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import type { Product } from '@commerce/types/product'
+import AddToCart from './AddToCart'
 
 interface Props {
 	product: Product
@@ -25,6 +27,12 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const classes = useStyles()
 	const theme = useTheme()
 	const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+
+	// const { price } = usePrice({
+	// 	amount: product.price.value,
+	// 	baseAmount: product.price.retailPrice,
+	// 	currencyCode: product.price.currencyCode!,
+	// })
 
 	// const { setCartOpen, setSizeGuideOpen } = useContext(DrawerContext)
 
@@ -77,16 +85,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 								</div>
 							</div>
 							<div className={classes.addToCartContainer}>
-								{/* <AddToCartButton onClick={() => setCartOpen(true)}>
-									<Grid container justify="space-between">
-										<Grid item>
-											<Typography variant="h5">Add</Typography>
-										</Grid>
-										<Grid item>
-											<Typography variant="h5">$150</Typography>
-										</Grid>
-									</Grid>
-								</AddToCartButton> */}
+								<AddToCart product={product} />
 							</div>
 						</div>
 						<div className={classes.accordionContainer}>
