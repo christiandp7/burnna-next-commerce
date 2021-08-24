@@ -6,11 +6,11 @@ export type NavItem = {
 export const sidebarNavigation: NavItem[] = [
 	{
 		label: 'Men',
-		href: '/collection',
+		href: '/collection/men',
 	},
 	{
 		label: 'Women',
-		href: '/collection',
+		href: '/collection/women',
 	},
 	{
 		label: 'Explore',
@@ -18,7 +18,7 @@ export const sidebarNavigation: NavItem[] = [
 	},
 	{
 		label: 'About Us',
-		href: 'about',
+		href: 'about-us',
 	},
 	{
 		label: 'Contact',
@@ -26,6 +26,31 @@ export const sidebarNavigation: NavItem[] = [
 	},
 	{
 		label: 'FAQ',
-		href: '/return-policy',
+		href: '/faq/return-policy',
+	},
+]
+
+export const faqNavigationTop: NavItem[] = [
+	{
+		label: 'Payment',
+		href: '/faq/payment',
+	},
+	{
+		label: 'Product Care',
+		href: '/faq/product-care',
+	},
+	{
+		label: 'Size Guide',
+		href: '/faq/size-guide',
+	},
+]
+export const faqNavigationBottom: NavItem[] = [
+	{
+		label: 'Return Policy',
+		href: '/faq/return-policy',
+	},
+	{
+		label: 'Shipping Policy',
+		href: '/faq/shipping-policy',
 	},
 ]

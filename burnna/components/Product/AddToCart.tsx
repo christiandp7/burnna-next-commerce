@@ -57,7 +57,7 @@ const AddToCart: FC<Props> = ({ product }) => {
 			{variant?.availableForSale === false ? (
 				'Not Available'
 			) : (
-				<Grid container justify="space-between">
+				<Grid container justifyContent="space-between">
 					<Grid item>
 						<Typography variant="h5">Add</Typography>
 					</Grid>

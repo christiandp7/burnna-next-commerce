@@ -4,6 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import Cart from '../components/Cart/Cart'
 // import { Scrollbars } from 'react-custom-scrollbars-2'
 import { Header, Footer } from '@burnna/components'
+import { FAQSidebar } from '@burnna/components/Drawer'
 
 // const drawerWidth = 190
 
@@ -15,29 +16,28 @@ interface Props {
 }
 
 const InfoLayout: FC<Props> = ({ children, ...props }) => {
-	// const [sidebar, setSidebar] = useState(false)
-	// const [cart, setCart] = useState(false)
-
 	const classes = useStyles(props)
 
 	return (
 		<div className={classes.root}>
-			{/* <FAQSidebar open={sidebar} setOpen={setSidebar} /> */}
+			<FAQSidebar />
 			{/* <Cart open={cart} setOpen={setCart} /> */}
 			{/* <Scrollbars
 				style={{ height: '100vh' }}
-				className={classes.scrollbars}
+				className={classes.contentWrapper}
 				autoHide
 				autoHideTimeout={2000}
 				autoHideDuration={300}> */}
-			<Header
-				faqLayout
-				// openSidebar={setSidebar}
-				// openCart={setCart}
-				// menu={false}
-			/>
-			<main className={classes.main}>{children}</main>
-			<Footer />
+			<div className={classes.contentWrapper}>
+				<Header
+					faqLayout
+					// openSidebar={setSidebar}
+					// openCart={setCart}
+					// menu={false}
+				/>
+				<main className={classes.main}>{children}</main>
+				<Footer />
+			</div>
 			{/* </Scrollbars> */}
 		</div>
 	)
@@ -59,8 +59,9 @@ const useStyles = makeStyles((theme: Theme) =>
 				paddingBottom: props.bottom || '12px',
 			},
 		}),
-		scrollbars: {
-			[theme.breakpoints.up('md')]: {
+		contentWrapper: {
+			width: '100%', // temporal style
+			[theme.breakpoints.up('lg')]: {
 				marginLeft: '190px',
 			},
 			// flexGrow: 1,

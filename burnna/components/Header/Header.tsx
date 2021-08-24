@@ -39,7 +39,7 @@ const Header: FC<Props> = ({ faqLayout = false, ...props }) => {
 						<Grid container spacing={0}>
 							<Grid item container alignItems="center" xs>
 								{faqLayout ? (
-									<Hidden mdUp>
+									<Hidden lgUp>
 										<IconButton
 											edge="start"
 											className={classes.menuButton}
@@ -142,7 +142,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				height: '65px',
 			},
 			'&.infoLayoutHeader': {
-				[theme.breakpoints.up('md')]: {
+				[theme.breakpoints.up('lg')]: {
 					paddingLeft: '190px',
 				},
 			},
