@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app'
 import { Head } from '@components/common'
 // import { ManagedUIContext } from '@components/ui/context'
 // custom
+import { DrawerContextProvider } from '@burnna/context/DrawerContext'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { themeSettigs } from '@burnna/theme'
@@ -27,10 +28,12 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 			<Head />
 			<ThemeProvider theme={theme}>
 				{/* <ManagedUIContext> */}
-				<CssBaseline />
-				<Layout pageProps={pageProps}>
-					<Component {...pageProps} />
-				</Layout>
+				<DrawerContextProvider>
+					<CssBaseline />
+					<Layout pageProps={pageProps}>
+						<Component {...pageProps} />
+					</Layout>
+				</DrawerContextProvider>
 				{/* </ManagedUIContext> */}
 			</ThemeProvider>
 		</>
