@@ -1,17 +1,17 @@
 import React, { FC, createContext, useState } from 'react'
 
 export interface State {
-	displaySidebar: boolean
-	displayDropdown: boolean
-	displayModal: boolean
-	sidebarView: string
-	modalView: string
-	userAvatar: string
+	cartOpen: boolean
+	sizeGuideOpen: boolean
+	sidebarOpen: boolean
+	faqSidebarOpen: boolean
 }
 
 const initialState = {
 	cartOpen: false,
 	sizeGuideOpen: false,
+	sidebarOpen: false,
+	faqSidebarOpen: false,
 }
 
 const DrawerContext = createContext<State | any>(initialState)
@@ -19,6 +19,8 @@ const DrawerContext = createContext<State | any>(initialState)
 export const DrawerContextProvider: FC = ({ children }) => {
 	const [cartOpen, setCartOpen] = useState(false)
 	const [sizeGuideOpen, setSizeGuideOpen] = useState(false)
+	const [sidebarOpen, setSidebarOpen] = useState(false)
+	const [faqSidebarOpen, setFaqSidebarOpen] = useState(false)
 	return (
 		<DrawerContext.Provider
 			value={{
@@ -26,6 +28,10 @@ export const DrawerContextProvider: FC = ({ children }) => {
 				setCartOpen,
 				sizeGuideOpen,
 				setSizeGuideOpen,
+				sidebarOpen,
+				setSidebarOpen,
+				faqSidebarOpen,
+				setFaqSidebarOpen,
 			}}>
 			{children}
 		</DrawerContext.Provider>

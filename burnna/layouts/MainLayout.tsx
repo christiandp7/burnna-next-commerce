@@ -1,26 +1,23 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import Sidebar from '../components/Sidebar/Sidebar'
 // import Header from '../components/Header/Header'
 // import Footer from '../components/Footer/Footer'
 // import Cart from '../components/Cart/Cart'
 import { Footer, Header } from '@burnna/components'
+import { Sidebar } from '@burnna/components/Drawer'
 
 interface Props {
 	children: React.ReactNode
 }
 
 const MainLayout: FC<Props> = ({ children, ...props }) => {
-	// const [sidebar, setSidebar] = useState(false)
-	// const [cart, setCart] = useState(false)
-
 	const classes = useStyles(props)
 
 	return (
 		<>
-			{/* <Sidebar open={sidebar} setOpen={setSidebar} />
-			<Cart open={cart} setOpen={setCart} /> */}
-			{/* <Header openSidebar={setSidebar} /> */}
+			<Sidebar />
+			{/* <Cart /> */}
 			<Header />
 			<main className={classes.main}>{children}</main>
 			<Footer />

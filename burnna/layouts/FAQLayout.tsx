@@ -31,7 +31,7 @@ const InfoLayout: FC<Props> = ({ children, ...props }) => {
 				autoHideTimeout={2000}
 				autoHideDuration={300}> */}
 			<Header
-				infoLayout
+				faqLayout
 				// openSidebar={setSidebar}
 				// openCart={setCart}
 				// menu={false}

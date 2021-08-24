@@ -18,34 +18,34 @@ import Grid from '@material-ui/core/Grid'
 // import LogoText from '../../assets/svg/LogoText'
 // import Burguer from '../../assets/svg/Burguer'
 import { Burguer, LogoText } from '@burnna/svg'
+import { useDrawer } from '@burnna/context/DrawerContext'
 
 interface Props {
-	infoLayout?: boolean
-	openSidebar?: () => void
+	faqLayout?: boolean
 }
 
-const Header: FC<Props> = ({ openSidebar, infoLayout = false, ...props }) => {
+const Header: FC<Props> = ({ faqLayout = false, ...props }) => {
 	const classes = useStyles()
+	const { setSidebarOpen, setFaqSidebarOpen } = useDrawer()
 	// const { setCartOpen } = useContext(DrawerContext)
 
 	return (
 		<div className={classes.appBarWrapper}>
 			<AppBar
-				className={cx({ infoLayoutHeader: infoLayout }, classes.appBar)}
+				className={cx({ infoLayoutHeader: faqLayout }, classes.appBar)}
 				position="fixed">
 				<Container>
 					<Toolbar className={classes.toolbar} disableGutters={true}>
 						<Grid container spacing={0}>
 							<Grid item container alignItems="center" xs>
-								{infoLayout ? (
+								{faqLayout ? (
 									<Hidden mdUp>
 										<IconButton
 											edge="start"
 											className={classes.menuButton}
 											color="inherit"
 											aria-label="menu"
-											// onClick={() => openSidebar(true)}
-										>
+											onClick={() => setFaqSidebarOpen(true)}>
 											<Burguer />
 										</IconButton>
 									</Hidden>
@@ -55,8 +55,7 @@ const Header: FC<Props> = ({ openSidebar, infoLayout = false, ...props }) => {
 										className={classes.menuButton}
 										color="inherit"
 										aria-label="menu"
-										// onClick={() => openSidebar(true)}
-									>
+										onClick={() => setSidebarOpen(true)}>
 										<Burguer />
 									</IconButton>
 								)}
