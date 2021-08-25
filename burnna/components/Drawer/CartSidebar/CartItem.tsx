@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from 'react'
 import NextLink from 'next/link'
 import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
+import Link from '@material-ui/core/Link'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
@@ -70,23 +71,29 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 		<Grid container className={classes.root}>
 			<Grid item className={classes.imageGridWrapper}>
 				<NextLink href={`/product/${item.path}`}>
-					<Image
-						onClick={() => setCartOpen(false)}
-						// className={s.productImage}
-						width={150}
-						height={175}
-						src={item.variant.image!.url}
-						alt={item.variant.image!.altText}
-						unoptimized
-						objectFit="cover"
-					/>
+					<a className={classes.imageContainer}>
+						<Image
+							onClick={() => setCartOpen(false)}
+							// className={s.productImage}
+							width={150}
+							height={175}
+							src={item.variant.image!.url}
+							alt={item.variant.image!.altText}
+							unoptimized
+							objectFit="cover"
+						/>
+					</a>
 				</NextLink>
 			</Grid>
 			<Grid container direction="column" className={classes.detailsWrapper} item xs>
 				<Grid item>
-					<Typography component="h4" variant="h5" color="inherit">
-						{item.name}
-					</Typography>
+					<NextLink href={`/product/${item.path}`} passHref>
+						<Link color="secondary" onClick={() => setCartOpen(false)}>
+							<Typography component="h4" variant="h5" color="inherit">
+								{item.name}
+							</Typography>
+						</Link>
+					</NextLink>
 				</Grid>
 
 				{options && options.length > 0 && (
