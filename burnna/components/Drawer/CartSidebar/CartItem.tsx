@@ -12,6 +12,13 @@ import usePrice from '@framework/product/use-price'
 import useUpdateItem from '@framework/cart/use-update-item'
 import useRemoveItem from '@framework/cart/use-remove-item'
 import { CartQuantitySelector } from '@burnna/components'
+
+type ItemOption = {
+	name: string
+	nameId: number
+	value: string
+	valueId: number
+}
 interface Props {
 	item: LineItem
 	currencyCode: string
@@ -24,6 +31,9 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 	const updateItem = useUpdateItem({ item })
 	const classes = useStyles()
 	const { setCartOpen } = useDrawer()
+	const options = (item as any).options
+
+	console.log(options)
 
 	const { price } = usePrice({
 		amount: item.variant.price * item.quantity,
@@ -78,14 +88,20 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 						{item.name}
 					</Typography>
 				</Grid>
-				<Grid item xs>
-					<Typography variant="body1" color="inherit">
-						Color: White
-					</Typography>
-					<Typography variant="body1" color="inherit">
-						Size: L
-					</Typography>
-				</Grid>
+
+				{options && options.length > 0 && (
+					<Grid item xs>
+						{options.map((option: ItemOption) => (
+							<Typography
+								key={`${item.id}-${option.name}`}
+								variant="body1"
+								color="inherit">
+								{option.name}: {option.value}
+							</Typography>
+						))}
+					</Grid>
+				)}
+
 				<Grid item>
 					<CartQuantitySelector
 						value={quantity}
