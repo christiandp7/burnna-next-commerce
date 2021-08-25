@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			border: 0,
 			borderRadius: 0,
 			color: 'white',
-			// height: '60px',
+			minHeight: '60px',
 			width: '100%',
 			padding: `${theme.spacing(2)}px ${theme.spacing(4)}px`,
 			'&:hover': {
