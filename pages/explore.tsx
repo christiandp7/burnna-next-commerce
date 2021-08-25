@@ -15,7 +15,7 @@ const Explore: FC = () => {
 			<div className={classes.galleryWrapper}>
 				<Grid container>
 					{exploreItems.map((item: ExploreItem) => (
-						<Grid item xs={item.xsCol || 6} md={item.mdCol || 4}>
+						<Grid key={item.img.src} item xs={item.xsCol || 6} md={item.mdCol || 4}>
 							<div className={classes.imageContainer}>
 								<Image
 									src={item.img.src}
@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme: Theme) =>
 		imageContainer: {
 			height: '100%',
 			'& > div': {
-				height: '100%'
-			}
+				height: '100%',
+			},
 		},
 		titleWrapper: {
 			position: 'absolute',

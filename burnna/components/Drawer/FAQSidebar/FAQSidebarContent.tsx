@@ -5,6 +5,7 @@ import Typography from '@material-ui/core/Typography'
 import { LogoSquare } from '@burnna/svg'
 // data
 import { faqNavigationTop, faqNavigationBottom } from '@burnna/data'
+import type { NavItem } from '@burnna/data/navigation'
 
 const InfoSidebar: FC = () => {
 	const classes = useStyles()
@@ -17,16 +18,22 @@ const InfoSidebar: FC = () => {
 				</a>
 			</NextLink>
 			<div className={classes.sidebarNav}>
-				{faqNavigationTop.map(navItem => (
-					<Typography variant="h6" className={classes.sidebarLinkItem}>
+				{faqNavigationTop.map((navItem: NavItem) => (
+					<Typography
+						key={navItem.href}
+						variant="h6"
+						className={classes.sidebarLinkItem}>
 						<NextLink href={navItem.href}>
 							<a className={classes.sidebarLink}>{navItem.label}</a>
 						</NextLink>
 					</Typography>
 				))}
 				<div className={classes.divider}></div>
-				{faqNavigationBottom.map(navItem => (
-					<Typography variant="h6" className={classes.sidebarLinkItem}>
+				{faqNavigationBottom.map((navItem: NavItem) => (
+					<Typography
+						key={navItem.href}
+						variant="h6"
+						className={classes.sidebarLinkItem}>
 						<NextLink href={navItem.href}>
 							<a className={classes.sidebarLink}>{navItem.label}</a>
 						</NextLink>

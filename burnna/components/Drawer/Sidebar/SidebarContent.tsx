@@ -19,7 +19,7 @@ const Sidebar: FC = () => {
 			</NextLink>
 			<div className={classes.sidebarNav}>
 				{sidebarNavigation.map((navItem: NavItem) => (
-					<Typography variant="h6">
+					<Typography key={navItem.href} variant="h6">
 						<NextLink href={navItem.href}>
 							<a className={classes.sidebarLink}>{navItem.label}</a>
 						</NextLink>
