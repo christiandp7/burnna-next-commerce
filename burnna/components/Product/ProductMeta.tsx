@@ -1,4 +1,4 @@
-import React, { FC, useContext } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography'
 import useTheme from '@material-ui/core/styles/useTheme'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
@@ -18,6 +18,12 @@ import Sticky from 'react-sticky-el'
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import type { Product } from '@commerce/types/product'
 import AddToCart from './AddToCart'
+import { ProductOptions } from '@burnna/components/Product'
+import {
+	getProductVariant,
+	selectDefaultOptionFromProduct,
+	SelectedOptions,
+} from '@components/product/helpers'
 
 interface Props {
 	product: Product
@@ -28,13 +34,11 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const theme = useTheme()
 	const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 
-	// const { price } = usePrice({
-	// 	amount: product.price.value,
-	// 	baseAmount: product.price.retailPrice,
-	// 	currencyCode: product.price.currencyCode!,
-	// })
+	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
-	// const { setCartOpen, setSizeGuideOpen } = useContext(DrawerContext)
+	useEffect(() => {
+		selectDefaultOptionFromProduct(product, setSelectedOptions)
+	}, [product])
 
 	return (
 		<div className={`${classes.slugContainer} slugContainer`}>
@@ -56,34 +60,14 @@ const ProductMeta: FC<Props> = ({ product }) => {
 						One Piece
 					</Typography> */}
 							</div>
-							<div className={classes.variantsContainer}>
-								<div className={classes.variant}>
-									<Typography component="h5" variant="h5">
-										Color
-									</Typography>
-									<div className={`${classes.selectorWrapper} selectorColorWrapper`}>
-										{/* <ColorSelectorButtonGroup /> */}
-									</div>
-								</div>
-								<div className={classes.variant}>
-									<Box
-										display="flex"
-										justifyContent="space-between"
-										alignItems="center">
-										<Typography component="h5" variant="h5">
-											Size
-										</Typography>
-										{/* <LinkButton
-											className={classes.sizeGuideButton}
-											onClick={() => setSizeGuideOpen(true)}>
-											Size guide
-										</LinkButton> */}
-									</Box>
-									<div className={classes.selectorWrapper}>
-										{/* <SizeSelectorButtonGroup /> */}
-									</div>
-								</div>
-							</div>
+							{/* product Options here */}
+							{product.options && product.options.length > 0 && (
+								<ProductOptions
+									options={product.options}
+									selectedOptions={selectedOptions}
+									setSelectedOptions={setSelectedOptions}
+								/>
+							)}
 							<div className={classes.addToCartContainer}>
 								<AddToCart product={product} />
 							</div>
@@ -140,29 +124,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		productTitle: {},
 		productSubtitle: {},
-		variantsContainer: {
-			'& h5': {
-				cursor: 'default',
-			},
-		},
-		variant: {
-			// padding: '15px 0',
-			paddingBottom: theme.spacing(1),
-		},
-		sizeGuideButton: {
-			fontSize: theme.typography.h5.fontSize,
-			paddingTop: 0,
-			paddingBottom: 0,
-			'& span': {
-				lineHeight: theme.typography.h5.lineHeight,
-			},
-		},
-		selectorWrapper: {
-			paddingLeft: theme.spacing(3),
-			[theme.breakpoints.down('sm')]: {
-				paddingLeft: theme.spacing(1),
-			},
-		},
+
 		addToCartContainer: {
 			padding: '15px 0',
 		},
