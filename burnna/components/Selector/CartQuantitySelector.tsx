@@ -20,9 +20,9 @@ const QuantitySelector: FC<Props> = ({ value, increase, decrease, max = 6 }) => 
 					disableRipple
 					size="small"
 					color="secondary"
-					onClick={increase}
-					disabled={value < 1 || value >= max}>
-					<FiPlus />
+					onClick={decrease}
+					disabled={value <= 1}>
+					<FiMinus />
 				</IconButton>
 			</Grid>
 			<Grid item>
@@ -36,9 +36,9 @@ const QuantitySelector: FC<Props> = ({ value, increase, decrease, max = 6 }) => 
 					disableRipple
 					size="small"
 					color="secondary"
-					onClick={decrease}
-					disabled={value <= 1}>
-					<FiMinus />
+					onClick={increase}
+					disabled={value < 1 || value >= max}>
+					<FiPlus />
 				</IconButton>
 			</Grid>
 		</Grid>
