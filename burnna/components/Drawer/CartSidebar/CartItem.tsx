@@ -75,8 +75,8 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 						<Image
 							onClick={() => setCartOpen(false)}
 							// className={s.productImage}
-							width={150}
-							height={175}
+							width={85}
+							height={110}
 							src={item.variant.image!.url}
 							alt={item.variant.image!.altText}
 							unoptimized

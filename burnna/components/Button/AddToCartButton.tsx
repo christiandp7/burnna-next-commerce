@@ -14,7 +14,7 @@ const AddToCartButton: FC<Props> = ({ children, loading = false, ...props }) => 
 	const classes = useStyles()
 	return (
 		<Button disabled={loading} className={classes.root} {...props}>
-			{loading ? <CircularProgress color="secondary" /> : children}
+			{loading ? <CircularProgress size={28} color="secondary" /> : children}
 		</Button>
 	)
 }

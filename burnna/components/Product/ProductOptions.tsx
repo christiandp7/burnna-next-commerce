@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import type { ProductOption } from '@commerce/types/product'
 import { SelectedOptions } from '@components/product/helpers'
-import { ProductColorSelector } from '@burnna/components/Selector'
+import { ProductColorSelector, ProductSizeSelector } from '@burnna/components'
 
 interface Props {
 	options: ProductOption[]
@@ -17,23 +17,33 @@ const ProductOptions: FC<Props> = ({
 	selectedOptions,
 	setSelectedOptions,
 }) => {
-	// console.log(options)
-
 	const classes = useStyles()
 	return (
 		<div className={classes.root}>
-			{options.reverse().map(opt => (
-				<div className={classes.option} key={opt.displayName}>
-					<Typography component="h5" variant="h5">
-						{opt.displayName}
-					</Typography>
-					<div className={classes.selectorWrapper}>
-						{opt.displayName === 'color' && (
-							<ProductColorSelector values={opt.values} />
-						)}
+			{options &&
+				options.map(opt => (
+					<div className={classes.option} key={opt.displayName}>
+						<Typography component="h5" variant="h5">
+							{opt.displayName}
+						</Typography>
+						<div className={classes.selectorWrapper}>
+							{opt.displayName.toLowerCase() === 'color' && (
+								<ProductColorSelector
+									option={opt}
+									selectedOptions={selectedOptions}
+									setSelectedOptions={setSelectedOptions}
+								/>
+							)}
+							{opt.displayName.toLowerCase() === 'size' && (
+								<ProductSizeSelector
+									option={opt}
+									selectedOptions={selectedOptions}
+									setSelectedOptions={setSelectedOptions}
+								/>
+							)}
+						</div>
 					</div>
-				</div>
-			))}
+				))}
 			<div className={classes.option}>
 				<Box display="flex" justifyContent="space-between" alignItems="center">
 					<Typography component="h5" variant="h5">

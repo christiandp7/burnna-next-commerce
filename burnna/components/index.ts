@@ -11,5 +11,9 @@ export { default as ProductImageDesktop } from './Product/ProductImageDesktop'
 export { default as ProductImageMobile } from './Product/ProductImageMobile'
 export { default as ProductMeta } from './Product/ProductMeta'
 export { default as AddToCart } from './Product/AddToCart'
-export { default as AddToCartButton } from './Button'
-export { default as CartQuantitySelector } from './Selector'
+export { AddToCartButton, ColorSelectorButton } from './Button'
+export {
+	ProductColorSelector,
+	ProductSizeSelector,
+	CartQuantitySelector,
+} from './Selector'

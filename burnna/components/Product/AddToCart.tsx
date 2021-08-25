@@ -1,54 +1,18 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import { useAddItem } from '@framework/cart'
-import { ProductOptions } from '@components/product'
-import type { Product } from '@commerce/types/product'
+import type { ProductPrice, ProductVariant } from '@commerce/types/product'
 import { AddToCartButton } from '@burnna/components'
-import usePrice from '@framework/product/use-price'
-import {
-	getProductVariant,
-	selectDefaultOptionFromProduct,
-	SelectedOptions,
-} from '@components/product/helpers'
-import { useDrawer } from '@burnna/context/DrawerContext'
 
 interface Props {
-	product: Product
-	// className?: string
+	addToCart: () => Promise<void>
+	variant: ProductVariant
+	loading: boolean
+	// price: ProductPrice
+	price: string
 }
 
-const AddToCart: FC<Props> = ({ product }) => {
-	const addItem = useAddItem()
-	const { setCartOpen } = useDrawer()
-	const [loading, setLoading] = useState(false)
-	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
-
-	const { price } = usePrice({
-		amount: product.price.value,
-		baseAmount: product.price.retailPrice,
-		currencyCode: product.price.currencyCode!,
-	})
-
-	useEffect(() => {
-		selectDefaultOptionFromProduct(product, setSelectedOptions)
-	}, [product])
-
-	const variant = getProductVariant(product, selectedOptions)
-	const addToCart = async () => {
-		setLoading(true)
-		try {
-			await addItem({
-				productId: String(product.id),
-				variantId: String(variant ? variant.id : product.variants[0].id),
-			})
-			setCartOpen(true)
-			setLoading(false)
-		} catch (err) {
-			setLoading(false)
-		}
-	}
-
+const AddToCart: FC<Props> = ({ addToCart, variant, loading, price }) => {
 	return (
 		<AddToCartButton
 			aria-label="Add to Cart"
