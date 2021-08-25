@@ -18,7 +18,7 @@ export const sidebarNavigation: NavItem[] = [
 	},
 	{
 		label: 'About Us',
-		href: 'about-us',
+		href: '/about',
 	},
 	{
 		label: 'Contact',
