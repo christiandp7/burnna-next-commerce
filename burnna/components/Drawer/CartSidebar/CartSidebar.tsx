@@ -31,7 +31,7 @@ const Cart: FC = () => {
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		drawerPaper: {
-			width: '580px',
+			width: '480px',
 			maxWidth: '100%',
 			backgroundColor: theme.palette.primary.main,
 		},

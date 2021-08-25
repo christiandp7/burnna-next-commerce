@@ -114,7 +114,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			height: '100%',
-			padding: `${theme.spacing(3)}px ${theme.spacing(5)}px`,
+			padding: `${theme.spacing(3)}px ${theme.spacing(4)}px`,
 			color: theme.palette.primary.contrastText,
 			textTransform: 'uppercase',
 			cursor: 'default',
