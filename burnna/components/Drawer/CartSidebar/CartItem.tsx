@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import NextLink from 'next/link'
 import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
@@ -7,22 +7,22 @@ import Typography from '@material-ui/core/Typography'
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import { FiTrash2 } from 'react-icons/fi'
 import type { LineItem } from '@commerce/types/cart'
-import usePrice from '@framework/product/use-price'
 import { useDrawer } from '@burnna/context/DrawerContext'
-// components
-// import QuantitySelector from '../Button/QuantitySelector'
-// assets
-// import productImg from '../../assets/images/product/girl-product-1.jpg'
-
+import usePrice from '@framework/product/use-price'
+import useUpdateItem from '@framework/cart/use-update-item'
+import useRemoveItem from '@framework/cart/use-remove-item'
+import { CartQuantitySelector } from '@burnna/components'
 interface Props {
 	item: LineItem
 	currencyCode: string
 }
 
 const CartItem: FC<Props> = ({ item, currencyCode }) => {
-	const [counter, setCounter] = useState(1)
+	const [removing, setRemoving] = useState(false)
+	const [quantity, setQuantity] = useState<number>(item.quantity)
+	const removeItem = useRemoveItem()
+	const updateItem = useUpdateItem({ item })
 	const classes = useStyles()
-
 	const { setCartOpen } = useDrawer()
 
 	const { price } = usePrice({
@@ -30,6 +30,31 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 		baseAmount: item.variant.listPrice * item.quantity,
 		currencyCode,
 	})
+
+	const increaseQuantity = async (n = 1) => {
+		const val = Number(quantity) + n
+		setQuantity(val)
+		await updateItem({ quantity: val })
+	}
+
+	const handleRemove = async () => {
+		setRemoving(true)
+		try {
+			await removeItem(item)
+		} catch (error) {
+			setRemoving(false)
+		}
+	}
+
+	useEffect(() => {
+		// Reset the quantity state if the item quantity changes
+		if (item.quantity !== Number(quantity)) {
+			setQuantity(item.quantity)
+		}
+		// TODO: currently not including quantity in deps is intended, but we should
+		// do this differently as it could break easily
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [item.quantity])
 
 	return (
 		<Grid container className={classes.root}>
@@ -62,7 +87,11 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 					</Typography>
 				</Grid>
 				<Grid item>
-					{/* <QuantitySelector counter={counter} setCounter={setCounter} /> */}
+					<CartQuantitySelector
+						value={quantity}
+						increase={() => increaseQuantity(1)}
+						decrease={() => increaseQuantity(-1)}
+					/>
 				</Grid>
 			</Grid>
 			<Grid item>
@@ -83,7 +112,8 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 							size="small"
 							edge="end"
 							aria-label="remove"
-							color="secondary">
+							color="secondary"
+							onClick={handleRemove}>
 							<FiTrash2 />
 						</IconButton>
 					</Grid>
