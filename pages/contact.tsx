@@ -121,7 +121,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		title: {
 			textTransform: 'uppercase',
-			fontWeight: '700',
+			fontWeight: 700,
 			fontFamily: theme.typography.h6.fontFamily,
 			textDecoration: 'underline',
 			textUnderlineOffset: '4px',
