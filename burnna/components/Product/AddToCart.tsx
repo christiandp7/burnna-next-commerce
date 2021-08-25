@@ -11,6 +11,7 @@ import {
 	selectDefaultOptionFromProduct,
 	SelectedOptions,
 } from '@components/product/helpers'
+import { useDrawer } from '@burnna/context/DrawerContext'
 
 interface Props {
 	product: Product
@@ -19,7 +20,7 @@ interface Props {
 
 const AddToCart: FC<Props> = ({ product }) => {
 	const addItem = useAddItem()
-	// const { openSidebar } = useUI()
+	const { setCartOpen } = useDrawer()
 	const [loading, setLoading] = useState(false)
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
@@ -41,7 +42,7 @@ const AddToCart: FC<Props> = ({ product }) => {
 				productId: String(product.id),
 				variantId: String(variant ? variant.id : product.variants[0].id),
 			})
-			// openSidebar()
+			setCartOpen(true)
 			setLoading(false)
 		} catch (err) {
 			setLoading(false)

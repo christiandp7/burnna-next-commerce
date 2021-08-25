@@ -1,10 +1,14 @@
 import React, { FC, useState } from 'react'
+import NextLink from 'next/link'
+import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import { FiTrash2 } from 'react-icons/fi'
 import type { LineItem } from '@commerce/types/cart'
+import usePrice from '@framework/product/use-price'
+import { useDrawer } from '@burnna/context/DrawerContext'
 // components
 // import QuantitySelector from '../Button/QuantitySelector'
 // assets
@@ -15,19 +19,38 @@ interface Props {
 	currencyCode: string
 }
 
-const CartItem: FC<Props> = () => {
+const CartItem: FC<Props> = ({ item, currencyCode }) => {
 	const [counter, setCounter] = useState(1)
 	const classes = useStyles()
+
+	const { setCartOpen } = useDrawer()
+
+	const { price } = usePrice({
+		amount: item.variant.price * item.quantity,
+		baseAmount: item.variant.listPrice * item.quantity,
+		currencyCode,
+	})
 
 	return (
 		<Grid container className={classes.root}>
 			<Grid item className={classes.imageGridWrapper}>
-				{/* <img src={productImg} className={classes.image} alt="product img cart" /> */}
+				<NextLink href={`/product/${item.path}`}>
+					<Image
+						onClick={() => setCartOpen(false)}
+						// className={s.productImage}
+						width={150}
+						height={175}
+						src={item.variant.image!.url}
+						alt={item.variant.image!.altText}
+						unoptimized
+						objectFit="cover"
+					/>
+				</NextLink>
 			</Grid>
 			<Grid container direction="column" className={classes.detailsWrapper} item xs>
 				<Grid item>
 					<Typography component="h4" variant="h5" color="inherit">
-						N One Piece
+						{item.name}
 					</Typography>
 				</Grid>
 				<Grid item xs>
@@ -51,7 +74,7 @@ const CartItem: FC<Props> = () => {
 					justify="space-between">
 					<Grid item>
 						<Typography variant="h5" color="inherit">
-							$150.00
+							{price}
 						</Typography>
 					</Grid>
 					<Grid item>
@@ -80,11 +103,11 @@ const useStyles = makeStyles((theme: Theme) =>
 			maxWidth: '18%',
 			flexBasis: '18%',
 		},
-		image: {
+		imageContainer: {
 			width: '100%',
 		},
 		detailsWrapper: {
-			padding: `0 ${theme.spacing(3)}px`,
+			padding: `0 ${theme.spacing(2)}px`,
 			paddingBottom: theme.spacing(1),
 			'& h4': {
 				fontWeight: 700,

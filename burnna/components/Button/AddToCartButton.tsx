@@ -13,7 +13,7 @@ interface Props {
 const AddToCartButton: FC<Props> = ({ children, loading = false, ...props }) => {
 	const classes = useStyles()
 	return (
-		<Button className={classes.root} {...props}>
+		<Button disabled={loading} className={classes.root} {...props}>
 			{loading ? <CircularProgress color="secondary" /> : children}
 		</Button>
 	)
