@@ -4,7 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import Cart from '../components/Cart/Cart'
 // import { Scrollbars } from 'react-custom-scrollbars-2'
 import { Header, Footer } from '@burnna/components'
-import { FAQSidebar } from '@burnna/components/Drawer'
+import { CartSidebar, FAQSidebar } from '@burnna/components/Drawer'
 
 // const drawerWidth = 190
 
@@ -21,7 +21,7 @@ const InfoLayout: FC<Props> = ({ children, ...props }) => {
 	return (
 		<div className={classes.root}>
 			<FAQSidebar />
-			{/* <Cart open={cart} setOpen={setCart} /> */}
+			<CartSidebar />
 			{/* <Scrollbars
 				style={{ height: '100vh' }}
 				className={classes.contentWrapper}

@@ -11,12 +11,6 @@ import Link from '@material-ui/core/Link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
-// import Sticky from 'react-sticky-el'
-// components
-// import DrawerContext from '../../context/DrawerContext'
-// assets
-// import LogoText from '../../assets/svg/LogoText'
-// import Burguer from '../../assets/svg/Burguer'
 import { Burguer, LogoText } from '@burnna/svg'
 import { useDrawer } from '@burnna/context/DrawerContext'
 
@@ -24,10 +18,9 @@ interface Props {
 	faqLayout?: boolean
 }
 
-const Header: FC<Props> = ({ faqLayout = false, ...props }) => {
+const Header: FC<Props> = ({ faqLayout = false }) => {
 	const classes = useStyles()
-	const { setSidebarOpen, setFaqSidebarOpen } = useDrawer()
-	// const { setCartOpen } = useContext(DrawerContext)
+	const { setSidebarOpen, setFaqSidebarOpen, setCartOpen } = useDrawer()
 
 	return (
 		<div className={classes.appBarWrapper}>
@@ -103,8 +96,7 @@ const Header: FC<Props> = ({ faqLayout = false, ...props }) => {
 												disableRipple={true}
 												// underline="none"
 												// href="#"
-												// onClick={() => setCartOpen(true)}
-											>
+												onClick={() => setCartOpen(true)}>
 												Cart
 											</Button>
 										</li>
@@ -116,8 +108,7 @@ const Header: FC<Props> = ({ faqLayout = false, ...props }) => {
 										className={classes.cartButton}
 										color="inherit"
 										aria-label="menu"
-										// onClick={() => setCartOpen(true)}
-									>
+										onClick={() => setCartOpen(true)}>
 										<HiOutlineShoppingBag size="28" />
 									</IconButton>
 								</Hidden>
