@@ -92,9 +92,9 @@ export default function themeSettigs(options: ThemeOptions) {
 				'@global': {
 					// '@font-face': [proximaNovaCondensed],
 					// '@font-face': [julesText],
-					// 'html, body': {
-					// 	fontSize: '14px',
-					// },
+					'html, body': {
+						fontSize: '14px',
+					},
 
 					body: {
 						backgroundColor: '#F5F2ED',
