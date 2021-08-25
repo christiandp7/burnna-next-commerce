@@ -5,3 +5,5 @@ export {
 	faqNavigationTop,
 	faqNavigationBottom,
 } from './navigation'
+export { exploreItems } from './exploreItems'
+export type { ExploreItem, ExploreItemImg } from './exploreItems'
