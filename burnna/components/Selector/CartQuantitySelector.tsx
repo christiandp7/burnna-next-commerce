@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid'
 import IconButton from '@material-ui/core/IconButton'
 import Typography from '@material-ui/core/Typography'
 import { FiPlus, FiMinus } from 'react-icons/fi'
+import { makeStyles, Theme, createStyles } from '@material-ui/core'
 
 export interface Props {
 	value: number
@@ -12,11 +13,13 @@ export interface Props {
 }
 
 const QuantitySelector: FC<Props> = ({ value, increase, decrease, max = 6 }) => {
+	const classes = useStyles()
 	return (
 		<Grid container alignItems="center" spacing={2}>
 			<Grid item>
 				<IconButton
-					aria-label="add"
+					className={classes.button}
+					aria-label="remove"
 					disableRipple
 					size="small"
 					color="secondary"
@@ -26,12 +29,13 @@ const QuantitySelector: FC<Props> = ({ value, increase, decrease, max = 6 }) => 
 				</IconButton>
 			</Grid>
 			<Grid item>
-				<Typography variant="h5" color="inherit">
+				<Typography className={classes.counter} variant="h5" color="inherit">
 					{value}
 				</Typography>
 			</Grid>
 			<Grid item>
 				<IconButton
+					className={classes.button}
 					aria-label="add"
 					disableRipple
 					size="small"
@@ -44,5 +48,18 @@ const QuantitySelector: FC<Props> = ({ value, increase, decrease, max = 6 }) => 
 		</Grid>
 	)
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		counter: {
+			userSelect: 'none',
+		},
+		button: {
+			'&:disabled': {
+				color: 'rgba(255,255,255, 0.3)',
+			},
+		},
+	}),
+)
 
 export default QuantitySelector

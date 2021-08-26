@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import cx from 'classnames'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -32,21 +33,28 @@ const CartContent: FC = () => {
 	return (
 		<Grid container wrap="nowrap" direction="column" className={classes.root}>
 			<Grid item className={classes.header}>
-				<AppBar elevation={0} position="static" color="transparent">
-					<Toolbar disableGutters variant="dense">
-						<IconButton
-							aria-label="close"
-							disableRipple
-							color="secondary"
-							edge="start"
-							onClick={() => setCartOpen(false)}>
-							<FiX />
-						</IconButton>
-					</Toolbar>
-				</AppBar>
-				<Typography component="h2" variant="h4" align="center">
-					Cart
-				</Typography>
+				<div className={classes.wrapper}>
+					<AppBar elevation={0} position="static" color="transparent">
+						<Toolbar disableGutters variant="dense" className={classes.toolbar}>
+							<IconButton
+								aria-label="close"
+								disableRipple
+								color="secondary"
+								edge="start"
+								className={classes.close}
+								onClick={() => setCartOpen(false)}>
+								<FiX />
+							</IconButton>
+							<Typography
+								className={classes.title}
+								component="h2"
+								variant="h6"
+								align="center">
+								Cart
+							</Typography>
+						</Toolbar>
+					</AppBar>
+				</div>
 			</Grid>
 			<Grid item xs className={classes.body}>
 				{isEmpty ? (
@@ -57,31 +65,53 @@ const CartContent: FC = () => {
 						autoHide
 						autoHideTimeout={2000}
 						autoHideDuration={300}>
-						{data!.lineItems.map((item: any) => (
-							<CartItem
-								key={item.id}
-								item={item}
-								currencyCode={data!.currency.code}
-							/>
-						))}
+						<div className={classes.wrapper}>
+							{data!.lineItems.map((item: any) => (
+								<CartItem
+									key={item.id}
+									item={item}
+									currencyCode={data!.currency.code}
+								/>
+							))}
+						</div>
 					</Scrollbars>
 				)}
 			</Grid>
-			<Grid item className={classes.footer}>
-				<div className={classes.total}>
-					<Typography variant="body1" color="inherit">
-						Subtotal
-					</Typography>
-					<Typography variant="body1" color="inherit">
-						{subTotal}
-					</Typography>
+			<Grid item className={cx(classes.footer, classes.wrapper)}>
+				<div className={classes.subtotal}>
+					<ul>
+						<li className={classes.subtotalRow}>
+							<Typography variant="body1" color="inherit">
+								Subtotal
+							</Typography>
+							<Typography variant="body1" color="inherit">
+								{subTotal}
+							</Typography>
+						</li>
+						<li className={classes.subtotalRow}>
+							<Typography variant="body1" color="inherit">
+								Taxes
+							</Typography>
+							<Typography variant="body1" color="inherit">
+								Calculated at checkout
+							</Typography>
+						</li>
+						<li className={classes.subtotalRow}>
+							<Typography variant="body1" color="inherit">
+								Shipping
+							</Typography>
+							<Typography variant="body1" color="inherit">
+								<b>FREE</b>
+							</Typography>
+						</li>
+					</ul>
 				</div>
 				<div className={classes.total}>
 					<Typography variant="h5" color="inherit">
-						Total
+						<b>Total</b>
 					</Typography>
 					<Typography variant="h5" color="inherit">
-						{total}
+						<b>{total}</b>
 					</Typography>
 				</div>
 				{isEmpty ? (
@@ -114,29 +144,70 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			height: '100%',
-			padding: `${theme.spacing(3)}px ${theme.spacing(4)}px`,
+			paddingTop: theme.spacing(2),
+			paddingBottom: theme.spacing(3),
 			color: theme.palette.primary.contrastText,
 			textTransform: 'uppercase',
 			cursor: 'default',
-			[theme.breakpoints.down('md')]: {
-				padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`,
+			[theme.breakpoints.down(1536)]: {
+				paddingTop: theme.spacing(1),
 			},
 		},
 		header: {
-			// paddingBottom: theme.spacing(3),
-			borderBottom: `solid 2px ${theme.palette.neutral.main}`,
+			paddingBottom: theme.spacing(1),
+			borderBottom: `solid 1px ${theme.palette.neutral.main}`,
+			[theme.breakpoints.down(1536)]: {
+				paddingBottom: 0,
+			},
+		},
+		toolbar: {
+			justifyContent: 'center',
+		},
+		close: {
+			position: 'absolute',
+			left: '-4px',
+		},
+		title: {
+			fontSize: theme.typography.h4.fontSize,
 		},
 		body: {
 			paddingTop: theme.spacing(3),
+			paddingBottom: theme.spacing(1),
+			[theme.breakpoints.down(1536)]: {
+				paddingTop: theme.spacing(2),
+			},
+		},
+		wrapper: {
+			paddingLeft: theme.spacing(4),
+			paddingRight: theme.spacing(4),
+			[theme.breakpoints.down(1536)]: {
+				paddingLeft: theme.spacing(3),
+				paddingRight: theme.spacing(3),
+			},
 		},
 		footer: {
-			paddingTop: theme.spacing(3),
+			paddingTop: theme.spacing(2),
+			borderTop: `solid 1px ${theme.palette.neutral.main}`,
 		},
-		total: {
-			borderTop: `solid 2px ${theme.palette.neutral.main}`,
+		subtotal: {
+			paddingBottom: theme.spacing(1),
+			textTransform: 'none',
+			'& > ul': {
+				margin: 0,
+				padding: 0,
+				listStyle: 'none',
+			},
+		},
+		subtotalRow: {
 			display: 'flex',
 			justifyContent: 'space-between',
-			paddingTop: `${theme.spacing(1) + 2}px`,
+			marginBottom: `${theme.spacing(1) - 4}px`,
+		},
+		total: {
+			borderTop: `solid 1px ${theme.palette.neutral.main}`,
+			display: 'flex',
+			justifyContent: 'space-between',
+			paddingTop: theme.spacing(1),
 			paddingBottom: theme.spacing(3),
 		},
 		checkoutButton: {

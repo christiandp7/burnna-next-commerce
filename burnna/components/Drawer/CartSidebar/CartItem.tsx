@@ -1,9 +1,11 @@
 import React, { FC, useState, useEffect } from 'react'
+import cx from 'classnames'
 import NextLink from 'next/link'
 import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
 import Link from '@material-ui/core/Link'
 import IconButton from '@material-ui/core/IconButton'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import Typography from '@material-ui/core/Typography'
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import { FiTrash2 } from 'react-icons/fi'
@@ -68,7 +70,9 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 	}, [item.quantity])
 
 	return (
-		<Grid container className={classes.root}>
+		<Grid
+			container
+			className={cx(classes.root, { [classes.removingItem]: removing })}>
 			<Grid item className={classes.imageGridWrapper}>
 				<NextLink href={`/product/${item.path}`}>
 					<a className={classes.imageContainer}>
@@ -130,15 +134,19 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 						</Typography>
 					</Grid>
 					<Grid item>
-						<IconButton
-							disableRipple
-							size="small"
-							edge="end"
-							aria-label="remove"
-							color="secondary"
-							onClick={handleRemove}>
-							<FiTrash2 />
-						</IconButton>
+						{removing ? (
+							<CircularProgress size={20} color="secondary" />
+						) : (
+							<IconButton
+								disableRipple
+								size="small"
+								edge="end"
+								aria-label="remove"
+								color="secondary"
+								onClick={handleRemove}>
+								<FiTrash2 />
+							</IconButton>
+						)}
 					</Grid>
 				</Grid>
 			</Grid>
@@ -150,6 +158,10 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			marginBottom: `${theme.spacing(1) + 4}px`,
+		},
+		removingItem: {
+			opacity: '50%',
+			pointerEvents: 'none',
 		},
 		imageGridWrapper: {
 			flexGrow: 0,
