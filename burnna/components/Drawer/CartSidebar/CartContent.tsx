@@ -4,6 +4,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import AppBar from '@material-ui/core/AppBar'
+import Box from '@material-ui/core/Box'
 import Toolbar from '@material-ui/core/Toolbar'
 import IconButton from '@material-ui/core/IconButton'
 import Button from '@material-ui/core/Button'
@@ -58,7 +59,15 @@ const CartContent: FC = () => {
 			</Grid>
 			<Grid item xs className={classes.body}>
 				{isEmpty ? (
-					<Typography align="center">Yout Cart is empty.</Typography>
+					<Box
+						height="100%"
+						display="flex"
+						alignItems="center"
+						justifyContent="center">
+						<Typography variant="h5" align="center">
+							Your Cart is empty.
+						</Typography>
+					</Box>
 				) : (
 					<Scrollbars
 						style={{ height: '100%' }}
@@ -90,18 +99,10 @@ const CartContent: FC = () => {
 						</li>
 						<li className={classes.subtotalRow}>
 							<Typography variant="body1" color="inherit">
-								Taxes
+								Shipping & Taxes
 							</Typography>
 							<Typography variant="body1" color="inherit">
 								Calculated at checkout
-							</Typography>
-						</li>
-						<li className={classes.subtotalRow}>
-							<Typography variant="body1" color="inherit">
-								Shipping
-							</Typography>
-							<Typography variant="body1" color="inherit">
-								<b>FREE</b>
 							</Typography>
 						</li>
 					</ul>
@@ -166,6 +167,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		close: {
 			position: 'absolute',
 			left: '-4px',
+			marginLeft: '-8px',
+			padding: '8px',
+			fontSize: '1.15rem',
 		},
 		title: {
 			fontSize: theme.typography.h4.fontSize,
@@ -190,7 +194,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		footer: {
-			paddingTop: theme.spacing(2),
+			paddingTop: `${theme.spacing(1) + 2}px`,
 			borderTop: `solid 1px ${theme.palette.neutral.main}`,
 		},
 		subtotal: {
@@ -212,7 +216,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 			justifyContent: 'space-between',
 			paddingTop: theme.spacing(1),
-			paddingBottom: theme.spacing(3),
+			paddingBottom: theme.spacing(2),
 		},
 		checkoutButton: {
 			fontSize: '1.15rem',

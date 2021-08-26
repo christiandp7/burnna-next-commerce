@@ -58,10 +58,10 @@ export default function themeSettigs(options: ThemeOptions) {
 				fontSize: '1.24rem',
 			},
 			h4: {
-				fontSize: '1.18rem',
+				fontSize: '1.175rem',
 			},
 			h5: {
-				fontSize: '1.12rem',
+				fontSize: '1.115rem',
 			},
 			h6: {
 				fontSize: '1rem',
