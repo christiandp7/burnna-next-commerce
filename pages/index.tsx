@@ -81,7 +81,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			position: 'relative',
 		},
 		container: {
-			height: 'calc(100vh - 55px)',
+			height: 'calc(100vh - 48px)',
 		},
 		column: {
 			height: '100%',

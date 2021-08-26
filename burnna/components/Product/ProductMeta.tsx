@@ -65,8 +65,8 @@ const ProductMeta: FC<Props> = ({ product }) => {
 						<div className={classes.wrapper}>
 							<div className={classes.productHeading}>
 								<Typography
-									component="h2"
-									variant="h3"
+									component="h1"
+									variant="h1"
 									className={classes.productTitle}>
 									{product.name}
 								</Typography>

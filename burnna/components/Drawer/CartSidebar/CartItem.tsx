@@ -93,7 +93,7 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 				<Grid item>
 					<NextLink href={`/product/${item.path}`} passHref>
 						<Link color="secondary" onClick={() => setCartOpen(false)}>
-							<Typography component="h4" variant="h5" color="inherit">
+							<Typography component="h4" variant="inherit" color="inherit">
 								{item.name}
 							</Typography>
 						</Link>
@@ -105,7 +105,8 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 						{options.map((option: ItemOption) => (
 							<Typography
 								key={`${item.id}-${option.name}`}
-								variant="body1"
+								className={classes.option}
+								variant="caption"
 								color="inherit">
 								{option.name}: {option.value}
 							</Typography>
@@ -129,7 +130,7 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 					alignItems="flex-end"
 					justify="space-between">
 					<Grid item>
-						<Typography variant="h5" color="inherit">
+						<Typography variant="body1" color="inherit">
 							{price}
 						</Typography>
 					</Grid>
@@ -172,7 +173,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			width: '100%',
 		},
 		detailsWrapper: {
-			padding: `0 ${theme.spacing(2)}px`,
+			padding: `0 ${theme.spacing(2) - 4}px`,
 			paddingBottom: theme.spacing(1),
 			'& h4': {
 				fontWeight: 700,
@@ -182,6 +183,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		priceWrapper: {
 			height: '100%',
 			paddingBottom: theme.spacing(1),
+		},
+		option: {
+			display: 'block',
+			width: '100%',
 		},
 	}),
 )

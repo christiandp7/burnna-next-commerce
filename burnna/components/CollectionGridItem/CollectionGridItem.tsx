@@ -5,6 +5,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import GridList from '@material-ui/core/GridList'
 import GridListTile from '@material-ui/core/GridListTile'
 import Typography from '@material-ui/core/Typography'
+import Link from '@material-ui/core/Link'
 import Box from '@material-ui/core/Box'
 import Tooltip from '@material-ui/core/Tooltip'
 import Grow from '@material-ui/core/Grow'
@@ -12,6 +13,7 @@ import usePrice from '@framework/product/use-price'
 // import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import Fade from 'react-reveal/Fade'
 import { Product } from '@commerce/types/product'
+import TextTruncate from 'react-truncate'
 
 interface Props {
 	product: Product
@@ -90,12 +92,16 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 			</div>
 
 			<div className={classes.productCaptionRow}>
-				<NextLink href="/product">
-					<Typography variant="h6" component="h4" className={classes.productTitle}>
-						{product.name}
-					</Typography>
+				<NextLink href={`/product/${product.slug}`} passHref>
+					<Link className={classes.productTitleLink}>
+						<TextTruncate lines={1}>
+							<Typography component="h4" className={classes.productTitle}>
+								{product.name}
+							</Typography>
+						</TextTruncate>
+					</Link>
 				</NextLink>
-				<Typography variant="h6" component="h4" className={classes.productPrice}>
+				<Typography component="h4" className={classes.productPrice}>
 					{price}
 				</Typography>
 			</div>
@@ -168,10 +174,17 @@ const useStyles = makeStyles(theme => ({
 	productCaptionRow: {
 		display: 'flex',
 		justifyContent: 'space-between',
-		padding: `${theme.spacing(2)}px ${theme.spacing(3)}px`,
+		alignItems: 'center',
+		padding: `${theme.spacing(1)}px ${theme.spacing(2) - 4}px`,
 		color: theme.palette.primary.main,
+		whiteSpace: 'nowrap',
+		[theme.breakpoints.down('sm')]: {
+			padding: `2px 4px`,
+			flexDirection: 'column',
+			alignItems: 'flex-start',
+		},
 		[theme.breakpoints.down('md')]: {
-			padding: `${theme.spacing(1)}px ${theme.spacing(2)}px`,
+			padding: `${theme.spacing(1) - 4}px ${theme.spacing(1)}px`,
 		},
 		'& a': {
 			textDecoration: 'none',
@@ -180,14 +193,38 @@ const useStyles = makeStyles(theme => ({
 			textDecoration: 'underline',
 		},
 	},
+	productTitleLink: {
+		width: '100%',
+		fontWeight: 700,
+		[theme.breakpoints.down('sm')]: {
+			fontWeight: 400,
+		},
+	},
 	productTitle: {
 		textTransform: 'uppercase',
 		color: theme.palette.primary.main,
 		fontWeight: 700,
+		fontSize: theme.typography.caption.fontSize,
+		cursor: 'pointer',
+		[theme.breakpoints.down('sm')]: {
+			fontWeight: 400,
+			fontSize: theme.typography.body2.fontSize,
+		},
+		[theme.breakpoints.up(1536)]: {
+			fontSize: theme.typography.body1.fontSize,
+		},
 	},
 	productPrice: {
 		cursor: 'default',
 		fontWeight: 700,
+		fontSize: theme.typography.caption.fontSize,
+		[theme.breakpoints.down('sm')]: {
+			fontWeight: 400,
+			fontSize: theme.typography.body2.fontSize,
+		},
+		[theme.breakpoints.up(1536)]: {
+			fontSize: theme.typography.body1.fontSize,
+		},
 	},
 }))
 

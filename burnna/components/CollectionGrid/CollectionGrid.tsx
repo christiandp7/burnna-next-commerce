@@ -30,7 +30,7 @@ const SkeletonGridItem: FC = () => {
 	const classes = useStyles()
 	return (
 		<Grid item xs={6} sm={4} className={classes.container}>
-			<Skeleton animation="wave" variant="rect" height={750} width="100%" />
+			<Skeleton animation="wave" variant="rect" height="60vw" width="100%" />
 			<Skeleton animation="wave" variant="text" width="60%" />
 			<Skeleton animation="wave" variant="text" width="36%" />
 		</Grid>
@@ -42,6 +42,16 @@ const useStyles = makeStyles((theme: Theme) =>
 		container: {
 			padding: `0 ${theme.spacing(1)}px`,
 			paddingBottom: theme.spacing(1),
+			[theme.breakpoints.up('sm')]: {
+				'& > span:first-child': {
+					maxHeight: '38vw',
+				},
+			},
+			// [theme.breakpoints.up('md')]: {
+			// 	'& > span:first-child': {
+			// 		maxHeight: '40vw',
+			// 	},
+			// },
 		},
 	}),
 )

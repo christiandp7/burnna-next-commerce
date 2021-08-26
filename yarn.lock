@@ -1290,6 +1290,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-truncate@^2.3.4":
+  version "2.3.4"
+  resolved "https://registry.yarnpkg.com/@types/react-truncate/-/react-truncate-2.3.4.tgz#1d5002e71e393b81b7877a147992a050f40075fa"
+  integrity sha512-+ugDlho66dRn7Sw/lPkE/wlOi0KUIRwY2KOiUiehWjFf7EmiMDjMpHqrBhiLJfH2Z9EC+qRBHC9o7iZoEmmWQw==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "17.0.19"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.19.tgz#8f2a85e8180a43b57966b237d26a29481dacc991"
@@ -6122,6 +6129,11 @@ react-transition-group@^4.4.0:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-truncate@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/react-truncate/-/react-truncate-2.4.0.tgz#3cf5ff09ab86f93e3c078d359f4de6d75aa60510"
+  integrity sha512-3QW11/COYwi6iPUaunUhl06DW5NJBJD1WkmxW5YxqqUu6kvP+msB3jfoLg8WRbu57JqgebjVW8Lknw6T5/QZdA==
 
 react-use-measure@^2.0.4:
   version "2.0.4"

@@ -49,19 +49,19 @@ export default function themeSettigs(options: ThemeOptions) {
 			fontWeightRegular: 300,
 			fontWeightMedium: 400,
 			h1: {
-				fontSize: '2.4rem',
-			},
-			h2: {
-				fontSize: '2.2rem',
-			},
-			h3: {
-				fontSize: '1.8rem',
-			},
-			h4: {
 				fontSize: '1.4rem',
 			},
+			h2: {
+				fontSize: '1.3rem',
+			},
+			h3: {
+				fontSize: '1.24rem',
+			},
+			h4: {
+				fontSize: '1.18rem',
+			},
 			h5: {
-				fontSize: '1.25rem',
+				fontSize: '1.12rem',
 			},
 			h6: {
 				fontSize: '1rem',
@@ -75,6 +75,12 @@ export default function themeSettigs(options: ThemeOptions) {
 				fontSize: '0.875rem',
 				fontFamily: '"Bodoni"',
 				textTransform: 'uppercase',
+			},
+			caption: {
+				fontSize: '0.875rem',
+			},
+			body2: {
+				fontSize: '0.8rem',
 			},
 		},
 		breakpoints: {
