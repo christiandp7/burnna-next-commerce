@@ -26,7 +26,7 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 		(b: any) => getSlug(b.node.path) === `brands/${brand}`,
 	)?.node
 
-	const { data } = useSearch({
+	const { data, isLoading } = useSearch({
 		search: typeof q === 'string' ? q : '',
 		categoryId: activeCategory?.id,
 		brandId: (activeBrand as any)?.entityId,
@@ -43,7 +43,7 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 				<div className={classes.logoContainer}>
 					<LogoText className={classes.logo} />
 				</div>
-				<CollectionGrid products={data?.products || []} />
+				<CollectionGrid products={data?.products || []} isLoading={isLoading} />
 			</div>
 		</MainLayout>
 	)
