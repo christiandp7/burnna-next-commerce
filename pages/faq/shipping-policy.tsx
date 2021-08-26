@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
 import Container from '@material-ui/core/Container'
+import { Layout } from '@components/common'
 import { FAQLayout } from '@burnna/layouts'
 import { FAQHeading, FAQAccordion } from '@burnna/components'
 // data
 import { shippingPolicyFaqs } from '@burnna/data'
 
-const ShippingPolicy: FC = () => {
+function ShippingPolicy() {
 	return (
 		<FAQLayout top="30px" mobTop="30px" alignItemsCenter>
 			<Container>
@@ -17,3 +18,5 @@ const ShippingPolicy: FC = () => {
 }
 
 export default ShippingPolicy
+
+ShippingPolicy.Layout = Layout

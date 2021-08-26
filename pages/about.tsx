@@ -6,11 +6,12 @@ import Typography from '@material-ui/core/Typography'
 import Image from 'next/image'
 //  components
 import { MainLayout } from '@burnna/layouts'
+import { Layout } from '@components/common'
 // import Heading from '../components/Typography/Heading'
 // assets
 // import { HugeTitleAbout } from '@burnna/svg'
 
-const About: FC = () => {
+function About() {
 	const classes = useStyles()
 	return (
 		<MainLayout>
@@ -127,3 +128,5 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export default About
+
+About.Layout = Layout

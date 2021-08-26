@@ -7,8 +7,9 @@ import { MainLayout } from '@burnna/layouts'
 import { HugeTitleExplore } from '@burnna/svg'
 import { exploreItems } from '@burnna/data'
 import type { ExploreItem } from '@burnna/data'
+import { Layout } from '@components/common'
 
-const Explore: FC = () => {
+function Explore() {
 	const classes = useStyles()
 	return (
 		<MainLayout>
@@ -68,3 +69,5 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export default Explore
+
+Explore.Layout = Layout

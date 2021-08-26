@@ -9,10 +9,12 @@ import Hidden from '@material-ui/core/Hidden'
 import { HiOutlineShoppingBag } from 'react-icons/hi'
 import Link from '@material-ui/core/Link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import Badge from '@material-ui/core/Badge'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { Burguer, LogoText } from '@burnna/svg'
 import { useDrawer } from '@burnna/context/DrawerContext'
+import useCart from '@framework/cart/use-cart'
 
 interface Props {
 	faqLayout?: boolean
@@ -21,6 +23,7 @@ interface Props {
 const Header: FC<Props> = ({ faqLayout = false }) => {
 	const classes = useStyles()
 	const { setSidebarOpen, setFaqSidebarOpen, setCartOpen } = useDrawer()
+	const { data } = useCart()
 
 	return (
 		<div className={classes.appBarWrapper}>
@@ -97,7 +100,15 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 												// underline="none"
 												// href="#"
 												onClick={() => setCartOpen(true)}>
-												Cart
+												{data && data.lineItems && data.lineItems.length > 0 ? (
+													<Badge
+														badgeContent={data?.lineItems.length}
+														color="primary">
+														Cart
+													</Badge>
+												) : (
+													'Cart'
+												)}
 											</Button>
 										</li>
 									</ul>
@@ -109,7 +120,16 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 										color="inherit"
 										aria-label="menu"
 										onClick={() => setCartOpen(true)}>
-										<HiOutlineShoppingBag size="28" />
+										{data && data.lineItems && data.lineItems.length > 0 ? (
+											<Badge
+												badgeContent={data?.lineItems.length}
+												color="primary"
+												anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}>
+												<HiOutlineShoppingBag size="28" />
+											</Badge>
+										) : (
+											<HiOutlineShoppingBag size="28" />
+										)}
 									</IconButton>
 								</Hidden>
 							</Grid>

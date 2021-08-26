@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Layout } from '@components/common'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 // import Heading from '../../components/Typography/Heading'
@@ -6,7 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import { FAQHeading } from '@burnna/components'
 import { FAQLayout } from '@burnna/layouts'
 
-const Payment: FC = () => {
+function Payment() {
 	return (
 		<FAQLayout top="50px" mobTop="30px" alignItemsCenter>
 			<Container>
@@ -34,3 +35,5 @@ const Payment: FC = () => {
 }
 
 export default Payment
+
+Payment.Layout = Layout

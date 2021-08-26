@@ -10,8 +10,9 @@ import { MainLayout } from '@burnna/layouts'
 import { FAQHeading } from '@burnna/components'
 // assets
 import { HugeTitleContact } from '@burnna/svg'
+import { Layout } from '@components/common'
 
-const Contact: FC = () => {
+function Contact() {
 	const classes = useStyles()
 	return (
 		<MainLayout>
@@ -131,3 +132,5 @@ const useStyles = makeStyles((theme: Theme) =>
 )
 
 export default Contact
+
+Contact.Layout = Layout
