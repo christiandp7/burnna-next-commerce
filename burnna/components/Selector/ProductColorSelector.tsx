@@ -38,9 +38,12 @@ const ProductColorSelector: FC<ProductColorSelectorProps> = ({
 									disableRipple={true}
 									className={cx({
 										[classes.activeButton]: v.label.toLowerCase() === active,
+										[classes.noHexColorButton]: !v.hexColors,
 									})}
 									bg={v.hexColors ? v.hexColors[0] : 'transparent'}
-									customsize="34px"
+									customsize="30px"
+									variant={!v.hexColors ? 'contained' : 'text'}
+									disableElevation
 									onClick={() => {
 										setSelectedOptions(selectedOptions => {
 											return {
@@ -63,14 +66,22 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			display: 'flex',
-			margin: `${theme.spacing(2)}px 0`,
+			margin: `${theme.spacing(1)}px 0`,
 			'& span': {
 				margin: '0 10px',
 				// marginRight: theme.spacing(2),
 			},
 		},
 		activeButton: {
-			transform: 'scale(1.25)',
+			boxShadow: 'inset 0 0 0 1px #fff',
+			border: 'solid 1px #000',
+			'&:hover': {
+				border: 'solid 1px #000',
+				boxShadow: 'inset 0 0 0 1px #fff',
+			},
+		},
+		noHexColorButton: {
+			width: 'auto',
 		},
 	}),
 )

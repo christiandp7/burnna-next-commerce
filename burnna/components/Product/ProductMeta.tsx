@@ -37,6 +37,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
 	// console.log(selectedOptions)
+	console.log(product)
 
 	useEffect(() => {
 		selectDefaultOptionFromProduct(product, setSelectedOptions)
@@ -91,6 +92,9 @@ const ProductMeta: FC<Props> = ({ product }) => {
 						</div>
 						<div className={classes.accordionContainer}>
 							{/* <CustomAccordion /> */}
+							<div className="">
+								{/* {product?.descriptionHtml && product.descriptionHtml} */}
+							</div>
 						</div>
 					</div>
 				</div>
@@ -137,7 +141,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		productHeading: {
 			// paddingBottom: '30px',
-			paddingBottom: theme.spacing(3),
+			paddingBottom: theme.spacing(2),
 			cursor: 'default',
 		},
 		productTitle: {},
