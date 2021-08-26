@@ -53,14 +53,24 @@ const useStyles = makeStyles((theme: Theme) =>
 		root: {
 			display: 'flex',
 			margin: `${theme.spacing(1)}px 0`,
-			'& button:not(:last-child)': {
-				marginRight: theme.spacing(1),
+			'& button': {
+				margin: '0 10px',
+				'&:last-child': {
+					marginRight: 0,
+				},
+				'&:first-child': {
+					marginLeft: 0,
+				},
 			},
 		},
 		sizeButton: {
 			fontWeight: theme.typography.fontWeightRegular,
 			fontSize: theme.typography.h5.fontSize,
-			minWidth: '50px',
+			// minWidth: '50px',
+			minWidth: 0,
+			width: '40px',
+			height: '40px',
+			borderRadius: '50%',
 			'& span': {
 				// lineHeight: theme.typography.h5.lineHeight,
 			},

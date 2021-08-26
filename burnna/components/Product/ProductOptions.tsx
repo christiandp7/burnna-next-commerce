@@ -44,22 +44,22 @@ const ProductOptions: FC<Props> = ({
 						</div>
 					</div>
 				))}
-			<div className={classes.option}>
+			{/* <div className={classes.option}>
 				<Box display="flex" justifyContent="space-between" alignItems="center">
 					<Typography component="h5" variant="h5">
 						Size
 					</Typography>
 
-					{/* <LinkButton
-											className={classes.sizeGuideButton}
-											onClick={() => setSizeGuideOpen(true)}>
-											Size guide
-										</LinkButton> */}
+					<LinkButton
+						className={classes.sizeGuideButton}
+						onClick={() => setSizeGuideOpen(true)}>
+						Size guide
+					</LinkButton>
 				</Box>
 				<div className={classes.selectorWrapper}>
-					{/* <SizeSelectorButtonGroup /> */}
+					<SizeSelectorButtonGroup />
 				</div>
-			</div>
+			</div> */}
 		</div>
 	)
 }

@@ -70,14 +70,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 									className={classes.productTitle}>
 									{product.name}
 								</Typography>
-								{/* <Typography
-						component="h3"
-						variant="h4"
-						className={classes.productSubtitle}>
-						One Piece
-					</Typography> */}
 							</div>
-							{/* product Options here */}
 							{product.options && product.options.length > 0 && (
 								<ProductOptions
 									options={product.options}
