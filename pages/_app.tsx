@@ -11,6 +11,7 @@ import { DrawerContextProvider } from '@burnna/context/DrawerContext'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { themeSettigs } from '@burnna/theme'
+import NextNprogress from 'nextjs-progressbar'
 
 const theme = themeSettigs({})
 
@@ -31,6 +32,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 				<DrawerContextProvider>
 					<CssBaseline />
 					<Layout pageProps={pageProps}>
+						<NextNprogress
+							color="#0A0A0A"
+							startPosition={0.3}
+							stopDelayMs={500}
+							height={2}
+							// showOnShallow={true}
+						/>
 						<Component {...pageProps} />
 					</Layout>
 				</DrawerContextProvider>
