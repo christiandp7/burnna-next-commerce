@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
 import Tooltip from '@material-ui/core/Tooltip'
 import Grow from '@material-ui/core/Grow'
+import usePrice from '@framework/product/use-price'
 // import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import Fade from 'react-reveal/Fade'
 import { Product } from '@commerce/types/product'
@@ -35,6 +36,12 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 	const handleMouseLeave = () => {
 		setShowDetails(false)
 	}
+
+	const { price } = usePrice({
+		amount: product.price.value,
+		baseAmount: product.price.retailPrice,
+		currencyCode: product.price.currencyCode!,
+	})
 
 	const classes = useStyles()
 	return (
@@ -89,7 +96,7 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 					</Typography>
 				</NextLink>
 				<Typography variant="h6" component="h4" className={classes.productPrice}>
-					{product.price.value}
+					{price}
 				</Typography>
 			</div>
 		</div>

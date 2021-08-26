@@ -37,7 +37,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 							startPosition={0.3}
 							stopDelayMs={500}
 							height={2}
-							// showOnShallow={true}
+							showOnShallow={true}
 						/>
 						<Component {...pageProps} />
 					</Layout>
