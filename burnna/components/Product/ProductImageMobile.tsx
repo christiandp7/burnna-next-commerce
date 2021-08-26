@@ -16,6 +16,7 @@ const ProductImageMobile: FC<Props> = ({ images }) => {
 			loop={true}
 			spaceBetween={0}
 			slidesPerView={1}
+			autoHeight={true}
 			navigation={{
 				hideOnClick: true,
 				nextEl: '.swiper-button-next',
