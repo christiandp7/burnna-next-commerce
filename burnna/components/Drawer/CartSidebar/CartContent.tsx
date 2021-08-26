@@ -180,6 +180,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		wrapper: {
 			paddingLeft: theme.spacing(4),
 			paddingRight: theme.spacing(4),
+			[theme.breakpoints.down('sm')]: {
+				paddingLeft: theme.spacing(2),
+				paddingRight: theme.spacing(2),
+			},
 			[theme.breakpoints.down(1536)]: {
 				paddingLeft: theme.spacing(3),
 				paddingRight: theme.spacing(3),

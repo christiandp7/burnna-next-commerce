@@ -162,10 +162,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		logoFooter: {
 			maxWidth: '300px',
 			[theme.breakpoints.down('sm')]: {
-				maxWidth: '50%',
+				maxWidth: '45%',
 			},
 			[theme.breakpoints.down('xs')]: {
-				maxWidth: '60%',
+				maxWidth: '50%',
 			},
 		},
 		footerContent: {
