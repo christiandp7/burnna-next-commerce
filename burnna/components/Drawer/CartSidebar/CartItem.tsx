@@ -36,7 +36,7 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 	const { setCartOpen } = useDrawer()
 	const options = (item as any).options
 
-	console.log(options)
+	// console.log(options)
 
 	const { price } = usePrice({
 		amount: item.variant.price * item.quantity,
