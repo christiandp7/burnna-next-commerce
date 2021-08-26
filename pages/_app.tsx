@@ -1,10 +1,16 @@
 // import '@assets/main.css'
 // import '@assets/chrome-bug.css'
 // import 'keen-slider/keen-slider.min.css'
+// swiper styles
+import 'swiper/swiper.min.css'
+import 'swiper/components/effect-fade/effect-fade.min.css'
+import 'swiper/components/navigation/navigation.min.css'
+import 'swiper/components/pagination/pagination.min.css'
 
 import { FC, useEffect } from 'react'
 import type { AppProps } from 'next/app'
 import { Head } from '@components/common'
+import SwiperCore, { EffectFade, Navigation, Pagination } from 'swiper/core'
 // import { ManagedUIContext } from '@components/ui/context'
 // custom
 import { DrawerContextProvider } from '@burnna/context/DrawerContext'
@@ -14,6 +20,8 @@ import { themeSettigs } from '@burnna/theme'
 import NextNprogress from 'nextjs-progressbar'
 
 const theme = themeSettigs({})
+
+SwiperCore.use([EffectFade, Navigation, Pagination])
 
 const Noop: FC = ({ children }) => <>{children}</>
 
