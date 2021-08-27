@@ -52,7 +52,7 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 						display="flex"
 						alignItems="center"
 						justifyContent="center">
-						<Typography variant="h5">COMING SOON...</Typography>
+						<Typography variant="body1">COMING SOON...</Typography>
 					</Box>
 				)}
 			</div>
