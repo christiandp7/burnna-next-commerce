@@ -44,9 +44,12 @@ const useStyles = makeStyles((theme: Theme) =>
 			justifyContent: 'flex-end',
 			alignItems: 'center',
 			padding: `0 ${theme.spacing(2)}px`,
-			height: '48px',
+			height: '34px',
 			margin: 0,
 			listStyle: 'none',
+			[theme.breakpoints.down('sm')]: {
+				height: '30px',
+			},
 			[theme.breakpoints.down('xs')]: {
 				justifyContent: 'center',
 				padding: `0 ${theme.spacing(1)}px`,

@@ -13,7 +13,7 @@ const LocaleSwitcher = () => {
 			locale={locale === 'en-US' ? 'es' : 'en-US'}>
 			<Link>
 				<Typography variant="h5" color="primary">
-					{locale === 'en-US' ? 'Español' : 'English'}
+					{locale === 'en-US' ? 'Es' : 'En'}
 				</Typography>
 			</Link>
 		</NextLink>

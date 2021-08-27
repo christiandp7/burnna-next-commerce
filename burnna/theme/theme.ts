@@ -99,7 +99,7 @@ export default function themeSettigs(options: ThemeOptions) {
 					// '@font-face': [proximaNovaCondensed],
 					// '@font-face': [julesText],
 					'html, body': {
-						fontSize: '14px',
+						fontSize: '11px',
 					},
 
 					body: {
@@ -115,6 +115,13 @@ export default function themeSettigs(options: ThemeOptions) {
 			MuiButton: {
 				root: {
 					borderRadius: 0,
+				},
+			},
+			MuiBadge: {
+				badge: {
+					height: '14px',
+					minWidth: '14px',
+					padding: 0,
 				},
 			},
 		},

@@ -16,6 +16,7 @@ import { Burguer, LogoText } from '@burnna/svg'
 import { useDrawer } from '@burnna/context/DrawerContext'
 import useCart from '@framework/cart/use-cart'
 
+const HEADER_HEIGHT: number = 40
 interface Props {
 	faqLayout?: boolean
 }
@@ -150,7 +151,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			textTransform: 'uppercase',
 			boxShadow: 'none',
 			[theme.breakpoints.up('md')]: {
-				height: '54px',
+				height: HEADER_HEIGHT,
 			},
 			'&.infoLayoutHeader': {
 				[theme.breakpoints.up('lg')]: {
@@ -164,12 +165,12 @@ const useStyles = makeStyles((theme: Theme) =>
 			justifyContent: 'space-between',
 			listStyle: 'none',
 			padding: 0,
-			minHeight: '54px',
+			minHeight: HEADER_HEIGHT,
 			[theme.breakpoints.down('md')]: {
 				justifyContent: 'center',
 			},
 			[theme.breakpoints.down('sm')]: {
-				minHeight: '40px',
+				minHeight: HEADER_HEIGHT,
 			},
 			'& li': {
 				// marginBottom: '35px',
@@ -259,8 +260,8 @@ const useStyles = makeStyles((theme: Theme) =>
 				padding: theme.spacing(1),
 			},
 			'& svg': {
-				width: '26px',
-				height: '20px',
+				width: '20px',
+				height: 'auto',
 				// [theme.breakpoints.down('sm')]: {
 				// 	width: '26px',
 				// 	height: '20px',
