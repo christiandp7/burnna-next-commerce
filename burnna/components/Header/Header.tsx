@@ -251,14 +251,15 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		// menuButton
 		menuButton: {
+			padding: '10px 8px',
 			color: theme.palette.neutral.main,
 			[theme.breakpoints.down('md')]: {
 				position: 'absolute',
 				left: theme.spacing(1),
 			},
-			[theme.breakpoints.down('sm')]: {
-				padding: theme.spacing(1),
-			},
+			// [theme.breakpoints.down('sm')]: {
+			// 	padding: theme.spacing(1),
+			// },
 			'& svg': {
 				width: '20px',
 				height: 'auto',
