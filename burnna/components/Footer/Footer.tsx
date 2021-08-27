@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import NextLink from 'next/link'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
@@ -34,14 +35,14 @@ const Footer: FC = () => {
 										</Typography>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											Contact
-										</Link>
+										<NextLink href="/contact" passHref>
+											<Link className={classes.link}>Contact</Link>
+										</NextLink>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											Returns
-										</Link>
+										<NextLink href="/faq/return-policy" passHref>
+											<Link className={classes.link}>Returns</Link>
+										</NextLink>
 									</ListItem>
 								</List>
 							</Grid>
@@ -53,24 +54,26 @@ const Footer: FC = () => {
 										</Typography>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											Faq
-										</Link>
+										<NextLink href="/faq/payment" passHref>
+											<Link className={classes.link} href="#">
+												Faq
+											</Link>
+										</NextLink>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											Size Guide
-										</Link>
+										<NextLink href="/faq/size-guide" passHref>
+											<Link className={classes.link}>Size Guide</Link>
+										</NextLink>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											Payment Methods
-										</Link>
+										<NextLink href="/faq/payment" passHref>
+											<Link className={classes.link}>Payment Methods</Link>
+										</NextLink>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											Shipping
-										</Link>
+										<NextLink href="/faq/shipping-policy" passHref>
+											<Link className={classes.link}>Shipping</Link>
+										</NextLink>
 									</ListItem>
 								</List>
 							</Grid>
@@ -104,7 +107,10 @@ const Footer: FC = () => {
 										</Link>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
+										<Link
+											className={classes.link}
+											href="https://www.instagram.com/burnnaswim/"
+											target="_blank">
 											<IconButton
 												className={classes.socialIcon}
 												size="small"
@@ -123,9 +129,11 @@ const Footer: FC = () => {
 										</Typography>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											About
-										</Link>
+										<NextLink href="/about" passHref>
+											<Link className={classes.link} href="#">
+												About
+											</Link>
+										</NextLink>
 									</ListItem>
 									<ListItem>
 										<Link className={classes.link} href="#">
