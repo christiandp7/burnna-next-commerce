@@ -35,7 +35,6 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 		sort: typeof sort === 'string' ? sort : '',
 		locale,
 	})
-	console.log(data)
 
 	const classes = useStyles()
 
