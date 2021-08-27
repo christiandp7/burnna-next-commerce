@@ -66,23 +66,23 @@ function Contact() {
 							<Typography component="p" variant="body1">
 								<b>Instagram:</b>{' '}
 								<Link
-									href="https://instagram.com/burnna___"
+									href="https://instagram.com/burnnaswim"
 									target="_blank"
 									rel="noopener"
 									color="inherit">
-									@burnna___
+									@burnnaswim
 								</Link>
 							</Typography>
-							<Typography component="p" variant="body1">
+							{/* <Typography component="p" variant="body1">
 								<b>TikTok:</b>{' '}
 								<Link
-									href="https://tiktok.com/burnna"
+									href="https://tiktok.com/burnnaswim"
 									target="_blank"
 									rel="noopener"
 									color="inherit">
-									@burnna
+									@burnnaswim
 								</Link>
-							</Typography>
+							</Typography> */}
 						</div>
 					</div>
 				</Grid>
