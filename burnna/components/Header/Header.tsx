@@ -227,7 +227,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			'&.fixed': {
 				[theme.breakpoints.up('md')]: {
 					position: 'relative',
-					bottom: '-135%',
+					bottom: '-140%',
 				},
 			},
 		},
