@@ -28,7 +28,7 @@ const MainLayout: FC<Props> = ({ children, ...props }) => {
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		main: {
-			paddingTop: '65px',
+			paddingTop: '54px',
 			paddingBottom: '30px',
 			minHeight: '70vh',
 			[theme.breakpoints.down('md')]: {

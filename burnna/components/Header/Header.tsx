@@ -150,7 +150,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			textTransform: 'uppercase',
 			boxShadow: 'none',
 			[theme.breakpoints.up('md')]: {
-				height: '65px',
+				height: '54px',
 			},
 			'&.infoLayoutHeader': {
 				[theme.breakpoints.up('lg')]: {
@@ -164,6 +164,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			justifyContent: 'space-between',
 			listStyle: 'none',
 			padding: 0,
+			minHeight: '54px',
 			[theme.breakpoints.down('md')]: {
 				justifyContent: 'center',
 			},

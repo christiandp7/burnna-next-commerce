@@ -49,9 +49,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 		},
 		main: (props: Props) => ({
-			paddingTop: props.top || '65px',
+			paddingTop: props.top || '54px',
 			paddingBottom: props.bottom || '30px',
-			minHeight: 'calc(100vh - 65px)',
+			minHeight: 'calc(100vh - 54px)',
 			display: props.alignItemsCenter ? 'flex' : 'block',
 			alignItems: 'center',
 			[theme.breakpoints.down('md')]: {
