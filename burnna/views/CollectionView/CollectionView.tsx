@@ -7,7 +7,9 @@ import getSlug from '@lib/get-slug'
 import { Layout } from '@components/common'
 import { MainLayout } from '@burnna/layouts'
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
-import { LogoText } from '@burnna/svg'
+// import { LogoText } from '@burnna/svg'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import { CollectionGrid } from '@burnna/components'
 
 const CollectionView = ({ categories, brands }: SearchPropsType) => {
@@ -33,7 +35,7 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 		sort: typeof sort === 'string' ? sort : '',
 		locale,
 	})
-	// console.log(data)
+	console.log(data)
 
 	const classes = useStyles()
 
@@ -43,7 +45,17 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 				{/* <div className={classes.logoContainer}>
 					<LogoText className={classes.logo} />
 				</div> */}
-				<CollectionGrid products={data?.products || []} isLoading={isLoading} />
+				{data?.found ? (
+					<CollectionGrid products={data?.products || []} isLoading={isLoading} />
+				) : (
+					<Box
+						height="65vh"
+						display="flex"
+						alignItems="center"
+						justifyContent="center">
+						<Typography variant="h5">COMING SOON...</Typography>
+					</Box>
+				)}
 			</div>
 		</MainLayout>
 	)
