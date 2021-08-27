@@ -53,8 +53,8 @@ export default function Home({
 	const womenLink = { title: 'shop women', link: '/collection/women' }
 	const menLink = { title: 'shop men', link: '/collection/men' }
 
-	const menImage = { src: '/images/home/men.jpg', width: 1043, height: 1262 }
-	const womenImage = { src: '/images/home/women.jpg', width: 1071, height: 1262 }
+	const menImage = { src: '/images/home/men_new.jpg', width: 1000, height: 1117 }
+	const womenImage = { src: '/images/home/women_new.jpg', width: 828, height: 1039 }
 
 	return (
 		<HomeLayout>

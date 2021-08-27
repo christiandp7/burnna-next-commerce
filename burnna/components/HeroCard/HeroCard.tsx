@@ -37,7 +37,7 @@ const HeroCard: FC<Props> = ({ image, link }) => {
 			</div>
 			<Box className={classes.heroLinkContainer}>
 				<NextLink href={link.link} passHref key={link.title}>
-					<Link className={classes.heroLink}>
+					<Link color="secondary" className={classes.heroLink}>
 						<Typography component="h2" variant="body1">
 							{link.title}
 						</Typography>
@@ -72,7 +72,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			padding: `${theme.spacing(1)}px ${theme.spacing(2) - 4}px`,
 		},
 		heroLink: {
-			color: theme.palette.primary.main,
+			// color: theme.palette.primary.main,
 			textDecoration: 'none',
 			'&:hover': {
 				textDecoration: 'underline',
