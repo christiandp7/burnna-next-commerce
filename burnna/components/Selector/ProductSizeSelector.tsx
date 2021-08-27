@@ -68,8 +68,8 @@ const useStyles = makeStyles((theme: Theme) =>
 			fontSize: theme.typography.h5.fontSize,
 			// minWidth: '50px',
 			minWidth: 0,
-			width: '40px',
-			height: '40px',
+			width: '34px',
+			height: '34px',
 			borderRadius: '50%',
 			'& span': {
 				// lineHeight: theme.typography.h5.lineHeight,

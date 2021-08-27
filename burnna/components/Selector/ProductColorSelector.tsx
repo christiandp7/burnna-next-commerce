@@ -35,7 +35,7 @@ const ProductColorSelector: FC<ProductColorSelectorProps> = ({
 							placement="bottom">
 							<span>
 								<ColorSelectorButton
-									disableRipple={true}
+									disableRipple
 									className={cx({
 										[classes.activeButton]: v.label.toLowerCase() === active,
 										[classes.noHexColorButton]: !v.hexColors,

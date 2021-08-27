@@ -144,7 +144,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			paddingBottom: theme.spacing(2),
 			cursor: 'default',
 		},
-		productTitle: {},
+		productTitle: {
+			// fontWeight: 700,
+		},
 		productSubtitle: {},
 
 		addToCartContainer: {
