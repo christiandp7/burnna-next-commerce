@@ -224,8 +224,10 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		logoContainer: {
 			'&.fixed': {
-				position: 'relative',
-				bottom: '-135%',
+				[theme.breakpoints.up('md')]: {
+					position: 'relative',
+					bottom: '-135%',
+				},
 			},
 		},
 		logo: {
@@ -257,12 +259,12 @@ const useStyles = makeStyles((theme: Theme) =>
 				padding: theme.spacing(1),
 			},
 			'& svg': {
-				width: '28px',
-				height: '28px',
-				[theme.breakpoints.down('sm')]: {
-					width: '24px',
-					height: '24px',
-				},
+				width: '26px',
+				height: '20px',
+				// [theme.breakpoints.down('sm')]: {
+				// 	width: '26px',
+				// 	height: '20px',
+				// },
 				'& path': {
 					stroke: theme.palette.neutral.main,
 				},
