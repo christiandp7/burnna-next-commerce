@@ -36,11 +36,15 @@ const useStyles = makeStyles((theme: Theme) =>
 			top: 0,
 			left: 0,
 			height: '100vh',
+			maxHeight: '100vh',
 			width: '190px',
 			background: theme.palette.primary.main,
 			display: 'flex',
 			flexDirection: 'column',
 			padding: '35px 0',
+			[theme.breakpoints.down('sm')]: {
+				padding: '22px 0',
+			},
 		},
 		// Logo
 		logo: {
@@ -49,10 +53,16 @@ const useStyles = makeStyles((theme: Theme) =>
 			'& path': {
 				fill: theme.palette.primary.contrastText,
 			},
+			[theme.breakpoints.down('sm')]: {
+				maxHeight: '70px',
+			},
 		},
 		logoLink: {
 			color: theme.palette.primary.contrastText,
 			padding: '10px 15px',
+			[theme.breakpoints.down('sm')]: {
+				padding: '5px 10px',
+			},
 		},
 		// Sidebar Nav
 		sidebarNav: {
