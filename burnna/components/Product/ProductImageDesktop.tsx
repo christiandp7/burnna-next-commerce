@@ -13,9 +13,9 @@ const ProductImageDesktop: FC<Props> = ({ images }) => {
 	const classes = useStyles()
 	return (
 		<div className={classes.root}>
-			<div className={classes.logoContainer}>
+			{/* <div className={classes.logoContainer}>
 				<LogoText className={classes.logo} />
-			</div>
+			</div> */}
 			{images.map(img => (
 				<Image
 					key={img.url}
@@ -40,20 +40,20 @@ const useStyles = makeStyles((theme: Theme) =>
 				width: '100%',
 			},
 		},
-		logoContainer: {
-			position: 'absolute',
-			width: '100%',
-			top: 0,
-			textAlign: 'center',
-			paddingTop: theme.spacing(4),
-			zIndex: 1,
-			[theme.breakpoints.down('md')]: {
-				paddingTop: theme.spacing(2),
-			},
-		},
-		logo: {
-			width: '200px',
-		},
+		// logoContainer: {
+		// 	position: 'absolute',
+		// 	width: '100%',
+		// 	top: 0,
+		// 	textAlign: 'center',
+		// 	paddingTop: theme.spacing(4),
+		// 	zIndex: 1,
+		// 	[theme.breakpoints.down('md')]: {
+		// 		paddingTop: theme.spacing(2),
+		// 	},
+		// },
+		// logo: {
+		// 	width: '200px',
+		// },
 		img: {
 			maxWidth: '100%',
 		},

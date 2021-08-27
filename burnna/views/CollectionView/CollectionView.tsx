@@ -40,9 +40,9 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 	return (
 		<MainLayout>
 			<div className={classes.collectionWrapper}>
-				<div className={classes.logoContainer}>
+				{/* <div className={classes.logoContainer}>
 					<LogoText className={classes.logo} />
-				</div>
+				</div> */}
 				<CollectionGrid products={data?.products || []} isLoading={isLoading} />
 			</div>
 		</MainLayout>
@@ -54,20 +54,20 @@ const useStyles = makeStyles((theme: Theme) =>
 		collectionWrapper: {
 			position: 'relative',
 		},
-		logoContainer: {
-			position: 'absolute',
-			width: '100%',
-			top: 0,
-			textAlign: 'center',
-			paddingTop: theme.spacing(3),
-			zIndex: 1,
-			[theme.breakpoints.down('md')]: {
-				display: 'none',
-			},
-		},
-		logo: {
-			width: '200px',
-		},
+		// logoContainer: {
+		// 	position: 'absolute',
+		// 	width: '100%',
+		// 	top: 0,
+		// 	textAlign: 'center',
+		// 	paddingTop: theme.spacing(3),
+		// 	zIndex: 1,
+		// 	[theme.breakpoints.down('md')]: {
+		// 		display: 'none',
+		// 	},
+		// },
+		// logo: {
+		// 	width: '200px',
+		// },
 	}),
 )
 

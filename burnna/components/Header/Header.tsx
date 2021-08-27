@@ -76,7 +76,7 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 								</Hidden>
 							</Grid>
 							<Grid item container justifyContent="center" xs={4} sm={2}>
-								<div className="logoContainer">
+								<div className={cx(classes.logoContainer, 'fixed')}>
 									<NextLink href="/" passHref>
 										<Link className={classes.logoLink}>
 											<LogoText className={classes.logo} />
@@ -221,9 +221,12 @@ const useStyles = makeStyles((theme: Theme) =>
 		logoLink: {
 			lineHeight: 0,
 		},
-		// logoContainer: {
-		// 	position: 'relative',
-		// },
+		logoContainer: {
+			'&.fixed': {
+				position: 'relative',
+				bottom: '-135%',
+			},
+		},
 		logo: {
 			maxWidth: 160,
 			[theme.breakpoints.down('sm')]: {
@@ -231,6 +234,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 			[theme.breakpoints.down('xs')]: {
 				maxWidth: 95,
+			},
+			[theme.breakpoints.up(1599)]: {
+				maxWidth: 180,
 			},
 		},
 		// desktop
