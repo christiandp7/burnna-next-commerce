@@ -15,6 +15,7 @@ import Grid from '@material-ui/core/Grid'
 import { Burguer, LogoText } from '@burnna/svg'
 import { useDrawer } from '@burnna/context/DrawerContext'
 import useCart from '@framework/cart/use-cart'
+import LocaleSwitcher from '../LocaleSwitcher'
 
 const HEADER_HEIGHT: number = 40
 interface Props {
@@ -25,6 +26,10 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 	const classes = useStyles()
 	const { setSidebarOpen, setFaqSidebarOpen, setCartOpen } = useDrawer()
 	const { data } = useCart()
+
+	function pad(d: number) {
+		return d < 10 ? '0' + d.toString() : d.toString()
+	}
 
 	return (
 		<div className={classes.appBarWrapper}>
@@ -89,9 +94,10 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 								<Hidden mdDown>
 									<ul className={classes.linklist}>
 										<li>
-											<Link className={classes.link} underline="none" href="#">
+											{/* <Link className={classes.link} underline="none" href="#">
 												Español
-											</Link>
+											</Link> */}
+											<LocaleSwitcher />
 										</li>
 										<li>
 											<Button
@@ -101,15 +107,9 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 												// underline="none"
 												// href="#"
 												onClick={() => setCartOpen(true)}>
-												{data && data.lineItems && data.lineItems.length > 0 ? (
-													<Badge
-														badgeContent={data?.lineItems.length}
-														color="primary">
-														Cart
-													</Badge>
-												) : (
-													'Cart'
-												)}
+												{data && data.lineItems && data.lineItems.length > 0
+													? `Bag ${pad(data.lineItems.length)}`
+													: 'Bag 00'}
 											</Button>
 										</li>
 									</ul>
@@ -188,6 +188,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			listStyle: 'none',
 			'& > li': {
 				margin: `0 ${theme.spacing(2)}px`,
+				color: theme.palette.primary.main,
 			},
 		},
 		linklistLeft: {
