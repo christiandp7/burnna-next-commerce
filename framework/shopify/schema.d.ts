@@ -4542,6 +4542,7 @@ export type ProductVariant = Node &
 		image?: Maybe<Image>
 		/** Returns a metafield found by namespace and key. */
 		metafield?: Maybe<Metafield>
+		print?: Maybe<Metafield>
 		/** A paginated list of metafields associated with the resource. */
 		metafields: MetafieldConnection
 		/**
@@ -6134,6 +6135,9 @@ export type GetProductBySlugQuery = { __typename?: 'QueryRoot' } & {
 											MoneyV2,
 											'amount' | 'currencyCode'
 										>
+									>
+									print?: Maybe<
+										{ __typename?: 'Metafield' } & Pick<Metafield, 'value'>
 									>
 								}
 						}

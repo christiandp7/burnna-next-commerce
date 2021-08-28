@@ -17,7 +17,7 @@ interface ProductViewProps {
 }
 
 const ProductView = ({ product, relatedProducts }: ProductViewProps) => {
-	// console.log(product)
+	console.log(product)
 	const theme = useTheme()
 	const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 	return (
