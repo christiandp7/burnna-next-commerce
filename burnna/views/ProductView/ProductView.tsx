@@ -34,7 +34,7 @@ const ProductView = ({ product, relatedProducts }: ProductViewProps) => {
 					<ProductMeta product={product} />
 				</Grid>
 			</Grid>
-			<InfoSidebar description={product?.descriptionHtml} />
+			<InfoSidebar description={product.descriptionHtml} />
 		</MainLayout>
 	)
 }

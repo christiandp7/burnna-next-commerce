@@ -8,7 +8,7 @@ import { SizeGuideSidebarContent } from '@burnna/components/SizeGuide'
 import { ProductDetailsContent } from '@burnna/components/Product'
 
 interface Props {
-	description: string
+	description: string | undefined
 }
 
 const InfoSidebar: FC<Props> = ({ description }) => {
@@ -28,7 +28,7 @@ const InfoSidebar: FC<Props> = ({ description }) => {
 				exit: 350,
 			}}>
 			{infoSidebar.view === 'details' ? (
-				<ProductDetailsContent description={description} />
+				<ProductDetailsContent description={description || ''} />
 			) : (
 				<SizeGuideSidebarContent />
 			)}
