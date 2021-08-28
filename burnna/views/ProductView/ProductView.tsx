@@ -10,6 +10,7 @@ import {
 	ProductImageMobile,
 	ProductMeta,
 } from '@burnna/components'
+import { InfoSidebar } from '@burnna/components/Drawer'
 interface ProductViewProps {
 	product: Product
 	relatedProducts: Product[]
@@ -34,6 +35,7 @@ const ProductView = ({ product, relatedProducts }: ProductViewProps) => {
 				</Grid>
 			</Grid>
 			{/* <SizeGuideSidebar /> */}
+			<InfoSidebar />
 		</MainLayout>
 	)
 }

@@ -16,7 +16,6 @@ const Sidebar: FC = () => {
 				paper: classes.drawerPaper,
 			}}>
 			<SidebarContent />
-			hello sidebar
 		</Drawer>
 	)
 }

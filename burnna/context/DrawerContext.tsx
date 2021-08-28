@@ -2,23 +2,31 @@ import React, { FC, createContext, useState } from 'react'
 
 export interface State {
 	cartOpen: boolean
-	sizeGuideOpen: boolean
+	infoSidebar: boolean
 	sidebarOpen: boolean
 	faqSidebarOpen: boolean
 }
 
 const initialState = {
 	cartOpen: false,
-	sizeGuideOpen: false,
+	infoSidebar: false,
 	sidebarOpen: false,
 	faqSidebarOpen: false,
+}
+
+export type InfoSidebarValue = {
+	open: boolean
+	view: 'sizeguide' | 'details'
 }
 
 const DrawerContext = createContext<State | any>(initialState)
 
 export const DrawerContextProvider: FC = ({ children }) => {
 	const [cartOpen, setCartOpen] = useState(false)
-	const [sizeGuideOpen, setSizeGuideOpen] = useState(false)
+	const [infoSidebar, setInfoSidebar] = useState<InfoSidebarValue | null>({
+		open: false,
+		view: 'sizeguide',
+	})
 	const [sidebarOpen, setSidebarOpen] = useState(false)
 	const [faqSidebarOpen, setFaqSidebarOpen] = useState(false)
 	return (
@@ -26,8 +34,8 @@ export const DrawerContextProvider: FC = ({ children }) => {
 			value={{
 				cartOpen,
 				setCartOpen,
-				sizeGuideOpen,
-				setSizeGuideOpen,
+				infoSidebar,
+				setInfoSidebar,
 				sidebarOpen,
 				setSidebarOpen,
 				faqSidebarOpen,

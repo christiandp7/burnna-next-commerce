@@ -1,5 +1,6 @@
 import React, { FC, useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography'
+import Button from '@material-ui/core/Button'
 import useTheme from '@material-ui/core/styles/useTheme'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useDrawer } from '@burnna/context/DrawerContext'
@@ -32,7 +33,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	})
 
 	const addItem = useAddItem()
-	const { setCartOpen } = useDrawer()
+	const { setCartOpen, infoSidebar, setInfoSidebar } = useDrawer()
 	const [loading, setLoading] = useState(false)
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
@@ -90,7 +91,15 @@ const ProductMeta: FC<Props> = ({ product }) => {
 								)}
 							</div>
 						</div>
-						<div className={classes.accordionContainer}>
+						<div className={classes.infoContainer}>
+							<Button
+								onClick={() => setInfoSidebar({ open: true, view: 'sizeguide' })}>
+								SizeGuide
+							</Button>
+							<Button
+								onClick={() => setInfoSidebar({ open: true, view: 'details' })}>
+								Details
+							</Button>
 							{/* <CustomAccordion /> */}
 							<div className="">
 								{/* {product?.descriptionHtml && product.descriptionHtml} */}
@@ -152,7 +161,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		addToCartContainer: {
 			padding: '15px 0',
 		},
-		accordionContainer: {
+		infoContainer: {
 			padding: '15px 0',
 		},
 	}),
