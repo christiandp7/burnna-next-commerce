@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		rootWrapper: {
 			[theme.breakpoints.up('md')]: {
 				minHeight: '100vh',
-				paddingTop: '54px',
+				paddingTop: '40px',
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: 'center',
