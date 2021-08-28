@@ -5,9 +5,13 @@ import type { InfoSidebarValue } from '@burnna/context/DrawerContext'
 import { useDrawer } from '@burnna/context/DrawerContext'
 // components
 import { SizeGuideSidebarContent } from '@burnna/components/SizeGuide'
-// import SizeGuideSidebarContent from './SizeGuideSidebarContent'
+import { ProductDetailsContent } from '@burnna/components/Product'
 
-const InfoSidebar: FC = () => {
+interface Props {
+	description: string
+}
+
+const InfoSidebar: FC<Props> = ({ description }) => {
 	const { infoSidebar, setInfoSidebar } = useDrawer()
 	const classes = useStyles()
 
@@ -24,11 +28,10 @@ const InfoSidebar: FC = () => {
 				exit: 350,
 			}}>
 			{infoSidebar.view === 'details' ? (
-				<h1>Details</h1>
+				<ProductDetailsContent description={description} />
 			) : (
 				<SizeGuideSidebarContent />
 			)}
-			{/* <SizeGuideSidebarContent /> */}
 		</Drawer>
 	)
 }
