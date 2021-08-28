@@ -94,9 +94,6 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 								<Hidden mdDown>
 									<ul className={classes.linklist}>
 										<li>
-											{/* <Link className={classes.link} underline="none" href="#">
-												Español
-											</Link> */}
 											<LocaleSwitcher />
 										</li>
 										<li>
@@ -104,8 +101,6 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 												className={classes.link}
 												variant="text"
 												disableRipple={true}
-												// underline="none"
-												// href="#"
 												onClick={() => setCartOpen(true)}>
 												{data && data.lineItems && data.lineItems.length > 0
 													? `Bag ${pad(data.lineItems.length)}`
@@ -115,7 +110,7 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 									</ul>
 								</Hidden>
 								<Hidden lgUp>
-									<IconButton
+									{/* <IconButton
 										edge="end"
 										className={classes.cartButton}
 										color="inherit"
@@ -131,7 +126,15 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 										) : (
 											<HiOutlineShoppingBag size="28" />
 										)}
-									</IconButton>
+									</IconButton> */}
+									<Link
+										className={cx(classes.link, classes.bagMobile)}
+										// variant="text"
+										onClick={() => setCartOpen(true)}>
+										{data && data.lineItems && data.lineItems.length > 0
+											? `Bag ${pad(data.lineItems.length)}`
+											: 'Bag 00'}
+									</Link>
 								</Hidden>
 							</Grid>
 						</Grid>
@@ -172,12 +175,6 @@ const useStyles = makeStyles((theme: Theme) =>
 			[theme.breakpoints.down('sm')]: {
 				minHeight: HEADER_HEIGHT,
 			},
-			'& li': {
-				// marginBottom: '35px',
-				[theme.breakpoints.down('sm')]: {
-					display: 'none',
-				},
-			},
 		},
 		// Links
 		linklist: {
@@ -189,6 +186,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			'& > li': {
 				margin: `0 ${theme.spacing(2)}px`,
 				color: theme.palette.primary.main,
+				[theme.breakpoints.down('sm')]: {
+					display: 'none',
+				},
 			},
 		},
 		linklistLeft: {
@@ -301,6 +301,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			'& path': {
 				strokeWidth: '1.3px',
 			},
+		},
+		bagMobile: {
+			paddingRight: '4px',
 		},
 	}),
 )
