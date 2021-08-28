@@ -12,6 +12,7 @@ export { default as ProductImageMobile } from './Product/ProductImageMobile'
 export { default as ProductMeta } from './Product/ProductMeta'
 export { default as AddToCart } from './Product/AddToCart'
 export { AddToCartButton, ColorSelectorButton } from './Button'
+import { default as SkeletonGrid } from './Skeleton'
 export {
 	ProductColorSelector,
 	ProductSizeSelector,

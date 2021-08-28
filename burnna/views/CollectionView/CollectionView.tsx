@@ -10,7 +10,10 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core'
 // import { LogoText } from '@burnna/svg'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
 import { CollectionGrid } from '@burnna/components'
+
+import SkeletonGrid from '@burnna/components/Skeleton'
 
 const CollectionView = ({ categories, brands }: SearchPropsType) => {
 	// console.log(categories)
@@ -36,25 +39,26 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 		locale,
 	})
 
+	console.log(data)
+
 	const classes = useStyles()
 
 	return (
 		<MainLayout>
 			<div className={classes.collectionWrapper}>
-				{/* <div className={classes.logoContainer}>
-					<LogoText className={classes.logo} />
-				</div> */}
-				{data?.found ? (
-					<CollectionGrid products={data?.products || []} isLoading={isLoading} />
-				) : (
-					<Box
-						height="65vh"
-						display="flex"
-						alignItems="center"
-						justifyContent="center">
-						<Typography variant="body1">COMING SOON...</Typography>
-					</Box>
-				)}
+				{isLoading && <SkeletonGrid />}
+				{!isLoading &&
+					(data?.found ? (
+						<CollectionGrid products={data?.products || []} />
+					) : (
+						<Box
+							height="65vh"
+							display="flex"
+							alignItems="center"
+							justifyContent="center">
+							<Typography variant="body1">COMING SOON...</Typography>
+						</Box>
+					))}
 			</div>
 		</MainLayout>
 	)

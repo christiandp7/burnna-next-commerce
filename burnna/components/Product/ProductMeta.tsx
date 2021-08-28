@@ -1,6 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
+import Link from '@material-ui/core/Link'
 import useTheme from '@material-ui/core/styles/useTheme'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 import { useDrawer } from '@burnna/context/DrawerContext'
@@ -92,17 +93,23 @@ const ProductMeta: FC<Props> = ({ product }) => {
 							</div>
 						</div>
 						<div className={classes.infoContainer}>
-							<Button
-								onClick={() => setInfoSidebar({ open: true, view: 'sizeguide' })}>
-								SizeGuide
-							</Button>
-							<Button
-								onClick={() => setInfoSidebar({ open: true, view: 'details' })}>
-								Details
-							</Button>
-							{/* <CustomAccordion /> */}
-							<div className="">
-								{/* {product?.descriptionHtml && product.descriptionHtml} */}
+							<div className={classes.infoItem}>
+								<Link
+									variant="h5"
+									component="button"
+									className={classes.infoButton}
+									onClick={() => setInfoSidebar({ open: true, view: 'sizeguide' })}>
+									Size Guide
+								</Link>
+							</div>
+							<div className={classes.infoItem}>
+								<Link
+									variant="h5"
+									component="button"
+									className={classes.infoButton}
+									onClick={() => setInfoSidebar({ open: true, view: 'details' })}>
+									Details
+								</Link>
 							</div>
 						</div>
 					</div>
@@ -162,7 +169,20 @@ const useStyles = makeStyles((theme: Theme) =>
 			padding: '15px 0',
 		},
 		infoContainer: {
-			padding: '15px 0',
+			paddingTop: '14px',
+			[theme.breakpoints.down('sm')]: {
+				paddingTop: theme.spacing(1),
+			},
+		},
+		infoItem: {
+			borderBottom: `solid 1px ${theme.palette.neutral.main}`,
+			padding: `${theme.spacing(2)}px 0`,
+			[theme.breakpoints.down('sm')]: {
+				padding: `${theme.spacing(1)}px 0`,
+			},
+		},
+		infoButton: {
+			textTransform: 'uppercase',
 		},
 	}),
 )

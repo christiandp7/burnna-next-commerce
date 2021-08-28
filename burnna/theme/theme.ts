@@ -100,6 +100,9 @@ export default function themeSettigs(options: ThemeOptions) {
 					// '@font-face': [julesText],
 					'html, body': {
 						fontSize: '11px',
+						['@media (min-width: 1700px)']: {
+							fontSize: '13px',
+						},
 					},
 
 					body: {
