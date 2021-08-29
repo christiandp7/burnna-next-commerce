@@ -13,12 +13,13 @@ const ColorSelectorButton = styled(({ bg, ...other }) => <Button {...other} />)(
 	(props: SelectorButtonProps) => ({
 		width: props.customsize,
 		height: props.customsize,
-		backgroundColor: props.bg,
+		background: props.bg,
 		// borderColor: props.theme.palette.neutral.main,
 		transition: 'none',
 		border: 'solid 1px transparent',
 		padding: 0,
 		minWidth: 0,
+		position: 'relative',
 		'&:hover': {
 			backgroundColor: props.bg,
 		},

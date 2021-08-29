@@ -7,6 +7,7 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import { ProductOption, ProductOptionValues } from '@commerce/types/product'
 import { ColorSelectorButton } from '@burnna/components'
 import { SelectedOptions } from '@components/product/helpers'
+import tinygradient from 'tinygradient'
 
 interface ProductColorSelectorProps {
 	// values: ProductOptionValues[]
@@ -21,14 +22,40 @@ const ProductColorSelector: FC<ProductColorSelectorProps> = ({
 	setSelectedOptions,
 }) => {
 	const classes = useStyles()
+
+	const setBgColor = (colors: string[]) => {
+		if (colors[0].length === 2) {
+			console.log(colors)
+			const gradient = `linear-gradient(135deg, ${colors[0][0]} 50%, ${colors[0][1]} 50%)`
+			return gradient
+		}
+		if (colors[0].length === 3) {
+			console.log(colors)
+			const gradient = `linear-gradient(135deg, ${colors[0][0]} 33%, ${colors[0][1]} 66%, ${colors[0][2]} 100%)`
+			return gradient
+		}
+		if (colors[0].length === 4) {
+			console.log(colors)
+			const gradient = `linear-gradient(135deg, ${colors[0][0]} 25%, ${colors[0][1]} 50%, ${colors[0][2]} 75%, ${colors[0][3]} 100%)`
+			return gradient
+		}
+		return colors[0]
+	}
+
+	const setLabel = (label: string) => {
+		const trueLabel = label.split(':')
+		return trueLabel[0]
+	}
+
 	return (
 		<div className={classes.root}>
 			{option.values &&
 				option.values.map((v, i: number) => {
+					// console.log(v.hexColors)
 					const active = selectedOptions[option.displayName.toLowerCase()]
 					return (
 						<Tooltip
-							title={v.label}
+							title={setLabel(v.label)}
 							key={`${v.label}-${i}`}
 							disableFocusListener
 							disableTouchListener
@@ -40,9 +67,9 @@ const ProductColorSelector: FC<ProductColorSelectorProps> = ({
 										[classes.activeButton]: v.label.toLowerCase() === active,
 										[classes.noHexColorButton]: !v.hexColors,
 									})}
-									bg={v.hexColors ? v.hexColors[0] : 'transparent'}
+									bg={v.hexColors ? setBgColor(v.hexColors) : 'transparent'}
 									customsize="30px"
-									variant={!v.hexColors ? 'contained' : 'text'}
+									// variant={!v.hexColors ? 'contained' : 'text'}
 									disableElevation
 									onClick={() => {
 										setSelectedOptions(selectedOptions => {
@@ -81,7 +108,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		noHexColorButton: {
-			width: 'auto',
+			// width: 'auto',
 		},
 	}),
 )
