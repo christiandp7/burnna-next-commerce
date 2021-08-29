@@ -86,7 +86,7 @@ function About() {
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		pageWrapper: {
-			marginTop: theme.spacing(4),
+			// marginTop: theme.spacing(4),
 			marginBottom: theme.spacing(2),
 			[theme.breakpoints.down('md')]: {
 				marginTop: 0,
@@ -109,6 +109,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			fontWeight: theme.typography.fontWeightMedium,
 			fontSize: theme.spacing(8),
 			marginBottom: theme.spacing(3),
+			marginTop: theme.spacing(3),
 			[theme.breakpoints.down('sm')]: {
 				fontSize: theme.spacing(6),
 				marginBottom: theme.spacing(2),
