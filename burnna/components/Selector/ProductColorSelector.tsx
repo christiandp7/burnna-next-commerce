@@ -7,7 +7,6 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import { ProductOption, ProductOptionValues } from '@commerce/types/product'
 import { ColorSelectorButton } from '@burnna/components'
 import { SelectedOptions } from '@components/product/helpers'
-import tinygradient from 'tinygradient'
 
 interface ProductColorSelectorProps {
 	// values: ProductOptionValues[]
