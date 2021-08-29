@@ -10,6 +10,8 @@ import { HiOutlineShoppingBag } from 'react-icons/hi'
 import Link from '@material-ui/core/Link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Badge from '@material-ui/core/Badge'
+import Menu from '@material-ui/core/Menu'
+import MenuItem from '@material-ui/core/MenuItem'
 import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import { Burguer, LogoText } from '@burnna/svg'
@@ -26,6 +28,16 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 	const classes = useStyles()
 	const { setSidebarOpen, setFaqSidebarOpen, setCartOpen } = useDrawer()
 	const { data } = useCart()
+
+	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
+
+	const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+		setAnchorEl(event.currentTarget)
+	}
+
+	const handleClose = () => {
+		setAnchorEl(null)
+	}
 
 	function pad(d: number) {
 		return d < 10 ? '0' + d.toString() : d.toString()
@@ -73,10 +85,27 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 												<Link className={classes.link}>Men</Link>
 											</NextLink>
 										</li>
-										<li>
+										<li className={classes.hasChild}>
 											<Link className={classes.link} underline="none" href="#">
 												Our World
 											</Link>
+											<ul className={cx(classes.dropdown, 'dropdown')}>
+												<li>
+													<NextLink href="/about" passHref>
+														<Link>About</Link>
+													</NextLink>
+												</li>
+												<li>
+													<NextLink href="/about" passHref>
+														<Link>Explore</Link>
+													</NextLink>
+												</li>
+												<li>
+													<NextLink href="/faq/payment" passHref>
+														<Link>FAQ</Link>
+													</NextLink>
+												</li>
+											</ul>
 										</li>
 									</ul>
 								</Hidden>
@@ -304,6 +333,28 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		bagMobile: {
 			paddingRight: '4px',
+		},
+
+		// dropdown menu
+		hasChild: {
+			position: 'relative',
+			'&:hover': {
+				'& .dropdown': {
+					display: 'block',
+				},
+			},
+		},
+		dropdown: {
+			display: 'none',
+			position: 'absolute',
+			listStyle: 'none',
+			minWidth: '100%',
+			backgroundColor: theme.palette.cream.main,
+			paddingTop: theme.spacing(2),
+			padding: theme.spacing(1),
+			'& > li': {
+				paddingBottom: '4px',
+			},
 		},
 	}),
 )

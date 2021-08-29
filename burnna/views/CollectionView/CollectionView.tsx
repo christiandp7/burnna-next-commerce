@@ -39,7 +39,7 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 		locale,
 	})
 
-	console.log(data)
+	// console.log(data)
 
 	const classes = useStyles()
 
