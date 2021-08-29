@@ -4461,6 +4461,7 @@ export type ProductOption = Node & {
 	name: Scalars['String']
 	/** The corresponding value to the product option name. */
 	values: Array<Scalars['String']>
+	printValue?: Maybe<Scalars['String']>
 }
 
 /** The price range of the product. */
@@ -4925,6 +4926,7 @@ export type SelectedOption = {
 	name: Scalars['String']
 	/** The product option’s value. */
 	value: Scalars['String']
+	printValue?: Maybe<Scalars['String']>;
 }
 
 /** Specifies the input fields required for a selected option. */

@@ -4,22 +4,26 @@ import cx from 'classnames'
 import Button from '@material-ui/core/Button'
 import Tooltip from '@material-ui/core/Tooltip'
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
-import { ProductOption, ProductOptionValues } from '@commerce/types/product'
+import { ProductOption, ProductVariant } from '@commerce/types/product'
 import { ColorSelectorButton } from '@burnna/components'
 import { SelectedOptions } from '@components/product/helpers'
+import Image from 'next/image'
 
 interface ProductColorSelectorProps {
 	// values: ProductOptionValues[]
 	option: ProductOption
 	selectedOptions: SelectedOptions
 	setSelectedOptions: React.Dispatch<React.SetStateAction<SelectedOptions>>
+	variant: ProductVariant | undefined
 }
 
 const ProductColorSelector: FC<ProductColorSelectorProps> = ({
 	option,
 	selectedOptions,
 	setSelectedOptions,
+	variant,
 }) => {
+	// console.log(variant)
 	const classes = useStyles()
 	return (
 		<div className={classes.root}>
@@ -52,7 +56,23 @@ const ProductColorSelector: FC<ProductColorSelectorProps> = ({
 											}
 										})
 									}}>
-									{v.hexColors ? '' : v.label.toUpperCase()}
+									{/* {v.hexColors ? '' : v.label.toUpperCase()} */}
+
+									{/* {v.label.toLowerCase() === 'print' && 'y'} */}
+									{variant &&
+										v.isPrint &&
+										variant.print !== null &&
+										v.label.toLowerCase() === 'print' && (
+											<Image
+												src={variant.print?.value || ''}
+												alt={v.label}
+												className={classes.printImage}
+												// width={50}
+												// height={50}
+												layout="fill"
+												objectFit="cover"
+											/>
+										)}
 								</ColorSelectorButton>
 							</span>
 						</Tooltip>
@@ -81,7 +101,13 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		noHexColorButton: {
-			width: 'auto',
+			// width: 'auto',
+			position: 'relative',
+		},
+		printImage: {
+			'& > div': {
+				// wid
+			},
 		},
 	}),
 )

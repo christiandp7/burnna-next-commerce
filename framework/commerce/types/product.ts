@@ -1,3 +1,5 @@
+import { Maybe, Metafield } from '@framework/schema'
+
 export type ProductImage = {
 	url: string
 	alt?: string
@@ -22,17 +24,20 @@ export type ProductOption = {
 	id: string
 	displayName: string
 	values: ProductOptionValues[]
+	print?: string | null
 }
 
 export type ProductOptionValues = {
 	label: string
 	hexColors?: string[]
+	isPrint?: string
 }
 
 export type ProductVariant = {
 	id: string | number
 	options: ProductOption[]
 	availableForSale?: boolean
+	print?: Metafield | null
 }
 
 export type Product = {

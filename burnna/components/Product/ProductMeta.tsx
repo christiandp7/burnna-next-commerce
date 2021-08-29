@@ -77,6 +77,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 							{product.options && product.options.length > 0 && (
 								<ProductOptions
 									options={product.options}
+									variant={variant}
 									selectedOptions={selectedOptions}
 									setSelectedOptions={setSelectedOptions}
 								/>

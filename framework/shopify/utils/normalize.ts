@@ -47,6 +47,14 @@ const normalizeProductOption = ({
 					}
 				}
 			}
+			// --- custom by cdp7
+			if (value.toLowerCase() == 'print') {
+				output = {
+					...output,
+					isPrint: true,
+				}
+			}
+			// --- end custom
 			return output
 		}),
 	}
