@@ -353,7 +353,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			paddingTop: theme.spacing(2),
 			padding: theme.spacing(1),
 			'& > li': {
-				paddingBottom: '4px',
+				marginBottom: '4px',
 			},
 		},
 	}),

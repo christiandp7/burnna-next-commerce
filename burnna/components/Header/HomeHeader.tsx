@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-// import { Link } from 'react-router-dom'
+import cx from 'classnames'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
 import Link from '@material-ui/core/Link'
@@ -30,14 +30,29 @@ const HomeHeader: FC = () => {
 					</Link>
 				</NextLink>
 			</li>
-			<li>
-				<NextLink href="/" passHref>
-					<Link>
-						<Typography variant="h5" color="primary">
-							Our World
-						</Typography>
-					</Link>
-				</NextLink>
+			<li className={classes.hasChild}>
+				<Link href="#">
+					<Typography variant="h5" color="primary">
+						Our World
+					</Typography>
+				</Link>
+				<ul className={cx(classes.dropdown, 'dropdown')}>
+					<li>
+						<NextLink href="/about" passHref>
+							<Link variant="h5">About</Link>
+						</NextLink>
+					</li>
+					<li>
+						<NextLink href="/explore" passHref>
+							<Link variant="h5">Explore</Link>
+						</NextLink>
+					</li>
+					<li>
+						<NextLink href="/faq/payment" passHref>
+							<Link variant="h5">FAQ</Link>
+						</NextLink>
+					</li>
+				</ul>
 			</li>
 			<li>
 				<LocaleSwitcher />
@@ -73,21 +88,44 @@ const useStyles = makeStyles((theme: Theme) =>
 				padding: `0 ${theme.spacing(1)}px`,
 			},
 
-			'& li': {
-				margin: `0 ${theme.spacing(3)}px`,
+			'& > li': {
+				margin: `0 ${theme.spacing(1)}px`,
+				padding: `0 ${theme.spacing(2)}px`,
 				[theme.breakpoints.down('xs')]: {
-					margin: `0 ${theme.spacing(1)}px`,
+					margin: 0,
 				},
 			},
 			'& a': {
 				textDecoration: 'none',
-				fontWeight: 700,
+				// fontWeight: 700,
 			},
 			'& a:hover': {
 				textDecoration: 'underline',
 				textUnderlineOffset: '1px',
 				textDecorationThickness: '1px',
 				textDecorationColor: theme.palette.primary.main,
+			},
+		},
+		// dropdown menu
+		hasChild: {
+			position: 'relative',
+			'&:hover': {
+				'& .dropdown': {
+					display: 'block',
+				},
+			},
+		},
+		dropdown: {
+			display: 'none',
+			position: 'absolute',
+			listStyle: 'none',
+			minWidth: '100%',
+			backgroundColor: theme.palette.cream.main,
+			paddingTop: theme.spacing(2),
+			padding: theme.spacing(1),
+			zIndex: 1,
+			'& > li': {
+				marginBottom: '4px',
 			},
 		},
 	}),
