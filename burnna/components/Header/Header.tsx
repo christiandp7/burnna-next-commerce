@@ -96,7 +96,7 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 													</NextLink>
 												</li>
 												<li>
-													<NextLink href="/about" passHref>
+													<NextLink href="/explore" passHref>
 														<Link>Explore</Link>
 													</NextLink>
 												</li>
