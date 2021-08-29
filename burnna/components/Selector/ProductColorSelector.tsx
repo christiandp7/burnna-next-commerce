@@ -25,17 +25,14 @@ const ProductColorSelector: FC<ProductColorSelectorProps> = ({
 
 	const setBgColor = (colors: string[]) => {
 		if (colors[0].length === 2) {
-			console.log(colors)
 			const gradient = `linear-gradient(135deg, ${colors[0][0]} 50%, ${colors[0][1]} 50%)`
 			return gradient
 		}
 		if (colors[0].length === 3) {
-			console.log(colors)
 			const gradient = `linear-gradient(135deg, ${colors[0][0]} 33%, ${colors[0][1]} 66%, ${colors[0][2]} 100%)`
 			return gradient
 		}
 		if (colors[0].length === 4) {
-			console.log(colors)
 			const gradient = `linear-gradient(135deg, ${colors[0][0]} 25%, ${colors[0][1]} 50%, ${colors[0][2]} 75%, ${colors[0][3]} 100%)`
 			return gradient
 		}
