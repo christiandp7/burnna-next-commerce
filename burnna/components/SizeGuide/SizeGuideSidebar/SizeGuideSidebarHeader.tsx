@@ -39,8 +39,8 @@ const SizeGuideSidebarHeader: FC<Props> = ({ value, handleChange }) => {
 					onChange={handleChange}
 					// fullWidth
 					aria-label="Size Guide">
-					<SGTab label="Women Swinms" />
-					<SGTab label="Men Swimns" />
+					<SGTab label="Women Swims" />
+					<SGTab label="Men Swims" />
 				</SGTabs>
 			</AppBar>
 		</Grid>

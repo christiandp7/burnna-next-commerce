@@ -109,9 +109,15 @@ const useStyles = makeStyles((theme: Theme) =>
 		// dropdown menu
 		hasChild: {
 			position: 'relative',
+			[theme.breakpoints.down('sm')]: {
+				position: 'static',
+			},
 			'&:hover': {
 				'& .dropdown': {
 					display: 'block',
+					[theme.breakpoints.down('sm')]: {
+						display: 'flex',
+					},
 				},
 			},
 		},
@@ -124,6 +130,10 @@ const useStyles = makeStyles((theme: Theme) =>
 			paddingTop: theme.spacing(2),
 			padding: theme.spacing(1),
 			zIndex: 1,
+			[theme.breakpoints.down('sm')]: {
+				left: '0',
+				justifyContent: 'space-evenly',
+			},
 			'& > li': {
 				marginBottom: '4px',
 			},

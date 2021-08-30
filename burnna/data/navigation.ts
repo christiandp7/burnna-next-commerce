@@ -30,7 +30,7 @@ export const sidebarNavigation: NavItem[] = [
 	},
 ]
 
-export const faqNavigationTop: NavItem[] = [
+export const faqNavigation: NavItem[] = [
 	{
 		label: 'Payment',
 		href: '/faq/payment',
@@ -43,8 +43,6 @@ export const faqNavigationTop: NavItem[] = [
 		label: 'Size Guide',
 		href: '/faq/size-guide',
 	},
-]
-export const faqNavigationBottom: NavItem[] = [
 	{
 		label: 'Return Policy',
 		href: '/faq/return-policy',

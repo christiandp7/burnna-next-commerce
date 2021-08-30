@@ -2,9 +2,11 @@ import React, { FC } from 'react'
 import NextLink from 'next/link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import Grid from '@material-ui/core/Grid'
+import Link from '@material-ui/core/Link'
 import { LogoSquare } from '@burnna/svg'
 // data
-import { faqNavigationTop, faqNavigationBottom } from '@burnna/data'
+import { faqNavigation } from '@burnna/data'
 import type { NavItem } from '@burnna/data/navigation'
 
 const InfoSidebar: FC = () => {
@@ -18,28 +20,28 @@ const InfoSidebar: FC = () => {
 				</a>
 			</NextLink>
 			<div className={classes.sidebarNav}>
-				{faqNavigationTop.map((navItem: NavItem) => (
-					<Typography
-						key={navItem.href}
-						variant="h6"
-						className={classes.sidebarLinkItem}>
-						<NextLink href={navItem.href}>
-							<a className={classes.sidebarLink}>{navItem.label}</a>
-						</NextLink>
-					</Typography>
-				))}
-				<div className={classes.divider}></div>
-				{faqNavigationBottom.map((navItem: NavItem) => (
-					<Typography
-						key={navItem.href}
-						variant="h6"
-						className={classes.sidebarLinkItem}>
-						<NextLink href={navItem.href}>
-							<a className={classes.sidebarLink}>{navItem.label}</a>
-						</NextLink>
-					</Typography>
+				{faqNavigation.map((navItem: NavItem) => (
+					<NextLink href={navItem.href} key={navItem.href}>
+						<a className={classes.sidebarLink}>
+							<Typography variant="h6" className={classes.sidebarLinkItem}>
+								{navItem.label}
+							</Typography>
+						</a>
+					</NextLink>
 				))}
 			</div>
+			<Grid container item justify="space-between" className={classes.footer}>
+				<NextLink passHref href="/collection/men">
+					<Link color="secondary">
+						<Typography variant="h6">Men</Typography>
+					</Link>
+				</NextLink>
+				<NextLink passHref href="/collection/women">
+					<Link color="secondary">
+						<Typography variant="h6">Women</Typography>
+					</Link>
+				</NextLink>
+			</Grid>
 		</aside>
 	)
 }
@@ -55,6 +57,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 			flexDirection: 'column',
 			padding: '35px 0',
+			position: 'relative',
 		},
 		// Logo
 		logo: {
@@ -87,7 +90,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		// Sidebar Links
 		sidebarLinkItem: {
-			marginBottom: theme.spacing(3),
+			marginBottom: theme.spacing(2),
 		},
 		sidebarLink: {
 			padding: '5px 8px',
@@ -101,6 +104,11 @@ const useStyles = makeStyles((theme: Theme) =>
 				textDecorationThickness: '1px',
 				textUnderlineOffset: '3px',
 			},
+		},
+
+		footer: {
+			padding: `0 ${theme.spacing(3)}px`,
+			paddingBottom: theme.spacing(2),
 		},
 	}),
 )

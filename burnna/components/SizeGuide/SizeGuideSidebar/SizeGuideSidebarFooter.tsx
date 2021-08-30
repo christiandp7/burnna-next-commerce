@@ -15,7 +15,7 @@ const SizeGuideSidebarFooter = () => {
 			<NextLink passHref href="/faq/size-guide">
 				<Link color="secondary">Details</Link>
 			</NextLink>
-			<NextLink passHref href="/faq/size-guide">
+			<NextLink passHref href="/contact">
 				<Link color="secondary">Assistance</Link>
 			</NextLink>
 		</Grid>

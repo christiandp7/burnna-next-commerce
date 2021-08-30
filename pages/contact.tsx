@@ -94,12 +94,12 @@ function Contact() {
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		titleWrapper: {
-			maxWidth: '65%',
+			maxWidth: '40%',
 			textAlign: 'center',
-			// marginTop: '18px',
+			marginTop: '22px',
 			marginBottom: '12px',
 			[theme.breakpoints.up('md')]: {
-				maxWidth: '50%',
+				maxWidth: '40%',
 				// marginTop: '30px',
 				marginBottom: '18px',
 			},
