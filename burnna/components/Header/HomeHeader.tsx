@@ -129,7 +129,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			backgroundColor: theme.palette.cream.main,
 			paddingTop: theme.spacing(2),
 			padding: theme.spacing(1),
-			zIndex: 1,
+			zIndex: 10,
 			[theme.breakpoints.down('sm')]: {
 				left: '0',
 				justifyContent: 'space-evenly',

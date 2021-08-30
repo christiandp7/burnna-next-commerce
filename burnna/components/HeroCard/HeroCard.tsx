@@ -23,28 +23,32 @@ const HeroCard: FC<Props> = ({ image, link }) => {
 	const classes = useStyles()
 
 	return (
-		<Box className={classes.hero}>
-			<div className={classes.heroImgWrapper}>
-				<Image
-					quality={85}
-					src={image.src}
-					alt={link.title}
-					width={image.width}
-					height={image.height}
-					layout="responsive"
-					objectFit="cover"
-				/>
-			</div>
-			<Box className={classes.heroLinkContainer}>
-				<NextLink href={link.link} passHref key={link.title}>
-					<Link color="secondary" className={classes.heroLink}>
-						<Typography component="h2" variant="body1">
-							{link.title}
-						</Typography>
-					</Link>
-				</NextLink>
-			</Box>
-		</Box>
+		<NextLink href={link.link}>
+			<a className={classes.rootLink}>
+				<Box className={classes.hero}>
+					<div className={classes.heroImgWrapper}>
+						<Image
+							quality={85}
+							src={image.src}
+							alt={link.title}
+							width={image.width}
+							height={image.height}
+							layout="responsive"
+							objectFit="cover"
+						/>
+					</div>
+					<Box className={classes.heroLinkContainer}>
+						<NextLink href={link.link} passHref key={link.title}>
+							<Link color="secondary" className={classes.heroLink}>
+								<Typography component="h2" variant="body1">
+									{link.title}
+								</Typography>
+							</Link>
+						</NextLink>
+					</Box>
+				</Box>
+			</a>
+		</NextLink>
 	)
 }
 
@@ -55,7 +59,25 @@ const useStyles = makeStyles((theme: Theme) =>
 			height: '100%',
 			userSelect: 'none',
 			userDrag: 'none',
+			'&::before': {
+				content: '""',
+				position: 'absolute',
+				top: 0,
+				left: 0,
+				width: '100%',
+				height: '100%',
+				backgroundColor: theme.palette.primary.main,
+				opacity: 0,
+				zIndex: 1,
+				transition: 'opacity ease .2s',
+			},
+			'&:hover': {
+				'&::before': {
+					opacity: 0.4,
+				},
+			},
 		},
+		rootLink: {},
 		heroImgWrapper: {
 			position: 'absolute',
 			top: '0',
@@ -63,13 +85,13 @@ const useStyles = makeStyles((theme: Theme) =>
 			width: '100%',
 			height: '100%',
 			'& > div': {
-				// width: '100%',
 				height: '100%',
 			},
 		},
 		heroLinkContainer: {
 			position: 'absolute',
 			padding: `${theme.spacing(1)}px ${theme.spacing(2) - 4}px`,
+			zIndex: 2,
 		},
 		heroLink: {
 			// color: theme.palette.primary.main,
