@@ -6,9 +6,11 @@ import Typography from '@material-ui/core/Typography'
 import { LogoSquare } from '@burnna/svg'
 import { sidebarNavigation } from '@burnna/data'
 import type { NavItem } from '@burnna/data/navigation'
+import { useDrawer } from '@burnna/context/DrawerContext'
 
 const Sidebar: FC = () => {
 	const classes = useStyles()
+	const { setSidebarOpen } = useDrawer()
 
 	return (
 		<aside className={classes.sidebar}>
@@ -21,7 +23,11 @@ const Sidebar: FC = () => {
 				{sidebarNavigation.map((navItem: NavItem) => (
 					<Typography key={navItem.href} variant="h6">
 						<NextLink href={navItem.href}>
-							<a className={classes.sidebarLink}>{navItem.label}</a>
+							<a
+								className={classes.sidebarLink}
+								onClick={() => setSidebarOpen(false)}>
+								{navItem.label}
+							</a>
 						</NextLink>
 					</Typography>
 				))}

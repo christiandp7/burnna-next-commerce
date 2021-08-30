@@ -34,7 +34,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	})
 
 	const addItem = useAddItem()
-	const { setCartOpen, infoSidebar, setInfoSidebar } = useDrawer()
+	const { setCartOpen, setInfoSidebar } = useDrawer()
 	const [loading, setLoading] = useState(false)
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 

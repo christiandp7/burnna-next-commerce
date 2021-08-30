@@ -8,9 +8,11 @@ import { LogoSquare } from '@burnna/svg'
 // data
 import { faqNavigation } from '@burnna/data'
 import type { NavItem } from '@burnna/data/navigation'
+import { useDrawer } from '@burnna/context/DrawerContext'
 
 const InfoSidebar: FC = () => {
 	const classes = useStyles()
+	const { setFaqSidebarOpen } = useDrawer()
 
 	return (
 		<aside className={classes.sidebar}>
@@ -22,7 +24,9 @@ const InfoSidebar: FC = () => {
 			<div className={classes.sidebarNav}>
 				{faqNavigation.map((navItem: NavItem) => (
 					<NextLink href={navItem.href} key={navItem.href}>
-						<a className={classes.sidebarLink}>
+						<a
+							className={classes.sidebarLink}
+							onClick={() => setFaqSidebarOpen(false)}>
 							<Typography variant="h6" className={classes.sidebarLinkItem}>
 								{navItem.label}
 							</Typography>
@@ -32,12 +36,12 @@ const InfoSidebar: FC = () => {
 			</div>
 			<Grid container item justify="space-between" className={classes.footer}>
 				<NextLink passHref href="/collection/men">
-					<Link color="secondary">
+					<Link color="secondary" onClick={() => setFaqSidebarOpen(false)}>
 						<Typography variant="h6">Men</Typography>
 					</Link>
 				</NextLink>
 				<NextLink passHref href="/collection/women">
-					<Link color="secondary">
+					<Link color="secondary" onClick={() => setFaqSidebarOpen(false)}>
 						<Typography variant="h6">Women</Typography>
 					</Link>
 				</NextLink>
