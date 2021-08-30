@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import NextLink from 'next/link'
 import Image from 'next/image'
 import { makeStyles } from '@material-ui/core/styles'
@@ -12,7 +12,7 @@ import Grow from '@material-ui/core/Grow'
 import usePrice from '@framework/product/use-price'
 // import { LazyLoadImage } from 'react-lazy-load-image-component'
 // import Fade from 'react-reveal/Fade'
-import { Product } from '@commerce/types/product'
+import { Product, ProductOption, ProductOptionValues } from '@commerce/types/product'
 import TextTruncate from 'react-truncate'
 
 interface Props {
@@ -28,15 +28,29 @@ interface Props {
 const placeholderImg = '/product-img-placeholder.svg'
 
 const CollectionGridItem: FC<Props> = ({ product }) => {
-	// console.log(product)
+	console.log(product)
 
 	const [showDetails, setShowDetails] = useState(false)
+	const [colorOptions, setColorOptions] = useState<ProductOption | null>(null)
 
 	const handleMouseEnter = () => {
 		setShowDetails(true)
 	}
 	const handleMouseLeave = () => {
 		setShowDetails(false)
+	}
+
+	useEffect(() => {
+		if (product.options.length > 0) {
+			getColorOptions(product.options)
+		}
+	}, [colorOptions])
+
+	const getColorOptions = (options: ProductOption[]) => {
+		const colorOpts = options.find(opt => opt.displayName.match(/colou?r/gi))
+		if (colorOpts) {
+			setColorOptions(colorOpts)
+		}
 	}
 
 	const { price } = usePrice({
@@ -69,24 +83,21 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 						</a>
 					</NextLink>
 				)}
-				{product.variants.length > 0 && (
+				{product.options && (
 					<div className={classes.productVariantsContainer}>
-						variant
-						{/* {product.variants && (
-							<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
-								<div className={classes.productVariants}>
-									{product.variants.color &&
-										product.variants.color.map(color => (
-											<Tooltip title={color.name} placement="right">
-												<Box
-													className={classes.productColorVariantBadge}
-													bgcolor={color.hex}
-												/>
-											</Tooltip>
-										))}
-								</div>
-							</Grow>
-						)} */}
+						<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
+							<div className={classes.productVariants}>
+								{colorOptions?.values &&
+									colorOptions?.values.map((v: ProductOptionValues) => (
+										<Tooltip key={v?.label} title={v.label} placement="right">
+											<Box
+												className={classes.productColorVariantBadge}
+												bgcolor={v?.hexColors && v.hexColors[0][0]}
+											/>
+										</Tooltip>
+									))}
+							</div>
+						</Grow>
 					</div>
 				)}
 			</div>
