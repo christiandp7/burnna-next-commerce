@@ -15,6 +15,7 @@ import usePrice from '@framework/product/use-price'
 import useUpdateItem from '@framework/cart/use-update-item'
 import useRemoveItem from '@framework/cart/use-remove-item'
 import { CartQuantitySelector } from '@burnna/components'
+import { setLabel } from '@burnna/utils/colors'
 
 type ItemOption = {
 	name: string
@@ -108,7 +109,7 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 								className={classes.option}
 								variant="caption"
 								color="inherit">
-								{option.name}: {option.value}
+								{option.name}: {setLabel(option.value)}
 							</Typography>
 						))}
 					</Grid>
