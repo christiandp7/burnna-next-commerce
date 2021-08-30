@@ -1,6 +1,6 @@
 export const setBgColor = (colors: string[]) => {
 	if (colors[0].length === 2) {
-		const gradient = `linear-gradient(135deg, ${colors[0][0]} 50%, ${colors[0][1]} 50%)`
+		const gradient = `linear-gradient(135deg, ${colors[0][0]} 33%, ${colors[0][1]} 66%)`
 		return gradient
 	}
 	if (colors[0].length === 3) {
