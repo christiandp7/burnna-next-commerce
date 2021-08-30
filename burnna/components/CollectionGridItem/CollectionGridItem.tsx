@@ -10,10 +10,9 @@ import Box from '@material-ui/core/Box'
 import Tooltip from '@material-ui/core/Tooltip'
 import Grow from '@material-ui/core/Grow'
 import usePrice from '@framework/product/use-price'
-// import { LazyLoadImage } from 'react-lazy-load-image-component'
-// import Fade from 'react-reveal/Fade'
 import { Product, ProductOption, ProductOptionValues } from '@commerce/types/product'
 import TextTruncate from 'react-truncate'
+import { setBgColor, setLabel } from '@burnna/utils/colors'
 
 interface Props {
 	product: Product
@@ -28,7 +27,7 @@ interface Props {
 const placeholderImg = '/product-img-placeholder.svg'
 
 const CollectionGridItem: FC<Props> = ({ product }) => {
-	console.log(product)
+	// console.log(product)
 
 	const [showDetails, setShowDetails] = useState(false)
 	const [colorOptions, setColorOptions] = useState<ProductOption | null>(null)
@@ -89,10 +88,17 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 							<div className={classes.productVariants}>
 								{colorOptions?.values &&
 									colorOptions?.values.map((v: ProductOptionValues) => (
-										<Tooltip key={v?.label} title={v.label} placement="right">
+										<Tooltip
+											key={v?.label}
+											title={setLabel(v.label)}
+											placement="right">
 											<Box
 												className={classes.productColorVariantBadge}
-												bgcolor={v?.hexColors && v.hexColors[0][0]}
+												style={{
+													background: v.hexColors
+														? setBgColor(v.hexColors)
+														: 'transparent',
+												}}
 											/>
 										</Tooltip>
 									))}
