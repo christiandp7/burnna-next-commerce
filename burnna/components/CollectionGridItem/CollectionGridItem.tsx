@@ -84,26 +84,30 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 				)}
 				{product.options && (
 					<div className={classes.productVariantsContainer}>
-						<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
-							<div className={classes.productVariants}>
-								{colorOptions?.values &&
-									colorOptions?.values.map((v: ProductOptionValues) => (
-										<Tooltip
-											key={v?.label}
-											title={setLabel(v.label)}
-											placement="right">
-											<Box
-												className={classes.productColorVariantBadge}
-												style={{
-													background: v.hexColors
-														? setBgColor(v.hexColors)
-														: 'transparent',
-												}}
-											/>
-										</Tooltip>
-									))}
-							</div>
-						</Grow>
+						<NextLink href={`/product/${product.slug}`}>
+							<a className={classes.imageContainer}>
+								<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
+									<div className={classes.productVariants}>
+										{colorOptions?.values &&
+											colorOptions?.values.map((v: ProductOptionValues) => (
+												<Tooltip
+													key={v?.label}
+													title={setLabel(v.label)}
+													placement="right">
+													<Box
+														className={classes.productColorVariantBadge}
+														style={{
+															background: v.hexColors
+																? setBgColor(v.hexColors)
+																: 'transparent',
+														}}
+													/>
+												</Tooltip>
+											))}
+									</div>
+								</Grow>
+							</a>
+						</NextLink>
 					</div>
 				)}
 			</div>
@@ -164,7 +168,7 @@ const useStyles = makeStyles(theme => ({
 		position: 'absolute',
 		left: 0,
 		bottom: 0,
-		width: '100%',
+		// width: '100%',
 		padding: '0 18px',
 		paddingBottom: '15px',
 		zIndex: 1,
@@ -185,6 +189,12 @@ const useStyles = makeStyles(theme => ({
 		transition: `transform ${theme.transitions.easing.easeIn} 150ms`,
 		'&:hover': {
 			transform: 'scale(1.1)',
+		},
+		[theme.breakpoints.down('md')]: {
+			width: '18px',
+			height: '18px',
+			borderWidth: 1,
+			margin: '6px 0',
 		},
 	},
 
