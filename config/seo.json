@@ -11,9 +11,15 @@
     "site_name": "Burnna Swim",
     "images": [
       {
-        "url": "/card.png",
-        "width": 800,
-        "height": 600,
+        "url": "/seo_card_1200x630.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "Burnna Swim"
+      },
+      {
+        "url": "/seo_card_1200x1200.jpg",
+        "width": 1200,
+        "height": 1200,
         "alt": "Burnna Swim"
       }
     ]
