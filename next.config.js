@@ -1,4 +1,5 @@
 const commerce = require('./commerce.config.json')
+const withPWA = require('next-pwa')
 const {
 	withCommerceConfig,
 	getProviderName,
@@ -11,7 +12,7 @@ const isSaleor = provider === 'saleor'
 const isSwell = provider === 'swell'
 const isVendure = provider === 'vendure'
 
-module.exports = withCommerceConfig({
+const siteConfig = withCommerceConfig({
 	commerce,
 	i18n: {
 		locales: ['en-US', 'es'],
@@ -38,6 +39,18 @@ module.exports = withCommerceConfig({
 					destination: `${process.env.NEXT_PUBLIC_VENDURE_SHOP_API_URL}/:path*`,
 				},
 		].filter(Boolean)
+	},
+})
+
+module.exports = withPWA({
+	...siteConfig,
+	pwa: {
+		dest: 'public',
+		disable: process.env.NODE_ENV === 'development',
+		register: true,
+		scope: '/',
+		// sw: 'service-worker.js',
+		//...
 	},
 })
 

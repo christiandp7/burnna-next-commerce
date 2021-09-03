@@ -7,7 +7,6 @@
   "theme_color": "#fff",
   "background_color": "#000000",
   "orientation": "portrait",
-  "scope": "/",
   "icons": [
     {
       "src": "/icons/icon-36x36.png",
@@ -48,7 +47,7 @@
       "src": "/icons/maskable.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ]
 }
