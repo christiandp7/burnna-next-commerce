@@ -156,6 +156,7 @@ const Campaign = () => {
 							placeholder="blur"
 							blurDataURL="/images/campaign/campaign_09.jpg"
 							layout="responsive"
+							objectFit="cover"
 						/>
 					</div>
 				</div>
@@ -273,6 +274,11 @@ const useStyles = makeStyles((theme: Theme) =>
 				width: '45%',
 				'&:first-child': {
 					marginRight: '2%',
+				},
+				'&:last-child': {
+					'&> div': {
+						height: '100%',
+					},
 				},
 			},
 		},
