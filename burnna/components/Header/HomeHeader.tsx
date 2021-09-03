@@ -43,6 +43,11 @@ const HomeHeader: FC = () => {
 						</NextLink>
 					</li>
 					<li>
+						<NextLink href="/campaign" passHref>
+							<Link variant="h5">Campaign</Link>
+						</NextLink>
+					</li>
+					<li>
 						<NextLink href="/explore" passHref>
 							<Link variant="h5">Explore</Link>
 						</NextLink>

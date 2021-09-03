@@ -96,6 +96,11 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 													</NextLink>
 												</li>
 												<li>
+													<NextLink href="/campaign" passHref>
+														<Link>Campaign</Link>
+													</NextLink>
+												</li>
+												<li>
 													<NextLink href="/explore" passHref>
 														<Link>Explore</Link>
 													</NextLink>
