@@ -18,3 +18,6 @@ export {
 	ProductSizeSelector,
 	CartQuantitySelector,
 } from './Selector'
+
+export { default as BodySizeTable } from './SizeGuide/BodySizeTable'
+export { default as MeasurementsTable } from './SizeGuide/MeasurementsTable'
