@@ -82,6 +82,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		container: {
 			height: 'calc(100vh - 34px)',
+			[theme.breakpoints.down('md')]: {
+				height: 'calc(100vh - 30px)',
+			},
 		},
 		column: {
 			height: '100%',
