@@ -22,8 +22,8 @@ function About() {
 							<Image
 								src="/images/about/about-img.jpg"
 								alt="About image"
-								width={1132}
-								height={1222}
+								width={1200}
+								height={1499}
 								layout="responsive"
 							/>
 						</div>
