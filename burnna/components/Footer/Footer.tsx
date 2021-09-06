@@ -55,9 +55,7 @@ const Footer: FC = () => {
 									</ListItem>
 									<ListItem>
 										<NextLink href="/faq/payment" passHref>
-											<Link className={classes.link} href="#">
-												Faq
-											</Link>
+											<Link className={classes.link}>Faq</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
@@ -130,22 +128,16 @@ const Footer: FC = () => {
 									</ListItem>
 									<ListItem>
 										<NextLink href="/about" passHref>
-											<Link className={classes.link} href="#">
-												About
-											</Link>
+											<Link className={classes.link}>About</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
 										<NextLink passHref href="/campaign">
-											<Link className={classes.link} href="#">
-												Campaigns
-											</Link>
+											<Link className={classes.link}>Campaigns</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
-											Collabs
-										</Link>
+										<Link className={classes.link}>Collabs</Link>
 									</ListItem>
 								</List>
 							</Grid>
