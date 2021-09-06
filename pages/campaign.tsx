@@ -61,7 +61,7 @@ const Campaign = () => {
 					</div>
 				</div>
 				{/* Row 3 */}
-				<div className={cn(classes.row, classes.row3)}>
+				<div className={cn(classes.row, classes.row3, 'no-padd')}>
 					<div className={classes.imageContainer}>
 						<Image
 							unoptimized
@@ -185,13 +185,16 @@ const useStyles = makeStyles((theme: Theme) =>
 			width: '100%',
 			maxWidth: '1920px',
 			margin: '0 auto',
-			padding: '0 5%',
+			// padding: '0 5%',
 		},
 		row: {
 			width: '100%',
 			marginBottom: theme.spacing(12),
-			[theme.breakpoints.down('md')]: {
+			[theme.breakpoints.down('sm')]: {
 				marginBottom: theme.spacing(5),
+			},
+			'&:not(.no-padd)': {
+				padding: '0 5%',
 			},
 		},
 		imageContainer: {
@@ -205,18 +208,18 @@ const useStyles = makeStyles((theme: Theme) =>
 			'& .caption': {
 				marginTop: theme.spacing(4),
 				textAlign: 'justify',
-				[theme.breakpoints.down('md')]: {
+				[theme.breakpoints.down('sm')]: {
 					marginTop: theme.spacing(2),
 				},
 			},
-			[theme.breakpoints.down('md')]: {
+			[theme.breakpoints.down('sm')]: {
 				width: '100%',
 			},
 		},
 		row2: {
 			display: 'flex',
 			'& > div': {
-				width: '45%',
+				width: '50%',
 				'&:first-child': {
 					marginRight: '4%',
 				},
@@ -226,12 +229,12 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 			justifyContent: 'flex-end',
 			'& > div': {
-				width: '95%',
+				width: '85%',
 			},
 		},
 		row4: {
 			display: 'flex',
-			[theme.breakpoints.down('md')]: {
+			[theme.breakpoints.down('sm')]: {
 				flexWrap: 'wrap',
 			},
 			'& > div': {
@@ -241,7 +244,7 @@ const useStyles = makeStyles((theme: Theme) =>
 					paddingRight: theme.spacing(2),
 					alignItems: 'flex-end',
 					marginRight: '10%',
-					[theme.breakpoints.down('md')]: {
+					[theme.breakpoints.down('sm')]: {
 						width: '100%',
 						marginRight: 0,
 						marginTop: theme.spacing(2),
@@ -250,7 +253,7 @@ const useStyles = makeStyles((theme: Theme) =>
 				},
 				'&:last-child': {
 					width: '48%',
-					[theme.breakpoints.down('md')]: {
+					[theme.breakpoints.down('sm')]: {
 						width: '100%',
 					},
 				},
@@ -265,13 +268,13 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 			justifyContent: 'flex-end',
 			'& > div': {
-				width: '65%',
+				width: '60%',
 			},
 		},
 		row7: {
 			display: 'flex',
 			'& > div': {
-				width: '45%',
+				width: '49%',
 				'&:first-child': {
 					marginRight: '2%',
 				},
@@ -284,7 +287,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		row8: {
 			'& > div': {
-				width: '92%',
+				width: '100%',
 			},
 		},
 	}),
