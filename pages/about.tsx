@@ -26,13 +26,13 @@ function About() {
 								height={1499}
 								layout="responsive"
 							/>
+							<Typography className={classes.pageTitle} component="h1" variant="h6">
+								About
+							</Typography>
 						</div>
 					</Grid>
 					<Grid item xs={12} md={6}>
 						<div className={classes.rte}>
-							<Typography className={classes.pageTitle} component="h1" variant="h6">
-								About
-							</Typography>
 							<Typography className={classes.title} component="h2" variant="h6">
 								Who are we?
 							</Typography>
@@ -93,6 +93,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		imageContainer: {
+			position: 'relative',
 			width: '100%',
 			'& > div': {
 				width: '100%',
@@ -100,14 +101,20 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		// Text
 		rte: {
+			marginTop: theme.spacing(8),
 			padding: `${theme.spacing(1)}px ${theme.spacing(3)}px`,
 			'& p': {
 				marginBottom: '16px',
 			},
 		},
 		pageTitle: {
+			position: 'absolute',
+			top: '8%',
+			width: '100%',
+			textAlign: 'center',
+			zIndex: 1,
 			fontWeight: theme.typography.fontWeightMedium,
-			fontSize: theme.spacing(8),
+			fontSize: theme.spacing(5),
 			marginBottom: theme.spacing(3),
 			marginTop: theme.spacing(3),
 			[theme.breakpoints.down('sm')]: {
