@@ -35,10 +35,10 @@ export const faqNavigation: NavItem[] = [
 		label: 'Payment',
 		href: '/faq/payment',
 	},
-	{
-		label: 'Product Care',
-		href: '/faq/product-care',
-	},
+	// {
+	// 	label: 'Product Care',
+	// 	href: '/faq/product-care',
+	// },
 	{
 		label: 'Size Guide',
 		href: '/faq/size-guide',
