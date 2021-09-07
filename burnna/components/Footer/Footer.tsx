@@ -28,7 +28,7 @@ const SPOTIFY = 'https://open.spotify.com/user/mariadoloreslagares'
 
 const Footer: FC = () => {
 	const classes = useStyles()
-	const { t } = useTranslation('footer')
+	const { t } = useTranslation('common')
 	return (
 		<footer className={classes.footer}>
 			<div className={classes.logoFooterContainer}>

@@ -15,7 +15,7 @@ const HomeHeader: FC = () => {
 	const classes = useStyles()
 	const { setCartOpen } = useDrawer()
 	const { data } = useCart()
-	const { t } = useTranslation('home-header')
+	const { t } = useTranslation('common')
 	function pad(d: number) {
 		return d < 10 ? '0' + d.toString() : d.toString()
 	}

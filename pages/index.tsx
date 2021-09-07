@@ -54,8 +54,8 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
 	const classes = useStyles()
 
-	const womenLink = { title: 'shop women', link: '/collection/women' }
-	const menLink = { title: 'shop men', link: '/collection/men' }
+	const womenLink = { title: 'shopWomen', link: '/collection/women' }
+	const menLink = { title: 'shopMen', link: '/collection/men' }
 
 	const menImage = { src: '/images/home/men_new.jpg', width: 1000, height: 1117 }
 	const womenImage = { src: '/images/home/women_new.jpg', width: 828, height: 1039 }
