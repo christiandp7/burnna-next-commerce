@@ -260,7 +260,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		logoContainer: {
 			'&.fixed': {
-				[theme.breakpoints.up('md')]: {
+				[theme.breakpoints.up('lg')]: {
 					position: 'relative',
 					bottom: '-140%',
 				},
@@ -268,6 +268,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		logo: {
 			maxWidth: 160,
+			[theme.breakpoints.down('lg')]: {
+				maxWidth: 120,
+			},
 			[theme.breakpoints.down('sm')]: {
 				maxWidth: 110,
 			},
