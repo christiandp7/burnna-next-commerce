@@ -1,11 +1,18 @@
 {
-  "semi": false,
+  "printWidth": 85,
   "singleQuote": true,
+  "trailingComma": "all",
+  "useTabs": true,
   "tabWidth": 2,
-  "useTabs": false,
+  "semi": false,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": true,
+  "arrowParens": "avoid",
   "overrides": [
     {
-      "files": ["framework/saleor/**/*"],
+      "files": [
+        "framework/saleor/**/*"
+      ],
       "options": {
         "printWidth": 120
       }

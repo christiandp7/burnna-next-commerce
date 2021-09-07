@@ -1,26 +1,32 @@
 {
-  "title": "ACME Storefront | Powered by Next.js Commerce",
-  "titleTemplate": "%s - ACME Storefront",
-  "description": "Next.js Commerce - https://www.nextjs.org/commerce",
+  "title": "Burnna Swim | Contemporary Swimwear",
+  "titleTemplate": "%s - Burnna Swim",
+  "description": "Empowering and designing for the modern nomad in an eternal holiday",
   "openGraph": {
-    "title": "ACME Storefront | Powered by Next.js Commerce",
-    "description": "Next.js Commerce - https://www.nextjs.org/commerce",
+    "title": "Burnna Swim | Contemporary Swimwear",
+    "description": "Empowering and designing for the modern nomad in an eternal holiday",
     "type": "website",
-    "locale": "en_IE",
-    "url": "https://nextjs.org/commerce",
-    "site_name": "Next.js Commerce",
+    "locale": "en",
+    "url": "https://burnna.vercel.app",
+    "site_name": "Burnna Swim",
     "images": [
       {
-        "url": "/card.png",
-        "width": 800,
-        "height": 600,
-        "alt": "Next.js Commerce"
+        "url": "/seo_card_1200x1200.jpg",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Burnna Swim"
+      },
+      {
+        "url": "/seo_card_1200x630.jpg",
+        "width": 1200,
+        "height": 630,
+        "alt": "Burnna Swim"
       }
     ]
   },
   "twitter": {
-    "handle": "@nextjs",
-    "site": "@nextjs",
+    "handle": "@burnnaswim",
+    "site": "@burnnaswim",
     "cardType": "summary_large_image"
   }
 }
