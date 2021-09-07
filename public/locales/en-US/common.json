@@ -17,5 +17,13 @@
   "shopMen": "Shop Men",
   "shopWomen": "Shop Women",
   "men": "Men",
-  "women": "Women"
+  "women": "Women",
+  "aboutUs": "About Us",
+  "returnPolicy": "Return Policy",
+  "shippingPolicy": "Shipping Policy",
+  "shippingAndTaxes": "Shipping & Taxes",
+  "calculatedAtCheckout": "Calculated at Checkout",
+  "proceedToCheckout": "Proceed To Checkout",
+  "yourBagIsEmpty": "Your Bag is empty",
+  "continueShopping": "Continue Shopping"
 }

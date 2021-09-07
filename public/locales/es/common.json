@@ -17,5 +17,13 @@
   "shopMen": "Comprar Hombre",
   "shopWomen": "Comprar Mujer",
   "men": "Hombre",
-  "women": "Mujer"
+  "women": "Mujer",
+  "aboutUs": "Nosotros",
+  "returnPolicy": "Política de Retorno",
+  "shippingPolicy": "Política de Envío",
+  "shippingAndTaxes": "Envíos e Impuestos",
+  "calculatedAtCheckout": "Calulado en el Checkout",
+  "proceedToCheckout": "Proceder Al Checkout",
+  "yourBagIsEmpty": "Tu Cesta está vacía",
+  "continueShopping": "Continuar Comprando"
 }

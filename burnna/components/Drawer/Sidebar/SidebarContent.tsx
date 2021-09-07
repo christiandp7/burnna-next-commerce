@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 import NextLink from 'next/link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
@@ -11,6 +12,7 @@ import { useDrawer } from '@burnna/context/DrawerContext'
 const Sidebar: FC = () => {
 	const classes = useStyles()
 	const { setSidebarOpen } = useDrawer()
+	const { t } = useTranslation('common')
 
 	return (
 		<aside className={classes.sidebar}>
@@ -26,7 +28,7 @@ const Sidebar: FC = () => {
 							<a
 								className={classes.sidebarLink}
 								onClick={() => setSidebarOpen(false)}>
-								{navItem.label}
+								{t(navItem.label)}
 							</a>
 						</NextLink>
 					</Typography>

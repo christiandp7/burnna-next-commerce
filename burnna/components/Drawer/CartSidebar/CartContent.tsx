@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import cx from 'classnames'
+import { useTranslation } from 'react-i18next'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -18,6 +19,7 @@ import usePrice from '@framework/product/use-price'
 const CartContent: FC = () => {
 	const { setCartOpen } = useDrawer()
 	const classes = useStyles()
+	const { t } = useTranslation('common')
 	const { data, isLoading, isEmpty } = useCart()
 	const { price: subTotal } = usePrice(
 		data && {
@@ -51,7 +53,7 @@ const CartContent: FC = () => {
 								component="h2"
 								variant="h6"
 								align="center">
-								Cart
+								{t('bag')}
 							</Typography>
 						</Toolbar>
 					</AppBar>
@@ -65,7 +67,7 @@ const CartContent: FC = () => {
 						alignItems="center"
 						justifyContent="center">
 						<Typography variant="h5" align="center">
-							Your Cart is empty.
+							{t('yourBagIsEmpty')}.
 						</Typography>
 					</Box>
 				) : (
@@ -99,10 +101,10 @@ const CartContent: FC = () => {
 						</li>
 						<li className={classes.subtotalRow}>
 							<Typography variant="body1" color="inherit">
-								Shipping & Taxes
+								{t('shippingAndTaxes')}
 							</Typography>
 							<Typography variant="body1" color="inherit">
-								Calculated at checkout
+								{t('calculatedAtCheckout')}
 							</Typography>
 						</li>
 					</ul>
@@ -123,7 +125,7 @@ const CartContent: FC = () => {
 						href="/"
 						className={classes.checkoutButton}
 						color="secondary">
-						Continue Shopping
+						{t('continueShopping')}
 					</Button>
 				) : (
 					<Button
@@ -133,7 +135,7 @@ const CartContent: FC = () => {
 						fullWidth
 						className={classes.checkoutButton}
 						color="secondary">
-						Proceed to Checkout ({total})
+						{t('proceedToCheckout')} ({total})
 					</Button>
 				)}
 			</Grid>
