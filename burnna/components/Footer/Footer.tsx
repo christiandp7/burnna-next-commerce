@@ -168,9 +168,11 @@ const Footer: FC = () => {
 											<Link className={classes.link}>Campaigns</Link>
 										</NextLink>
 									</ListItem>
-									{/* <ListItem>
-										<Link className={classes.link}>Collabs</Link>
-									</ListItem> */}
+									<ListItem>
+										<NextLink passHref href="/explore">
+											<Link className={classes.link}>Explore</Link>
+										</NextLink>
+									</ListItem>
 								</List>
 							</Grid>
 						</Grid>
