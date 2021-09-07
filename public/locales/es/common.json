@@ -25,5 +25,10 @@
   "calculatedAtCheckout": "Calulado en el Checkout",
   "proceedToCheckout": "Proceder Al Checkout",
   "yourBagIsEmpty": "Tu Cesta está vacía",
-  "continueShopping": "Continuar Comprando"
+  "continueShopping": "Continuar Comprando",
+  "bodySize": "Cuerpo",
+  "measurements": "Medidas",
+  "details": "Detalles",
+  "assistance": "Asistencia",
+  "swims": "Swims"
 }
