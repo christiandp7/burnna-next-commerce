@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'next-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Grid from '@material-ui/core/Grid'
@@ -17,6 +18,7 @@ interface Props {
 const SizeGuideSidebarHeader: FC<Props> = ({ value, handleChange }) => {
 	const { infoSidebar, setInfoSidebar } = useDrawer()
 	const classes = useStyles()
+	const { t } = useTranslation('common')
 
 	return (
 		<Grid item className={classes.header}>
@@ -39,8 +41,8 @@ const SizeGuideSidebarHeader: FC<Props> = ({ value, handleChange }) => {
 					onChange={handleChange}
 					// fullWidth
 					aria-label="Size Guide">
-					<SGTab label="Women Swims" />
-					<SGTab label="Men Swims" />
+					<SGTab label={`${t('women')} ${t('swims')}`} />
+					<SGTab label={`${t('men')} ${t('swims')}`} />
 				</SGTabs>
 			</AppBar>
 		</Grid>

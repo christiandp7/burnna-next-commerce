@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import Link from '@material-ui/core/Link'
@@ -26,6 +27,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const classes = useStyles()
 	const theme = useTheme()
 	const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+	const { t } = useTranslation('common')
 
 	const { price } = usePrice({
 		amount: product.price.value,
@@ -99,7 +101,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 									component="button"
 									className={classes.infoButton}
 									onClick={() => setInfoSidebar({ open: true, view: 'sizeguide' })}>
-									Size Guide
+									{t('sizeGuide')}
 								</Link>
 							</div>
 							<div className={classes.infoItem}>
@@ -108,7 +110,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 									component="button"
 									className={classes.infoButton}
 									onClick={() => setInfoSidebar({ open: true, view: 'details' })}>
-									Details
+									{t('details')}
 								</Link>
 							</div>
 						</div>

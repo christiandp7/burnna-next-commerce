@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'next-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import Tabs from '@material-ui/core/Tabs'
@@ -28,6 +29,7 @@ interface Props {
 
 const SizeGuideSidebarBody: FC<Props> = ({ value, handleSwipable }) => {
 	const classes = useStyles()
+	const { t } = useTranslation('common')
 	return (
 		<Grid item xs className={classes.body}>
 			<SwipeableViews
@@ -41,13 +43,13 @@ const SizeGuideSidebarBody: FC<Props> = ({ value, handleSwipable }) => {
 					<div className={classes.tabPanelWrapper}>
 						<div className={classes.accordionWrapper}>
 							<Typography className={classes.accordionTitle} variant="body1">
-								Body Size
+								{t('bodySize')}
 							</Typography>
 							<SizeGuideAccordion sizeGuideItems={bodySizeItems} />
 						</div>
 						<div className={classes.accordionWrapper}>
 							<Typography className={classes.accordionTitle} variant="body1">
-								Measurements
+								{t('measurements')}
 							</Typography>
 							<SizeGuideAccordion sizeGuideItems={measurementsItems} />
 						</div>
@@ -57,13 +59,13 @@ const SizeGuideSidebarBody: FC<Props> = ({ value, handleSwipable }) => {
 					<div className={classes.tabPanelWrapper}>
 						<div className={classes.accordionWrapper}>
 							<Typography className={classes.accordionTitle} variant="body1">
-								Body Size
+								{t('bodySize')}
 							</Typography>
 							<SizeGuideAccordion sizeGuideItems={bodySizeItems} />
 						</div>
 						<div className={classes.accordionWrapper}>
 							<Typography className={classes.accordionTitle} variant="body1">
-								Measurements
+								{t('measurements')}
 							</Typography>
 							<SizeGuideAccordion sizeGuideItems={measurementsItems} />
 						</div>

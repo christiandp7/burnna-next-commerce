@@ -3,6 +3,7 @@ import type {
 	GetStaticPropsContext,
 	InferGetStaticPropsType,
 } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useRouter } from 'next/router'
 import commerce from '@lib/api/commerce'
 import { Layout } from '@components/common'
@@ -31,6 +32,8 @@ export async function getStaticProps({
 	const { pages } = await pagesPromise
 	const { categories } = await siteInfoPromise
 	const { product } = await productPromise
+	// translate
+	const i18n = await serverSideTranslations(locale!, ['common'])
 	const { products: relatedProducts } = await allProductsPromise
 
 	if (!product) {
@@ -43,6 +46,7 @@ export async function getStaticProps({
 			product,
 			relatedProducts,
 			categories,
+			...i18n,
 		},
 		revalidate: 200,
 	}

@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'react-i18next'
 import NextLink from 'next/link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
@@ -13,6 +14,7 @@ import { useDrawer } from '@burnna/context/DrawerContext'
 const InfoSidebar: FC = () => {
 	const classes = useStyles()
 	const { setFaqSidebarOpen } = useDrawer()
+	const { t } = useTranslation('common')
 
 	return (
 		<aside className={classes.sidebar}>
@@ -28,7 +30,7 @@ const InfoSidebar: FC = () => {
 							className={classes.sidebarLink}
 							onClick={() => setFaqSidebarOpen(false)}>
 							<Typography variant="h6" className={classes.sidebarLinkItem}>
-								{navItem.label}
+								{t(navItem.label)}
 							</Typography>
 						</a>
 					</NextLink>
@@ -37,12 +39,12 @@ const InfoSidebar: FC = () => {
 			<Grid container item justify="space-between" className={classes.footer}>
 				<NextLink passHref href="/collection/men">
 					<Link color="secondary" onClick={() => setFaqSidebarOpen(false)}>
-						<Typography variant="h6">Men</Typography>
+						<Typography variant="h6">{t('men')}</Typography>
 					</Link>
 				</NextLink>
 				<NextLink passHref href="/collection/women">
 					<Link color="secondary" onClick={() => setFaqSidebarOpen(false)}>
-						<Typography variant="h6">Women</Typography>
+						<Typography variant="h6">{t('women')}</Typography>
 					</Link>
 				</NextLink>
 			</Grid>

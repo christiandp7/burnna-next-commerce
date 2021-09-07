@@ -1,5 +1,6 @@
 import React, { FC, useContext } from 'react'
 import cx from 'classnames'
+import { useTranslation } from 'next-i18next'
 import NextLink from 'next/link'
 import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -28,6 +29,7 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 	const classes = useStyles()
 	const { setSidebarOpen, setFaqSidebarOpen, setCartOpen } = useDrawer()
 	const { data } = useCart()
+	const { t } = useTranslation('common')
 
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null)
 
@@ -77,32 +79,32 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 									<ul className={`${classes.linklist} ${classes.linklistLeft}`}>
 										<li>
 											<NextLink href="/collection/women" passHref>
-												<Link className={classes.link}>Women</Link>
+												<Link className={classes.link}>{t('women')}</Link>
 											</NextLink>
 										</li>
 										<li>
 											<NextLink href="/collection/men" passHref>
-												<Link className={classes.link}>Men</Link>
+												<Link className={classes.link}>{t('men')}</Link>
 											</NextLink>
 										</li>
 										<li className={classes.hasChild}>
 											<Link className={classes.link} underline="none" href="#">
-												Our World
+												{t('ourWorld')}
 											</Link>
 											<ul className={cx(classes.dropdown, 'dropdown')}>
 												<li>
 													<NextLink href="/about" passHref>
-														<Link>About</Link>
+														<Link>{t('about')}</Link>
 													</NextLink>
 												</li>
 												<li>
 													<NextLink href="/campaign" passHref>
-														<Link>Campaign</Link>
+														<Link>{t('campaign')}</Link>
 													</NextLink>
 												</li>
 												<li>
 													<NextLink href="/explore" passHref>
-														<Link>Explore</Link>
+														<Link>{t('explore')}</Link>
 													</NextLink>
 												</li>
 												<li>
@@ -137,8 +139,8 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 												disableRipple={true}
 												onClick={() => setCartOpen(true)}>
 												{data && data.lineItems && data.lineItems.length > 0
-													? `Bag ${pad(data.lineItems.length)}`
-													: 'Bag 00'}
+													? `${t('bag')} ${pad(data.lineItems.length)}`
+													: `${t('bag')} 00`}
 											</Button>
 										</li>
 									</ul>
@@ -166,8 +168,8 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 										// variant="text"
 										onClick={() => setCartOpen(true)}>
 										{data && data.lineItems && data.lineItems.length > 0
-											? `Bag ${pad(data.lineItems.length)}`
-											: 'Bag 00'}
+											? `${t('bag')} ${pad(data.lineItems.length)}`
+											: `${t('bag')} 00`}
 									</Link>
 								</Hidden>
 							</Grid>
