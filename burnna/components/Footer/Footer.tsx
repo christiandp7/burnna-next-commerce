@@ -11,10 +11,19 @@ import Link from '@material-ui/core/Link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { grey } from '@material-ui/core/colors'
 // assets
-import { FaFacebookF } from 'react-icons/fa'
+// import { FaFacebookF } from 'react-icons/fa'
 import { GrInstagram } from 'react-icons/gr'
+import { ImWhatsapp } from 'react-icons/im'
 import { GrSpotify } from 'react-icons/gr'
+import { IoLogoTiktok } from 'react-icons/io5'
 import { LogoFull } from '@burnna/svg'
+
+const WAPP_NUMBER = '18298763665'
+const WAPP_TEXT = 'Hello Burnna!'
+const WHATSAPP = `https://wa.me/${WAPP_NUMBER}?text=${encodeURI(WAPP_TEXT)}`
+const TIK_TOK = 'https://vm.tiktok.com/ZMRf4p7Tp/'
+const INSTAGRAM = 'https://www.instagram.com/burnnaswim/'
+const SPOTIFY = 'https://open.spotify.com/user/mariadoloreslagares'
 
 const Footer: FC = () => {
 	const classes = useStyles()
@@ -85,17 +94,39 @@ const Footer: FC = () => {
 										</Typography>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
+										<Link
+											className={classes.link}
+											target="_blank"
+											rel="noopener"
+											href={WHATSAPP}>
 											<IconButton
 												className={classes.socialIcon}
 												size="small"
 												color="inherit">
-												<FaFacebookF />
+												<ImWhatsapp />
 											</IconButton>
 										</Link>
 									</ListItem>
 									<ListItem>
-										<Link className={classes.link} href="#">
+										<Link
+											className={classes.link}
+											target="_blank"
+											rel="noopener"
+											href={INSTAGRAM}>
+											<IconButton
+												className={classes.socialIcon}
+												size="small"
+												color="inherit">
+												<GrInstagram />
+											</IconButton>
+										</Link>
+									</ListItem>
+									<ListItem>
+										<Link
+											className={classes.link}
+											target="_blank"
+											rel="noopener"
+											href={SPOTIFY}>
 											<IconButton
 												className={classes.socialIcon}
 												size="small"
@@ -107,13 +138,14 @@ const Footer: FC = () => {
 									<ListItem>
 										<Link
 											className={classes.link}
-											href="https://www.instagram.com/burnnaswim/"
-											target="_blank">
+											target="_blank"
+											rel="noopener"
+											href={TIK_TOK}>
 											<IconButton
 												className={classes.socialIcon}
 												size="small"
 												color="inherit">
-												<GrInstagram />
+												<IoLogoTiktok />
 											</IconButton>
 										</Link>
 									</ListItem>
@@ -136,9 +168,9 @@ const Footer: FC = () => {
 											<Link className={classes.link}>Campaigns</Link>
 										</NextLink>
 									</ListItem>
-									<ListItem>
+									{/* <ListItem>
 										<Link className={classes.link}>Collabs</Link>
-									</ListItem>
+									</ListItem> */}
 								</List>
 							</Grid>
 						</Grid>
