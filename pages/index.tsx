@@ -1,5 +1,6 @@
 import commerce from '@lib/api/commerce'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
@@ -32,6 +33,8 @@ export async function getStaticProps({
 	const { products } = await productsPromise
 	const { pages } = await pagesPromise
 	const { categories, brands } = await siteInfoPromise
+	// translate
+	const i18n = await serverSideTranslations(locale!, ['common'])
 
 	return {
 		props: {
@@ -39,6 +42,7 @@ export async function getStaticProps({
 			categories,
 			brands,
 			pages,
+			...i18n,
 		},
 		revalidate: 60,
 	}

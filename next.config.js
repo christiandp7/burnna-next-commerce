@@ -1,5 +1,7 @@
 const commerce = require('./commerce.config.json')
+const { i18n } = require('./next-i18next.config')
 const withPWA = require('next-pwa')
+
 const {
 	withCommerceConfig,
 	getProviderName,
@@ -14,10 +16,7 @@ const isVendure = provider === 'vendure'
 
 const siteConfig = withCommerceConfig({
 	commerce,
-	i18n: {
-		locales: ['en-US', 'es'],
-		defaultLocale: 'en-US',
-	},
+	i18n,
 	rewrites() {
 		return [
 			//  Next.js Commerce Rewrites

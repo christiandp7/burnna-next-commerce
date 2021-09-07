@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'next-i18next'
 import NextLink from 'next/link'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
@@ -27,6 +28,7 @@ const SPOTIFY = 'https://open.spotify.com/user/mariadoloreslagares'
 
 const Footer: FC = () => {
 	const classes = useStyles()
+	const { t } = useTranslation('footer')
 	return (
 		<footer className={classes.footer}>
 			<div className={classes.logoFooterContainer}>
@@ -40,17 +42,17 @@ const Footer: FC = () => {
 								<List component="ul">
 									<ListItem component="li">
 										<Typography className={`${classes.subtitle} ${classes.link}`}>
-											Support
+											{t('support')}
 										</Typography>
 									</ListItem>
 									<ListItem>
 										<NextLink href="/contact" passHref>
-											<Link className={classes.link}>Contact</Link>
+											<Link className={classes.link}>{t('contact')}</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
 										<NextLink href="/faq/return-policy" passHref>
-											<Link className={classes.link}>Returns</Link>
+											<Link className={classes.link}>{t('returns')}</Link>
 										</NextLink>
 									</ListItem>
 								</List>
@@ -59,7 +61,7 @@ const Footer: FC = () => {
 								<List component="ul">
 									<ListItem component="li">
 										<Typography className={`${classes.subtitle} ${classes.link}`}>
-											Information
+											{t('information')}
 										</Typography>
 									</ListItem>
 									<ListItem>
@@ -69,17 +71,17 @@ const Footer: FC = () => {
 									</ListItem>
 									<ListItem>
 										<NextLink href="/faq/size-guide" passHref>
-											<Link className={classes.link}>Size Guide</Link>
+											<Link className={classes.link}>{t('sizeGuide')}</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
 										<NextLink href="/faq/payment" passHref>
-											<Link className={classes.link}>Payment Methods</Link>
+											<Link className={classes.link}>{t('paymentMethods')}</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
 										<NextLink href="/faq/shipping-policy" passHref>
-											<Link className={classes.link}>Shipping</Link>
+											<Link className={classes.link}>{t('shipping')}</Link>
 										</NextLink>
 									</ListItem>
 								</List>
@@ -90,7 +92,7 @@ const Footer: FC = () => {
 								<List component="ul">
 									<ListItem component="li">
 										<Typography className={`${classes.subtitle} ${classes.link}`}>
-											Social
+											{t('social')}
 										</Typography>
 									</ListItem>
 									<ListItem>
@@ -155,22 +157,22 @@ const Footer: FC = () => {
 								<List component="ul">
 									<ListItem component="li">
 										<Typography className={`${classes.subtitle} ${classes.link}`}>
-											Company
+											{t('company')}
 										</Typography>
 									</ListItem>
 									<ListItem>
 										<NextLink href="/about" passHref>
-											<Link className={classes.link}>About</Link>
+											<Link className={classes.link}>{t('about')}</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
 										<NextLink passHref href="/campaign">
-											<Link className={classes.link}>Campaigns</Link>
+											<Link className={classes.link}>{t('campaign')}</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
 										<NextLink passHref href="/explore">
-											<Link className={classes.link}>Explore</Link>
+											<Link className={classes.link}>{t('explore')}</Link>
 										</NextLink>
 									</ListItem>
 								</List>
