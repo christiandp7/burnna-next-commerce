@@ -69,6 +69,9 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		table: {
 			minWidth: 400,
+			[theme.breakpoints.down('sm')]: {
+				minWidth: 300,
+			},
 			// marginTop: theme.spacing(4),
 		},
 		bodyHeading: {

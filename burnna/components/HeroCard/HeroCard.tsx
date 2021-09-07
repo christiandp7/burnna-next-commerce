@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { useTranslation } from 'next-i18next'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import NextLink from 'next/link'
 import Image from 'next/image'
@@ -21,6 +22,7 @@ interface Props {
 
 const HeroCard: FC<Props> = ({ image, link }) => {
 	const classes = useStyles()
+	const { t } = useTranslation('common')
 
 	return (
 		<NextLink href={link.link}>
@@ -41,7 +43,7 @@ const HeroCard: FC<Props> = ({ image, link }) => {
 						<NextLink href={link.link} passHref key={link.title}>
 							<Link color="secondary" className={classes.heroLink}>
 								<Typography component="h2" variant="body1">
-									{link.title}
+									{t(link.title)}
 								</Typography>
 							</Link>
 						</NextLink>

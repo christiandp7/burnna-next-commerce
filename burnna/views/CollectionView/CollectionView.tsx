@@ -1,4 +1,5 @@
 import React from 'react'
+import { useTranslation } from 'next-i18next'
 import { useRouter } from 'next/router'
 import useSearch from '@framework/product/use-search'
 import { SearchPropsType } from '@lib/search-props'
@@ -17,7 +18,7 @@ import SkeletonGrid from '@burnna/components/Skeleton'
 
 const CollectionView = ({ categories, brands }: SearchPropsType) => {
 	// console.log(categories)
-
+	const { t } = useTranslation('common')
 	const router = useRouter()
 	const { asPath, locale } = router
 	const { q, sort } = router.query
@@ -56,7 +57,9 @@ const CollectionView = ({ categories, brands }: SearchPropsType) => {
 							display="flex"
 							alignItems="center"
 							justifyContent="center">
-							<Typography variant="body1">COMING SOON...</Typography>
+							<Typography variant="body1" className={classes.comingSoon}>
+								{t('comingSoon')}...
+							</Typography>
 						</Box>
 					))}
 			</div>
@@ -83,6 +86,9 @@ const useStyles = makeStyles((theme: Theme) =>
 		// logo: {
 		// 	width: '200px',
 		// },
+		comingSoon: {
+			textTransform: 'uppercase',
+		},
 	}),
 )
 

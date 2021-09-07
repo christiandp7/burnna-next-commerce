@@ -1,4 +1,6 @@
 import React, { FC } from 'react'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import type { GetStaticPropsContext } from 'next'
 import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -11,6 +13,15 @@ import { FAQHeading } from '@burnna/components'
 // assets
 import { HugeTitleContact } from '@burnna/svg'
 import { Layout } from '@components/common'
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+	const i18n = await serverSideTranslations(locale!, ['common'])
+	return {
+		props: {
+			...i18n,
+		},
+	}
+}
 
 function Contact() {
 	const classes = useStyles()

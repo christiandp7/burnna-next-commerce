@@ -1,4 +1,6 @@
 import React, { FC } from 'react'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import type { GetStaticPropsContext } from 'next'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
@@ -10,6 +12,15 @@ import { Layout } from '@components/common'
 // import Heading from '../components/Typography/Heading'
 // assets
 // import { HugeTitleAbout } from '@burnna/svg'
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+	const i18n = await serverSideTranslations(locale!, ['common'])
+	return {
+		props: {
+			...i18n,
+		},
+	}
+}
 
 function About() {
 	const classes = useStyles()
