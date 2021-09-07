@@ -18,6 +18,7 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { ThemeProvider } from '@material-ui/core/styles'
 import { themeSettigs } from '@burnna/theme'
 import NextNprogress from 'nextjs-progressbar'
+import { appWithTranslation } from 'next-i18next'
 
 const theme = themeSettigs({})
 
@@ -25,7 +26,7 @@ SwiperCore.use([EffectFade, Navigation, Pagination])
 
 const Noop: FC = ({ children }) => <>{children}</>
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
 	const Layout = (Component as any).Layout || Noop
 
 	useEffect(() => {
@@ -55,3 +56,5 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 		</>
 	)
 }
+
+export default appWithTranslation(MyApp)

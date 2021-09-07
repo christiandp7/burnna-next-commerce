@@ -5,23 +5,23 @@ export type NavItem = {
 
 export const sidebarNavigation: NavItem[] = [
 	{
-		label: 'Men',
+		label: 'men',
 		href: '/collection/men',
 	},
 	{
-		label: 'Women',
+		label: 'women',
 		href: '/collection/women',
 	},
 	{
-		label: 'Explore',
+		label: 'explore',
 		href: '/explore',
 	},
 	{
-		label: 'About Us',
+		label: 'aboutUs',
 		href: '/about',
 	},
 	{
-		label: 'Contact',
+		label: 'contact',
 		href: '/contact',
 	},
 	{
@@ -32,7 +32,7 @@ export const sidebarNavigation: NavItem[] = [
 
 export const faqNavigation: NavItem[] = [
 	{
-		label: 'Payment',
+		label: 'payment',
 		href: '/faq/payment',
 	},
 	// {
@@ -40,15 +40,15 @@ export const faqNavigation: NavItem[] = [
 	// 	href: '/faq/product-care',
 	// },
 	{
-		label: 'Size Guide',
+		label: 'sizeGuide',
 		href: '/faq/size-guide',
 	},
 	{
-		label: 'Return Policy',
+		label: 'returnPolicy',
 		href: '/faq/return-policy',
 	},
 	{
-		label: 'Shipping Policy',
+		label: 'shippingPolicy',
 		href: '/faq/shipping-policy',
 	},
 ]

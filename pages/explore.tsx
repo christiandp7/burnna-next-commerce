@@ -1,4 +1,6 @@
 import React, { FC } from 'react'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import type { GetStaticPropsContext } from 'next'
 import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
 import Container from '@material-ui/core/Container'
@@ -9,6 +11,14 @@ import { exploreItems } from '@burnna/data'
 import type { ExploreItem } from '@burnna/data'
 import { Layout } from '@components/common'
 
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+	const i18n = await serverSideTranslations(locale!, ['common'])
+	return {
+		props: {
+			...i18n,
+		},
+	}
+}
 function Explore() {
 	const classes = useStyles()
 	return (

@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'next-i18next'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import NextLink from 'next/link'
@@ -14,7 +15,7 @@ const HomeHeader: FC = () => {
 	const classes = useStyles()
 	const { setCartOpen } = useDrawer()
 	const { data } = useCart()
-
+	const { t } = useTranslation('common')
 	function pad(d: number) {
 		return d < 10 ? '0' + d.toString() : d.toString()
 	}
@@ -25,7 +26,7 @@ const HomeHeader: FC = () => {
 				<NextLink href="/collection/all" passHref>
 					<Link>
 						<Typography variant="h5" color="primary">
-							Shop All
+							{t('shopAll')}
 						</Typography>
 					</Link>
 				</NextLink>
@@ -33,23 +34,23 @@ const HomeHeader: FC = () => {
 			<li className={classes.hasChild}>
 				<Link href="#">
 					<Typography variant="h5" color="primary">
-						Our World
+						{t('ourWorld')}
 					</Typography>
 				</Link>
 				<ul className={cx(classes.dropdown, 'dropdown')}>
 					<li>
 						<NextLink href="/about" passHref>
-							<Link variant="h5">About</Link>
+							<Link variant="h5">{t('about')}</Link>
 						</NextLink>
 					</li>
 					<li>
 						<NextLink href="/campaign" passHref>
-							<Link variant="h5">Campaign</Link>
+							<Link variant="h5">{t('campaign')}</Link>
 						</NextLink>
 					</li>
 					<li>
 						<NextLink href="/explore" passHref>
-							<Link variant="h5">Explore</Link>
+							<Link variant="h5">{t('explore')}</Link>
 						</NextLink>
 					</li>
 					<li>
@@ -66,8 +67,8 @@ const HomeHeader: FC = () => {
 				<Link component="button" onClick={() => setCartOpen(true)}>
 					<Typography variant="h5" color="primary">
 						{data && data.lineItems && data.lineItems.length > 0
-							? `Bag ${pad(data.lineItems.length)}`
-							: 'Bag 00'}
+							? `${t('bag')} ${pad(data.lineItems.length)}`
+							: `${t('bag')} 00`}
 					</Typography>
 				</Link>
 			</li>
