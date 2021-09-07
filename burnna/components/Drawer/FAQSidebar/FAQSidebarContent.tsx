@@ -39,12 +39,12 @@ const InfoSidebar: FC = () => {
 			<Grid container item justify="space-between" className={classes.footer}>
 				<NextLink passHref href="/collection/men">
 					<Link color="secondary" onClick={() => setFaqSidebarOpen(false)}>
-						<Typography variant="h6">Men</Typography>
+						<Typography variant="h6">{t('men')}</Typography>
 					</Link>
 				</NextLink>
 				<NextLink passHref href="/collection/women">
 					<Link color="secondary" onClick={() => setFaqSidebarOpen(false)}>
-						<Typography variant="h6">Women</Typography>
+						<Typography variant="h6">{t('women')}</Typography>
 					</Link>
 				</NextLink>
 			</Grid>

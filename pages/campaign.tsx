@@ -1,10 +1,21 @@
 import React from 'react'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import type { GetStaticPropsContext } from 'next'
 import cn from 'classnames'
 import Image from 'next/image'
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import { Layout } from '@components/common'
 import { MainLayout } from '@burnna/layouts'
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+	const i18n = await serverSideTranslations(locale!, ['common'])
+	return {
+		props: {
+			...i18n,
+		},
+	}
+}
 
 const Campaign = () => {
 	const classes = useStyles()

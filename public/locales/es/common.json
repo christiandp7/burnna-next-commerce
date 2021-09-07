@@ -19,6 +19,7 @@
   "men": "Hombre",
   "women": "Mujer",
   "aboutUs": "Nosotros",
+  "payment": "Pagos",
   "returnPolicy": "Política de Retorno",
   "shippingPolicy": "Política de Envío",
   "shippingAndTaxes": "Envíos e Impuestos",
@@ -30,5 +31,6 @@
   "measurements": "Medidas",
   "details": "Detalles",
   "assistance": "Asistencia",
-  "swims": "Swims"
+  "swims": "Swims",
+  "comingSoon": "Muy Pronto"
 }
