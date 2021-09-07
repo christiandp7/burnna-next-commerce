@@ -1,4 +1,5 @@
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import commerce from '@lib/api/commerce'
 
@@ -12,11 +13,15 @@ export async function getSearchStaticProps({
 	const siteInfoPromise = commerce.getSiteInfo({ config, preview })
 	const { pages } = await pagesPromise
 	const { categories, brands } = await siteInfoPromise
+	// translate
+	const i18n = await serverSideTranslations(locale!, ['common'])
+
 	return {
 		props: {
 			pages,
 			categories,
 			brands,
+			...i18n,
 		},
 		revalidate: 200,
 	}
