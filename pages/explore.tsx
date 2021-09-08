@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		titleWrapper: {
 			position: 'absolute',
-			top: '36%',
+			top: '26.4%',
 			left: '50%',
 			transform: 'translateX(-50%)',
 			maxWidth: '65%',
@@ -70,6 +70,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			// marginTop: '18px',
 			marginBottom: '12px',
 			[theme.breakpoints.up('md')]: {
+				top: '36%',
 				maxWidth: '60%',
 				// marginTop: '30px',
 				marginBottom: '18px',
