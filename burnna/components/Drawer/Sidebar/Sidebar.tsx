@@ -1,22 +1,27 @@
 import React, { FC } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import { SidebarContent } from '@burnna/components/Drawer/Sidebar'
 import { useDrawer } from '@burnna/context/DrawerContext'
 
 const Sidebar: FC = () => {
 	const { sidebarOpen, setSidebarOpen } = useDrawer()
+	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 	const classes = useStyles()
 
 	return (
-		<Drawer
+		<SwipeableDrawer
 			open={sidebarOpen}
 			onClose={() => setSidebarOpen(false)}
+			onOpen={() => setSidebarOpen(true)}
 			classes={{
 				paper: classes.drawerPaper,
-			}}>
+			}}
+			disableSwipeToOpen
+			disableBackdropTransition={!iOS}
+			disableDiscovery={iOS}>
 			<SidebarContent />
-		</Drawer>
+		</SwipeableDrawer>
 	)
 }
 
