@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 // components
 // import CartContent from './CartContent'
 import { useDrawer } from '@burnna/context/DrawerContext'
@@ -8,23 +8,27 @@ import { CartContent } from '@burnna/components/Drawer/CartSidebar'
 
 const Cart: FC = () => {
 	const classes = useStyles()
-
+	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 	const { cartOpen, setCartOpen } = useDrawer()
 
 	return (
-		<Drawer
+		<SwipeableDrawer
 			open={cartOpen}
 			onClose={() => setCartOpen(false)}
+			onOpen={() => setCartOpen(true)}
 			anchor="right"
 			classes={{
 				paper: classes.drawerPaper,
 			}}
 			transitionDuration={{
-				enter: 550,
+				enter: 400,
 				exit: 350,
-			}}>
+			}}
+			disableSwipeToOpen
+			disableBackdropTransition={!iOS}
+			disableDiscovery={iOS}>
 			<CartContent />
-		</Drawer>
+		</SwipeableDrawer>
 	)
 }
 

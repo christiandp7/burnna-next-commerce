@@ -20,7 +20,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 
 function Payment() {
 	return (
-		<FAQLayout top="50px" mobTop="30px" alignItemsCenter>
+		<FAQLayout top="60px" mobTop="50px" alignItemsCenter>
 			<Container>
 				<FAQHeading>Payment</FAQHeading>
 				<Typography paragraph>

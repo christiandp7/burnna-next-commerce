@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import Hidden from '@material-ui/core/Hidden'
 import { useMediaQuery } from '@material-ui/core'
 import { useTheme } from '@material-ui/core/styles'
@@ -14,21 +14,26 @@ const InfoSidebar: FC = () => {
 	const theme = useTheme()
 	const isDesktop = useMediaQuery(theme.breakpoints.up('lg'))
 	const classes = useStyles()
+	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
 	return (
 		<nav aria-label="info sidebar">
-			<Drawer
+			<SwipeableDrawer
 				open={faqSidebarOpen}
 				variant={isDesktop ? 'permanent' : 'temporary'}
 				onClose={() => setFaqSidebarOpen(false)}
+				onOpen={() => setFaqSidebarOpen(true)}
 				classes={{
 					paper: classes.drawerPaper,
 				}}
 				ModalProps={{
 					keepMounted: true, // Better open performance on mobile.
-				}}>
+				}}
+				disableSwipeToOpen
+				disableBackdropTransition={!iOS}
+				disableDiscovery={iOS}>
 				<FAQSidebarContent />
-			</Drawer>
+			</SwipeableDrawer>
 		</nav>
 	)
 }

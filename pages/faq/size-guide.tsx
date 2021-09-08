@@ -21,7 +21,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 function SizeGuide() {
 	const classes = useStyles()
 	return (
-		<FAQLayout top="100px" mobTop="30px" alignItemsCenter>
+		<FAQLayout top="100px" mobTop="50px" alignItemsCenter>
 			<Container maxWidth="sm">
 				<div className={classes.heading}>
 					<Typography component="h1" variant="h4">

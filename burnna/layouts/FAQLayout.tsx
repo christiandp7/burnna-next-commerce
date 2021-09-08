@@ -49,7 +49,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 		},
 		main: (props: Props) => ({
-			paddingTop: props.top || '40px',
+			paddingTop: props.top || '50px',
 			paddingBottom: props.bottom || '30px',
 			minHeight: 'calc(100vh - 40px)',
 			display: props.alignItemsCenter ? 'flex' : 'block',

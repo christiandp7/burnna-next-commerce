@@ -107,11 +107,12 @@ const useStyles = makeStyles((theme: Theme) =>
 		titleWrapper: {
 			maxWidth: '40%',
 			textAlign: 'center',
-			marginTop: '22px',
-			marginBottom: '12px',
+			marginTop: '10px',
+			marginBottom: '6px',
 			[theme.breakpoints.up('md')]: {
 				maxWidth: '40%',
 				// marginTop: '30px',
+				marginTop: '22px',
 				marginBottom: '18px',
 			},
 		},

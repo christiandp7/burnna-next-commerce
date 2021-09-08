@@ -36,6 +36,9 @@ const StyledTableCell = withStyles((theme: Theme) =>
 			'&:first-child': {
 				paddingLeft: 0,
 			},
+			[theme.breakpoints.down('sm')]: {
+				padding: '14px 8px',
+			},
 		},
 	}),
 )(TableCell)

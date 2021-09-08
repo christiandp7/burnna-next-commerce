@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
+import SwipeableDrawer from '@material-ui/core/SwipeableDrawer'
 import type { InfoSidebarValue } from '@burnna/context/DrawerContext'
 import { useDrawer } from '@burnna/context/DrawerContext'
 // components
@@ -14,11 +14,13 @@ interface Props {
 const InfoSidebar: FC<Props> = ({ description }) => {
 	const { infoSidebar, setInfoSidebar } = useDrawer()
 	const classes = useStyles()
+	const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent)
 
 	return (
-		<Drawer
+		<SwipeableDrawer
 			open={infoSidebar.open}
 			onClose={() => setInfoSidebar({ open: false, view: infoSidebar.view })}
+			onOpen={() => setInfoSidebar({ open: true, view: infoSidebar.view })}
 			anchor="left"
 			classes={{
 				paper: classes.drawerPaper,
@@ -26,13 +28,18 @@ const InfoSidebar: FC<Props> = ({ description }) => {
 			transitionDuration={{
 				enter: 550,
 				exit: 350,
-			}}>
+			}}
+			disableSwipeToOpen
+			// swipeAreaWidth={20}
+			// minFlingVelocity={2000}
+			disableBackdropTransition={!iOS}
+			disableDiscovery={iOS}>
 			{infoSidebar.view === 'details' ? (
 				<ProductDetailsContent description={description || ''} />
 			) : (
 				<SizeGuideSidebarContent />
 			)}
-		</Drawer>
+		</SwipeableDrawer>
 	)
 }
 

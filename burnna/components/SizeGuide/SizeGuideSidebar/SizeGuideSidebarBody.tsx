@@ -36,6 +36,8 @@ const SizeGuideSidebarBody: FC<Props> = ({ value, handleSwipable }) => {
 				axis="x"
 				index={value}
 				enableMouseEvents
+				// hysteresis={0.2}
+				disabled={true}
 				className={classes.swipableViews}
 				disableLazyLoading
 				onChangeIndex={handleSwipable}>
