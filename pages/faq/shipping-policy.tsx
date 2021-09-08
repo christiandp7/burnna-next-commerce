@@ -19,7 +19,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 
 function ShippingPolicy() {
 	return (
-		<FAQLayout top="30px" mobTop="30px" alignItemsCenter>
+		<FAQLayout top="60px" mobTop="50px" alignItemsCenter>
 			<Container>
 				<FAQHeading>Shipping policy</FAQHeading>
 				<FAQAccordion faqs={shippingPolicyFaqs} />

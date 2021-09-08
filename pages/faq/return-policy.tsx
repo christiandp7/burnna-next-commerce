@@ -19,7 +19,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 
 function ReturnPolicy() {
 	return (
-		<FAQLayout mobTop="30px" alignItemsCenter>
+		<FAQLayout mobTop="50px" alignItemsCenter>
 			<Container>
 				<FAQHeading>Return policy</FAQHeading>
 				<FAQAccordion faqs={returnPolicyFaqs} />
