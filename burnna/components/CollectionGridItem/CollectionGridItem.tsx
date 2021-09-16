@@ -78,6 +78,7 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 								placeholder="blur"
 								blurDataURL={product.images[0]?.url || placeholderImg}
 								layout="responsive"
+								objectFit="cover"
 							/>
 						</a>
 					</NextLink>
