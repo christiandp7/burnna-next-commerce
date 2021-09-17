@@ -71,6 +71,7 @@ const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
 				compareAtPriceV2,
 				requiresShipping,
 				availableForSale,
+				image,
 			},
 		}) => {
 			return {
@@ -90,6 +91,7 @@ const normalizeProductVariants = ({ edges }: ProductVariantConnection) => {
 
 					return options
 				}),
+				image: image ? image : null,
 			}
 		},
 	)
