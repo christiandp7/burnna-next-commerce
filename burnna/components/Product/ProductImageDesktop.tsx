@@ -3,19 +3,18 @@ import Image from 'next/image'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 // components
 import { LogoText } from '@burnna/svg'
-import type { ProductImage } from '@commerce/types/product'
+import type { ProductImage, ProductVariantImage } from '@commerce/types/product'
 
 interface Props {
 	images: ProductImage[]
+	variantImages: (ProductVariantImage | undefined)[]
 }
 
-const ProductImageDesktop: FC<Props> = ({ images }) => {
+const ProductImageDesktop: FC<Props> = ({ images, variantImages }) => {
+	console.log(variantImages)
 	const classes = useStyles()
 	return (
 		<div className={classes.root}>
-			{/* <div className={classes.logoContainer}>
-				<LogoText className={classes.logo} />
-			</div> */}
 			{images.map(img => (
 				<Image
 					key={img.url}
@@ -26,7 +25,20 @@ const ProductImageDesktop: FC<Props> = ({ images }) => {
 					layout="responsive"
 				/>
 			))}
-			{/* <img className={classes.img} src={} alt="product" /> */}
+			{variantImages.map(img => (
+				<React.Fragment key={img?.id}>
+					{img && (
+						<Image
+							src={img.originalSrc}
+							alt={img.altText || 'product image'}
+							width={img.width}
+							height={img.height}
+							id={img.id}
+							layout="responsive"
+						/>
+					)}
+				</React.Fragment>
+			))}
 		</div>
 	)
 }

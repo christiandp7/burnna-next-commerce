@@ -29,10 +29,22 @@ export type ProductOptionValues = {
 	hexColors?: string[]
 }
 
+export type ProductVariantImage = {
+	// Custom type added by christiandp7
+	id: string
+	originalSrc: string
+	alt?: string
+	width?: number | string
+	height?: number | string
+	altText?: string
+}
+
 export type ProductVariant = {
 	id: string | number
 	options: ProductOption[]
 	availableForSale?: boolean
+	// Custom props added by christiandp7
+	image: ProductVariantImage
 }
 
 export type Product = {

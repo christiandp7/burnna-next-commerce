@@ -12,6 +12,7 @@ import {
 	ProductMeta,
 } from '@burnna/components'
 import { InfoSidebar } from '@burnna/components/Drawer'
+import { getColorOptionImagesFromVariants } from '@burnna/utils/getColorOptionImagesFromVariants'
 interface ProductViewProps {
 	product: Product
 	relatedProducts: Product[]
@@ -21,13 +22,18 @@ const ProductView = ({ product, relatedProducts }: ProductViewProps) => {
 	// console.log(product)
 	const theme = useTheme()
 	const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
+	const variantImages = getColorOptionImagesFromVariants(product.variants)
+
 	return (
 		<>
 			<MainLayout>
 				<Grid container>
 					<Grid item xs={12} md={6}>
 						{isDesktop ? (
-							<ProductImageDesktop images={product.images} />
+							<ProductImageDesktop
+								images={product.images}
+								variantImages={variantImages}
+							/>
 						) : (
 							<ProductImageMobile images={product.images} />
 						)}
