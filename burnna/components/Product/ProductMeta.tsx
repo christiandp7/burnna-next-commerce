@@ -1,4 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
@@ -24,6 +25,9 @@ interface Props {
 }
 
 const ProductMeta: FC<Props> = ({ product }) => {
+	const router = useRouter()
+	const { variantId } = router.query
+
 	const classes = useStyles()
 	const theme = useTheme()
 	const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
@@ -44,10 +48,11 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	// console.log(product)
 
 	useEffect(() => {
-		selectDefaultOptionFromProduct(product, setSelectedOptions)
-	}, [product])
+		selectDefaultOptionFromProduct(product, setSelectedOptions, variantId)
+	}, [variantId])
 
 	const variant = getProductVariant(product, selectedOptions)
+	// console.log(variant)
 	const addToCart = async () => {
 		setLoading(true)
 		try {
