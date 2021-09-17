@@ -10,6 +10,35 @@ export const productConnectionFragment = /* GraphQL */ `
 				title
 				vendor
 				handle
+
+				variants(first: 250) {
+					pageInfo {
+						hasNextPage
+						hasPreviousPage
+					}
+					edges {
+						node {
+							id
+							title
+							sku
+							availableForSale
+							requiresShipping
+							selectedOptions {
+								name
+								value
+							}
+							priceV2 {
+								amount
+								currencyCode
+							}
+							compareAtPriceV2 {
+								amount
+								currencyCode
+							}
+						}
+					}
+				}
+
 				options {
 					id
 					name
