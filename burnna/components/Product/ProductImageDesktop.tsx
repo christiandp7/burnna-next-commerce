@@ -2,7 +2,6 @@ import React, { FC } from 'react'
 import Image from 'next/image'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 // components
-import { LogoText } from '@burnna/svg'
 import type { ProductImage, ProductVariantImage } from '@commerce/types/product'
 
 interface Props {
@@ -11,7 +10,7 @@ interface Props {
 }
 
 const ProductImageDesktop: FC<Props> = ({ images, variantImages }) => {
-	console.log(variantImages)
+	// console.log(variantImages)
 	const classes = useStyles()
 	return (
 		<div className={classes.root}>
