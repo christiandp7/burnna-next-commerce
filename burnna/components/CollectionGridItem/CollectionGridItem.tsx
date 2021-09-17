@@ -13,6 +13,7 @@ import usePrice from '@framework/product/use-price'
 import { Product, ProductOption, ProductOptionValues } from '@commerce/types/product'
 import TextTruncate from 'react-truncate'
 import { setBgColor, setLabel } from '@burnna/utils/colors'
+import { getOptionsFromVariants } from '@burnna/utils/getOptionsFromVariants'
 
 interface Props {
 	product: Product
@@ -57,6 +58,9 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 		baseAmount: product.price.retailPrice,
 		currencyCode: product.price.currencyCode!,
 	})
+
+	// use this function to print swatches
+	console.log(getOptionsFromVariants(product.variants))
 
 	const classes = useStyles()
 	return (
