@@ -32,7 +32,7 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 	// console.log(product)
 
 	const [showDetails, setShowDetails] = useState(false)
-	const [colorOptions, setColorOptions] = useState<ProductOption | null>(null)
+	// const [colorOptions, setColorOptions] = useState<ProductOption | null>(null)
 
 	const handleMouseEnter = () => {
 		setShowDetails(true)
@@ -41,18 +41,18 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 		setShowDetails(false)
 	}
 
-	useEffect(() => {
-		// if (product.options.length > 0) {
-		// 	getColorOptions(product.options)
-		// }
-	}, [colorOptions])
+	// useEffect(() => {
+	// if (product.options.length > 0) {
+	// 	getColorOptions(product.options)
+	// }
+	// }, [colorOptions])
 
-	const getColorOptions = (options: ProductOption[]) => {
-		const colorOpts = options.find(opt => opt.displayName.match(/colou?r/gi))
-		if (colorOpts) {
-			setColorOptions(colorOpts)
-		}
-	}
+	// const getColorOptions = (options: ProductOption[]) => {
+	// 	const colorOpts = options.find(opt => opt.displayName.match(/colou?r/gi))
+	// 	if (colorOpts) {
+	// 		setColorOptions(colorOpts)
+	// 	}
+	// }
 
 	const { price } = usePrice({
 		amount: product.price.value,
@@ -62,7 +62,6 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 
 	// use this function to print swatches
 	// console.log(getOptionsFromVariants(product.variants))
-	console.log(colorOptions)
 
 	const classes = useStyles()
 	return (
