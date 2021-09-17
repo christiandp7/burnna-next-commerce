@@ -14,6 +14,7 @@ import { Product, ProductOption, ProductOptionValues } from '@commerce/types/pro
 import TextTruncate from 'react-truncate'
 import { setBgColor, setLabel } from '@burnna/utils/colors'
 import { getOptionsFromVariants } from '@burnna/utils/getOptionsFromVariants'
+import type { ColorOption } from '@burnna/utils/getOptionsFromVariants'
 
 interface Props {
 	product: Product
@@ -41,9 +42,9 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 	}
 
 	useEffect(() => {
-		if (product.options.length > 0) {
-			getColorOptions(product.options)
-		}
+		// if (product.options.length > 0) {
+		// 	getColorOptions(product.options)
+		// }
 	}, [colorOptions])
 
 	const getColorOptions = (options: ProductOption[]) => {
@@ -60,7 +61,8 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 	})
 
 	// use this function to print swatches
-	console.log(getOptionsFromVariants(product.variants))
+	// console.log(getOptionsFromVariants(product.variants))
+	console.log(colorOptions)
 
 	const classes = useStyles()
 	return (
@@ -89,11 +91,9 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 				)}
 				{product.options && (
 					<div className={classes.productVariantsContainer}>
-						<NextLink href={`/product/${product.slug}`}>
-							<a className={classes.imageContainer}>
-								<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
-									<div className={classes.productVariants}>
-										{colorOptions?.values &&
+						<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
+							<div className={classes.productVariants}>
+								{/* {colorOptions?.values &&
 											colorOptions?.values.map((v: ProductOptionValues) => (
 												<Tooltip
 													key={v?.label}
@@ -108,11 +108,30 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 														}}
 													/>
 												</Tooltip>
-											))}
-									</div>
-								</Grow>
-							</a>
-						</NextLink>
+											))} */}
+								{getOptionsFromVariants(product.variants).map((opt: ColorOption) => (
+									<NextLink
+										key={opt.variantId}
+										href={`/product/${product.slug}?variantId=${opt.variantId}`}>
+										<a>
+											<Tooltip
+												key={opt.label}
+												title={setLabel(opt.label)}
+												placement="right">
+												<Box
+													className={classes.productColorVariantBadge}
+													style={{
+														background: opt.hexColors
+															? setBgColor(opt.hexColors)
+															: 'transparent',
+													}}
+												/>
+											</Tooltip>
+										</a>
+									</NextLink>
+								))}
+							</div>
+						</Grow>
 					</div>
 				)}
 			</div>
