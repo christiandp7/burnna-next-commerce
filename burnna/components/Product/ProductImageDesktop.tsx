@@ -1,8 +1,10 @@
-import React, { FC } from 'react'
+import React, { FC, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Image from 'next/image'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 // components
 import type { ProductImage, ProductVariantImage } from '@commerce/types/product'
+import { animateScroll as scroll, scroller } from 'react-scroll'
 
 interface Props {
 	images: ProductImage[]
@@ -11,6 +13,19 @@ interface Props {
 
 const ProductImageDesktop: FC<Props> = ({ images, variantImages }) => {
 	// console.log(variantImages)
+	const router = useRouter()
+	const { variantId } = router.query
+
+	useEffect(() => {
+		// if (variantId) {
+		// scroller.scrollTo(`[id=${variantId}]`)
+		// 	const imgTarget = variantId
+		// 	scroller.scrollTo(imgTarget, {
+		// 		duration: 1500,
+		// 	})
+		// }
+	}, [variantId])
+
 	const classes = useStyles()
 	return (
 		<div className={classes.root}>
