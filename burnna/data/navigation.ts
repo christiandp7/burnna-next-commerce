@@ -5,12 +5,12 @@ export type NavItem = {
 
 export const sidebarNavigation: NavItem[] = [
 	{
-		label: 'men',
-		href: '/collection/men',
-	},
-	{
 		label: 'women',
 		href: '/collection/women',
+	},
+	{
+		label: 'men',
+		href: '/collection/men',
 	},
 	{
 		label: 'explore',
