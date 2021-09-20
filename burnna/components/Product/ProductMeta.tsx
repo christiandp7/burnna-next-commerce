@@ -29,12 +29,6 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const isDesktop = useMediaQuery(theme.breakpoints.up('md'))
 	const { t } = useTranslation('common')
 
-	const { price } = usePrice({
-		amount: product.price.value,
-		baseAmount: product.price.retailPrice,
-		currencyCode: product.price.currencyCode!,
-	})
-
 	const addItem = useAddItem()
 	const { setCartOpen, setInfoSidebar } = useDrawer()
 	const [loading, setLoading] = useState(false)
@@ -61,6 +55,13 @@ const ProductMeta: FC<Props> = ({ product }) => {
 			setLoading(false)
 		}
 	}
+
+	const { price } = usePrice({
+		// amount: product.price.value,
+		amount: variant?.price ? variant?.price : product.price.value,
+		baseAmount: product.price.retailPrice,
+		currencyCode: product.price.currencyCode!,
+	})
 
 	return (
 		<div className={`${classes.slugContainer} slugContainer`}>

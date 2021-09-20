@@ -1,14 +1,13 @@
 import React, { FC, useState } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
-import type { ProductPrice, ProductVariant } from '@commerce/types/product'
+import type { ProductVariant } from '@commerce/types/product'
 import { AddToCartButton } from '@burnna/components'
 
 interface Props {
 	addToCart: () => Promise<void>
 	variant: ProductVariant
 	loading: boolean
-	// price: ProductPrice
 	price: string
 }
 
