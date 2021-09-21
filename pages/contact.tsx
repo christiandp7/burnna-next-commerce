@@ -145,7 +145,7 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		rte: {
 			padding: '40px 30px',
-			'& h2': {
+			'& h2, & h3': {
 				fontWeight: 700,
 				fontFamily: theme.typography.h6.fontFamily,
 				textUnderlineOffset: '4px',
@@ -153,6 +153,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 			'& p': {
 				marginBottom: '16px',
+			},
+			'& a': {
+				color: theme.palette.primary.main,
 			},
 			// [theme.breakpoints.down('md')]: {},
 		},

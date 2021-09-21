@@ -104,7 +104,6 @@ export default function themeSettigs(options: ThemeOptions) {
 							fontSize: '13px',
 						},
 					},
-
 					body: {
 						backgroundColor: '#F5F2ED',
 					},
