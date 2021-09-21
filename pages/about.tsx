@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
