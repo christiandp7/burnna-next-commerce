@@ -1,30 +1,47 @@
-import React, { FC } from 'react'
+import React from 'react'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import type { GetStaticPropsContext } from 'next'
+import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
-import Typography from '@material-ui/core/Typography'
+// import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
-import Link from '@material-ui/core/Link'
+// import Link from '@material-ui/core/Link'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
+import parse from 'html-react-parser'
 // components
 import { MainLayout } from '@burnna/layouts'
-import { FAQHeading } from '@burnna/components'
+// import { FAQHeading } from '@burnna/components'
 // assets
 import { HugeTitleContact } from '@burnna/svg'
 import { Layout } from '@components/common'
+// lib
+import commerce from '@lib/api/commerce'
 
-export async function getStaticProps({ locale }: GetStaticPropsContext) {
+export async function getStaticProps({
+	locale,
+	locales,
+	preview,
+}: GetStaticPropsContext) {
+	const config = { locale, locales }
+	const pagePromise = commerce.getPage({
+		variables: { id: 'Z2lkOi8vc2hvcGlmeS9QYWdlLzg1MjE2NTI2NTIx' },
+		config,
+		preview,
+	})
+	const { page } = await pagePromise
 	const i18n = await serverSideTranslations(locale!, ['common'])
+	console.log(page)
 	return {
 		props: {
+			page,
 			...i18n,
 		},
 	}
 }
 
-function Contact() {
+function Contact({ page }: InferGetStaticPropsType<typeof getStaticProps>) {
 	const classes = useStyles()
+	const textContent = page ? page?.body : ''
 	return (
 		<MainLayout>
 			<Container className={classes.titleWrapper}>
@@ -44,7 +61,8 @@ function Contact() {
 				<Grid item xs={12} md={6}>
 					<div className={classes.rteWrapper}>
 						<div className={classes.rte}>
-							<FAQHeading>CUSTOMER SERVICE:</FAQHeading>
+							{parse(textContent)}
+							{/* <FAQHeading>CUSTOMER SERVICE:</FAQHeading>
 							<Typography component="p" variant="body1">
 								Monday to Friday: 9am to 6pm
 							</Typography>
@@ -83,7 +101,7 @@ function Contact() {
 									color="inherit">
 									@burnnaswim
 								</Link>
-							</Typography>
+							</Typography> */}
 							{/* <Typography component="p" variant="body1">
 								<b>TikTok:</b>{' '}
 								<Link
@@ -127,6 +145,12 @@ const useStyles = makeStyles((theme: Theme) =>
 		},
 		rte: {
 			padding: '40px 30px',
+			'& h2': {
+				fontWeight: 700,
+				fontFamily: theme.typography.h6.fontFamily,
+				textUnderlineOffset: '4px',
+				marginBottom: theme.spacing(3),
+			},
 			'& p': {
 				marginBottom: '16px',
 			},
