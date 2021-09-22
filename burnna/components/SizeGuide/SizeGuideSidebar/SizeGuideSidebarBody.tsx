@@ -1,26 +1,14 @@
 import React, { FC } from 'react'
 import { useTranslation } from 'next-i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import AppBar from '@material-ui/core/AppBar'
-import Tabs from '@material-ui/core/Tabs'
-import Tab from '@material-ui/core/Tab'
 import SwipeableViews, { OnChangeIndexCallback } from 'react-swipeable-views'
-import { Scrollbars } from 'react-custom-scrollbars-2'
-import { FiX } from 'react-icons/fi'
 // components
-import SGTabs from '../SizeGuideTabs/SGTabs'
-import SGTab from '../SizeGuideTabs/SGTab'
 import SGTabPanel from '../SizeGuideTabs/SGTabPanel'
 import Grid from '@material-ui/core/Grid'
-import IconButton from '@material-ui/core/IconButton'
-import Toolbar from '@material-ui/core/Toolbar'
 import Typography from '@material-ui/core/Typography'
-import Button from '@material-ui/core/Button'
-// import LinkButton from '../Button/LinkButton'
-import { SizeGuideAccordion } from '@burnna/components/Accordion'
 // data
-import { bodySizeItems, measurementsItems } from '../sizeGuideData'
-// import Heading from '../Typography/Heading'
+// import { bodySizeItems, measurementsItems } from '../sizeGuideData'
+import { BodyTable, MeasurementsTable } from '@burnna/components'
 
 interface Props {
 	value: any
@@ -47,13 +35,15 @@ const SizeGuideSidebarBody: FC<Props> = ({ value, handleSwipable }) => {
 							<Typography className={classes.accordionTitle} variant="body1">
 								{t('bodySize')}
 							</Typography>
-							<SizeGuideAccordion sizeGuideItems={bodySizeItems} />
+							{/* <SizeGuideAccordion sizeGuideItems={bodySizeItems} /> */}
+							<BodyTable />
 						</div>
 						<div className={classes.accordionWrapper}>
 							<Typography className={classes.accordionTitle} variant="body1">
 								{t('measurements')}
 							</Typography>
-							<SizeGuideAccordion sizeGuideItems={measurementsItems} />
+							{/* <SizeGuideAccordion sizeGuideItems={measurementsItems} /> */}
+							<MeasurementsTable />
 						</div>
 					</div>
 				</SGTabPanel>
@@ -63,13 +53,15 @@ const SizeGuideSidebarBody: FC<Props> = ({ value, handleSwipable }) => {
 							<Typography className={classes.accordionTitle} variant="body1">
 								{t('bodySize')}
 							</Typography>
-							<SizeGuideAccordion sizeGuideItems={bodySizeItems} />
+							{/* <SizeGuideAccordion sizeGuideItems={bodySizeItems} /> */}
+							<BodyTable />
 						</div>
 						<div className={classes.accordionWrapper}>
 							<Typography className={classes.accordionTitle} variant="body1">
 								{t('measurements')}
 							</Typography>
-							<SizeGuideAccordion sizeGuideItems={measurementsItems} />
+							{/* <SizeGuideAccordion sizeGuideItems={measurementsItems} /> */}
+							<MeasurementsTable />
 						</div>
 					</div>
 				</SGTabPanel>

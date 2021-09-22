@@ -19,5 +19,5 @@ export {
 	CartQuantitySelector,
 } from './Selector'
 
-export { default as BodySizeTable } from './SizeGuide/BodySizeTable'
-export { default as MeasurementsTable } from './SizeGuide/MeasurementsTable'
+export { default as SizeGuideTable } from './SizeGuide/SizeGuideTable'
+export { BodyTable, MeasurementsTable } from './SizeGuide/SizeGuideTables'

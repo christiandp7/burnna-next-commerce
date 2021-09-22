@@ -93,7 +93,7 @@ const useStyles = makeStyles((theme: Theme) =>
 	}),
 )
 
-export default function BodySizeTable() {
+export default function SizeGuideTable() {
 	const classes = useStyles()
 
 	return (

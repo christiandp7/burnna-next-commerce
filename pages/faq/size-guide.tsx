@@ -6,8 +6,7 @@ import Typography from '@material-ui/core/Typography'
 import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import { Layout } from '@components/common'
 import { FAQLayout } from '@burnna/layouts'
-import { FAQHeading } from '@burnna/components'
-import { BodySizeTable, MeasurementsTable } from '@burnna/components'
+import { SizeGuideTable } from '@burnna/components'
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	const i18n = await serverSideTranslations(locale!, ['common'])
@@ -31,7 +30,7 @@ function SizeGuide() {
 						women
 					</Typography>
 				</div>
-				<BodySizeTable />
+				<SizeGuideTable />
 				{/* <MeasurementsTable /> */}
 			</Container>
 		</FAQLayout>

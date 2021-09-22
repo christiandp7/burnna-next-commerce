@@ -9,22 +9,20 @@ import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
 import TableCell from '@material-ui/core/TableCell'
 import TableContainer from '@material-ui/core/TableContainer'
-import TableHead from '@material-ui/core/TableHead'
 import TableRow from '@material-ui/core/TableRow'
 // import Paper from '@material-ui/core/Paper'
 
 const StyledTableCell = withStyles((theme: Theme) =>
 	createStyles({
-		head: {
-			fontSize: theme.typography.h5.fontSize,
-			'&:nth-child(n+2):not(:last-child)': {
-				borderRight: '1px solid rgba(224, 224, 224, 1);',
-			},
-		},
 		body: {
-			fontSize: theme.typography.h5.fontSize,
-			'&:nth-child(n+2):not(:last-child)': {
-				borderRight: '1px solid rgba(224, 224, 224, 1);',
+			fontSize: theme.typography.h6.fontSize,
+			color: theme.palette.primary.contrastText,
+			padding: `${theme.spacing(1)}px ${theme.spacing(1) - 4}px`,
+			'&:first-child': {
+				paddingLeft: 0,
+			},
+			'&:last-child': {
+				paddingRight: 0,
 			},
 		},
 	}),
@@ -38,39 +36,29 @@ const StyledTableRow = withStyles((theme: Theme) =>
 	}),
 )(TableRow)
 
-function createData(name: string, xs: string, s: string, m: string, l: string) {
-	return { name, xs, s, m, l }
+function createData(
+	name: string,
+	xs: string,
+	s: string,
+	m: string,
+	l: string,
+	xl: string,
+) {
+	return { name, xs, s, m, l, xl }
 }
 
 const rows = [
-	createData('Underbust', '70-75', '76-81', '83-86', '88-93'),
-	createData('Bust', '81-86', '87-93', '93-98', '99-104'),
-	createData('Waist', '63-6', '67-70', '71-74', '75-78'),
-	createData('Hip', '89-92', '93-96', '97-100', '101-104'),
-	createData('Lower Waist', '79-82', '80-83', '87-90', '91-94'),
+	createData('USA', '4', '6', '8', '10', '12'),
+	createData('France', '36', '38', '40', '42', '44'),
+	createData('UK', '8', '10', '12', '14', '16'),
 ]
 
-const useStyles = makeStyles({
-	table: {
-		minWidth: 700,
-	},
-})
-
-export default function MeasurementsTable() {
+export default function BodySizeTable() {
 	const classes = useStyles()
 
 	return (
 		<TableContainer>
 			<Table className={classes.table} aria-label="Body size table">
-				{/* <TableHead>
-					<TableRow>
-						<StyledTableCell>BURNNA</StyledTableCell>
-						<StyledTableCell align="center">XS</StyledTableCell>
-						<StyledTableCell align="center">S</StyledTableCell>
-						<StyledTableCell align="center">M</StyledTableCell>
-						<StyledTableCell align="center">L</StyledTableCell>
-					</TableRow>
-				</TableHead> */}
 				<TableBody>
 					{rows.map(row => (
 						<StyledTableRow key={row.name}>
@@ -81,6 +69,7 @@ export default function MeasurementsTable() {
 							<StyledTableCell align="center">{row.s}</StyledTableCell>
 							<StyledTableCell align="center">{row.m}</StyledTableCell>
 							<StyledTableCell align="center">{row.l}</StyledTableCell>
+							<StyledTableCell align="center">{row.xl}</StyledTableCell>
 						</StyledTableRow>
 					))}
 				</TableBody>
@@ -88,3 +77,14 @@ export default function MeasurementsTable() {
 		</TableContainer>
 	)
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		table: {
+			minWidth: 350,
+			[theme.breakpoints.down('sm')]: {
+				minWidth: 280,
+			},
+		},
+	}),
+)
