@@ -103,17 +103,19 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 											key={v?.label}
 											title={setLabel(v.label)}
 											placement="right">
-											<NextLink passHref href={`/product/${product.slug}`}>
-												<Box
-													component="a"
-													className={classes.productColorVariantBadge}
-													style={{
-														background: v.hexColors
-															? setBgColor(v.hexColors)
-															: 'transparent',
-													}}
-												/>
-											</NextLink>
+											<span>
+												<NextLink passHref href={`/product/${product.slug}`}>
+													<Box
+														component="a"
+														className={classes.productColorVariantBadge}
+														style={{
+															background: v.hexColors
+																? setBgColor(v.hexColors)
+																: 'transparent',
+														}}
+													/>
+												</NextLink>
+											</span>
 										</Tooltip>
 									))}
 								{colorVariants &&
@@ -122,17 +124,19 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 											key={opt.color}
 											title={setLabel(opt.color || '')}
 											placement="right">
-											<NextLink passHref href={`/product/${opt.page}`}>
-												<Box
-													component="a"
-													className={classes.productColorVariantBadge}
-													style={{
-														background: opt.color
-															? setBgColor(opt.hexColors || [])
-															: 'transparent',
-													}}
-												/>
-											</NextLink>
+											<span>
+												<NextLink passHref href={`/product/${opt.page}`}>
+													<Box
+														component="a"
+														className={classes.productColorVariantBadge}
+														style={{
+															background: opt.color
+																? setBgColor(opt.hexColors || [])
+																: 'transparent',
+														}}
+													/>
+												</NextLink>
+											</span>
 										</Tooltip>
 									))}
 							</div>
@@ -211,6 +215,7 @@ const useStyles = makeStyles(theme => ({
 		width: '100%',
 	},
 	productColorVariantBadge: {
+		display: 'block',
 		margin: '8px 0',
 		width: '28px',
 		height: '28px',
