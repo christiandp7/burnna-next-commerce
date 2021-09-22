@@ -34,7 +34,7 @@ const ProductOptions: FC<Props> = ({
 									setSelectedOptions={setSelectedOptions}
 								/>
 							)}
-							{opt.displayName.toLowerCase() === 'size' && (
+							{opt.displayName.includes('size') && (
 								<ProductSizeSelector
 									option={opt}
 									selectedOptions={selectedOptions}
