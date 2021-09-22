@@ -8,6 +8,17 @@ export const productConnectionFragment = /* GraphQL */ `
 			node {
 				id
 				title
+
+				metafields(first: 100) {
+					edges {
+						node {
+							id
+							key
+							value
+						}
+					}
+				}
+
 				vendor
 				handle
 				options {

@@ -2,7 +2,7 @@ import React, { FC } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import type { ProductOption } from '@commerce/types/product'
+import type { Metafield, ProductOption } from '@commerce/types/product'
 import { SelectedOptions } from '@components/product/helpers'
 import { ProductColorSelector, ProductSizeSelector } from '@burnna/components'
 
@@ -10,12 +10,14 @@ interface Props {
 	options: ProductOption[]
 	selectedOptions: SelectedOptions
 	setSelectedOptions: React.Dispatch<React.SetStateAction<SelectedOptions>>
+	metafields: Metafield[]
 }
 
 const ProductOptions: FC<Props> = ({
 	options,
 	selectedOptions,
 	setSelectedOptions,
+	metafields,
 }) => {
 	const classes = useStyles()
 	return (
@@ -32,9 +34,10 @@ const ProductOptions: FC<Props> = ({
 									option={opt}
 									selectedOptions={selectedOptions}
 									setSelectedOptions={setSelectedOptions}
+									metafields={metafields}
 								/>
 							)}
-							{opt.displayName.toLowerCase() === 'size' && (
+							{opt.displayName.includes('size') && (
 								<ProductSizeSelector
 									option={opt}
 									selectedOptions={selectedOptions}

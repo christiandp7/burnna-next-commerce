@@ -48,6 +48,14 @@ export type Product = {
 	variants: ProductVariant[]
 	price: ProductPrice
 	options: ProductOption[]
+	metafields: Metafield[]
+}
+
+export type Metafield = {
+	id: string
+	key: string
+	value: string
+	hexColors?: string[]
 }
 
 export type SearchProductsBody = {

@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 interface SelectorButtonProps {
 	customsize: string
 	bg: string
-	className: string
+	className?: string
 	theme: Theme
 }
 
