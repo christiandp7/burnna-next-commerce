@@ -10,9 +10,16 @@ import Box from '@material-ui/core/Box'
 import Tooltip from '@material-ui/core/Tooltip'
 import Grow from '@material-ui/core/Grow'
 import usePrice from '@framework/product/use-price'
-import { Product, ProductOption, ProductOptionValues } from '@commerce/types/product'
+import {
+	Product,
+	ProductOption,
+	ProductOptionValues,
+	Metafield,
+} from '@commerce/types/product'
 import TextTruncate from 'react-truncate'
 import { setBgColor, setLabel } from '@burnna/utils/colors'
+import { getColoVariantsFromMetafields } from '@burnna/utils/metafields'
+import type { ColorVariant } from '@burnna/utils/metafields'
 
 interface Props {
 	product: Product
@@ -27,7 +34,7 @@ interface Props {
 const placeholderImg = '/product-img-placeholder.svg'
 
 const CollectionGridItem: FC<Props> = ({ product }) => {
-	// console.log(product)
+	console.log(product)
 
 	const [showDetails, setShowDetails] = useState(false)
 	const [colorOptions, setColorOptions] = useState<ProductOption | null>(null)
@@ -59,6 +66,9 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 	})
 
 	const classes = useStyles()
+	const colorVariants = getColoVariantsFromMetafields(product.metafields)
+	console.log(colorVariants)
+
 	return (
 		<div
 			className={classes.grirdItemContainer}
@@ -85,30 +95,48 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 				)}
 				{product.options && (
 					<div className={classes.productVariantsContainer}>
-						<NextLink href={`/product/${product.slug}`}>
-							<a className={classes.imageContainer}>
-								<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
-									<div className={classes.productVariants}>
-										{colorOptions?.values &&
-											colorOptions?.values.map((v: ProductOptionValues) => (
-												<Tooltip
-													key={v?.label}
-													title={setLabel(v.label)}
-													placement="right">
-													<Box
-														className={classes.productColorVariantBadge}
-														style={{
-															background: v.hexColors
-																? setBgColor(v.hexColors)
-																: 'transparent',
-														}}
-													/>
-												</Tooltip>
-											))}
-									</div>
-								</Grow>
-							</a>
-						</NextLink>
+						<Grow timeout={{ enter: 500, exit: 500 }} in={showDetails}>
+							<div className={classes.productVariants}>
+								{colorOptions?.values &&
+									colorOptions?.values.map((v: ProductOptionValues) => (
+										<Tooltip
+											key={v?.label}
+											title={setLabel(v.label)}
+											placement="right">
+											<NextLink passHref href={`/product/${product.slug}`}>
+												<Box
+													component="a"
+													className={classes.productColorVariantBadge}
+													style={{
+														background: v.hexColors
+															? setBgColor(v.hexColors)
+															: 'transparent',
+													}}
+												/>
+											</NextLink>
+										</Tooltip>
+									))}
+								{colorVariants &&
+									colorVariants.map(opt => (
+										<Tooltip
+											key={opt.color}
+											title={setLabel(opt.color || '')}
+											placement="right">
+											<NextLink passHref href={`/product/${opt.page}`}>
+												<Box
+													component="a"
+													className={classes.productColorVariantBadge}
+													style={{
+														background: opt.color
+															? setBgColor(opt.hexColors || [])
+															: 'transparent',
+													}}
+												/>
+											</NextLink>
+										</Tooltip>
+									))}
+							</div>
+						</Grow>
 					</div>
 				)}
 			</div>
