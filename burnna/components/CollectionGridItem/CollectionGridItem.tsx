@@ -34,7 +34,7 @@ interface Props {
 const placeholderImg = '/product-img-placeholder.svg'
 
 const CollectionGridItem: FC<Props> = ({ product }) => {
-	console.log(product)
+	// console.log(product)
 
 	const [showDetails, setShowDetails] = useState(false)
 	const [colorOptions, setColorOptions] = useState<ProductOption | null>(null)
@@ -67,7 +67,7 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 
 	const classes = useStyles()
 	const colorVariants = getColoVariantsFromMetafields(product.metafields)
-	console.log(colorVariants)
+	// console.log(colorVariants)
 
 	return (
 		<div
