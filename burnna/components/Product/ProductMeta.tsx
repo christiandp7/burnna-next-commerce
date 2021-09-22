@@ -82,6 +82,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 									options={product.options}
 									selectedOptions={selectedOptions}
 									setSelectedOptions={setSelectedOptions}
+									metafields={product.metafields}
 								/>
 							)}
 							<div className={classes.addToCartContainer}>
