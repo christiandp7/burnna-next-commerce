@@ -55,12 +55,15 @@ export const getColoVariantsFromMetafields = (metafields: Metafield[]) => {
 
 	const variants = [variant_1_items, variant_2_items, variant_3_items]
 
-	const obj = variants.map(variant => {
+	const obj = variants.map((variant, i) => {
 		return {
-			color: variant.find(childItem => childItem.key === 'variant_1_color')?.value,
-			hexColors: variant.find(childItem => childItem.key === 'variant_1_color')
-				?.hexColors,
-			page: variant.find(childItem => childItem.key === 'variant_1_page')?.value,
+			color: variant.find(childItem => childItem.key === `variant_${i + 1}_color`)
+				?.value,
+			hexColors: variant.find(
+				childItem => childItem.key === `variant_${i + 1}_color`,
+			)?.hexColors,
+			page: variant.find(childItem => childItem.key === `variant_${i + 1}_page`)
+				?.value,
 		}
 	})
 
