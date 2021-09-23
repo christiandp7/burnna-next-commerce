@@ -2,8 +2,32 @@ import Typography from '@material-ui/core/Typography'
 
 const shippingPolicyFaqs = [
 	{
-		summary: 'How much is shipping?',
-		details: <Typography paragraph>placeholder content.</Typography>,
+		summary: 'Do I have to pay duties and taxes?',
+		details: (
+			<>
+				<Typography paragraph>
+					International customers please be aware that your country may be subject to
+					additional taxes, customs duties and fees levied by the destination
+					country. These fees are the responsability of the recipient to pay upon
+					delivery and are not included in the product price. BURNNA is under no
+					responsibility to accept a return, nor issue a refund, where the customer
+					has declined to pay these fees.
+				</Typography>
+				<Typography paragraph>
+					Shipments which are rejected by the receiver may result in the customer
+					incurring a redirection fee. If the package is returned to BURNNA, the
+					customer forfeits the original shipping and return cost.
+				</Typography>
+				<Typography paragraph>
+					BURNNA has no control over processing times or duty rates by Customs in
+					each country.
+				</Typography>
+				<Typography paragraph>
+					If by any reason you want to return or exchange your item, any duties paid
+					won't be refunded.
+				</Typography>
+			</>
+		),
 	},
 	{
 		summary: 'What if my order arrives damage?',
@@ -22,12 +46,7 @@ const shippingPolicyFaqs = [
 		summary: 'Do you ship internationally? ',
 		details: (
 			<>
-				<Typography paragraph>
-					For the moment, we ship to Ecuador, Dominican Republic, Puerto Rico and
-					Colombia. We’re working to ship worldwide! Sing up to our newsletter for to
-					hear it first!
-				</Typography>
-				<Typography paragraph>Colombia, Ecuador & Dominican Republic:</Typography>
+				<Typography paragraph>Yes we do!</Typography>
 				<Typography paragraph>
 					Standard orders are typically processed between 3-8 business days. Orders
 					are in transit business days only. Please be aware that at times,
@@ -40,14 +59,6 @@ const shippingPolicyFaqs = [
 					will receive a shipping confirmation email including a tracking number. If
 					you’re having trouble with your order, please don’t hesitate to contact us.
 				</Typography>
-			</>
-		),
-	},
-	{
-		summary: 'I’ve placed my order already, can I still change my shipping address?',
-		details: (
-			<>
-				<Typography paragraph>Placeholder content.</Typography>
 			</>
 		),
 	},

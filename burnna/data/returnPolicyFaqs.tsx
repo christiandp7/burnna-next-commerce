@@ -4,12 +4,20 @@ const returnPolicyFaqs = [
 	{
 		summary: 'Can I get a refund?',
 		details: (
-			<Typography paragraph>
-				At Burnna we do not accept refunds for change of mind, however we want you to
-				find the perfect fir for your body so we are happy to organize a credit note
-				for you. Burnna is unable to receive any changes or cancellations on orders
-				that have already been placed with our online store.
-			</Typography>
+			<>
+				<Typography paragraph>
+					At Burnna we do not accept refunds for change of mind, however we want you
+					to find the perfect fit for your body so we are happy to organize a credit
+					note for you. Burnna is unable to receive any changes or cancellations on
+					orders that have already been placed with our online store.
+				</Typography>
+				<Typography paragraph>
+					Customers are responsible for the cost of return shipping. You are
+					responsible for the original shipping charges, any duties, taxes and/or
+					customs charges that are incurred on the package, and the cost of returning
+					the package to us. This amount will be deducted from your purchase credit.
+				</Typography>
+			</>
 		),
 	},
 	{
