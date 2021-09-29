@@ -25,7 +25,7 @@ export async function getStaticProps({
 	})
 	const { page } = await pagePromise
 	const i18n = await serverSideTranslations(locale!, ['common'])
-	console.log(page)
+
 	return {
 		props: {
 			page,
