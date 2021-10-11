@@ -44,8 +44,8 @@ function Contact({ page }: InferGetStaticPropsType<typeof getStaticProps>) {
 			<Container className={classes.titleWrapper}>
 				<HugeTitleContact />
 			</Container>
-			<Grid container>
-				<Grid item xs={12} md={6}>
+			<Grid container justify="center">
+				{/* <Grid item xs={12} md={6}>
 					<Image
 						className={classes.image}
 						src="/images/contact/contact-img.jpg"
@@ -54,8 +54,8 @@ function Contact({ page }: InferGetStaticPropsType<typeof getStaticProps>) {
 						height={1051}
 						layout="responsive"
 					/>
-				</Grid>
-				<Grid item xs={12} md={6}>
+				</Grid> */}
+				<Grid item xs={12} md={8}>
 					<div className={classes.rteWrapper}>
 						<div className={classes.rte}>{parse(textContent)}</div>
 					</div>
