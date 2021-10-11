@@ -1,8 +1,11 @@
 import React, { FC } from 'react'
+import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import type { GetStaticPropsContext } from 'next'
 import Image from 'next/image'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { MainLayout } from '@burnna/layouts'
@@ -21,9 +24,10 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 }
 function Explore() {
 	const classes = useStyles()
+	const { t } = useTranslation('common')
 	return (
 		<MainLayout>
-			<div className={classes.galleryWrapper}>
+			{/* <div className={classes.galleryWrapper}>
 				<Grid container>
 					{exploreItems.map((item: ExploreItem) => (
 						<Grid key={item.img.src} item xs={item.xsCol || 6} md={item.mdCol || 4}>
@@ -43,7 +47,12 @@ function Explore() {
 				<Container className={classes.titleWrapper}>
 					<HugeTitleExplore />
 				</Container>
-			</div>
+			</div> */}
+			<Box height="65vh" display="flex" alignItems="center" justifyContent="center">
+				<Typography variant="body1" className={classes.comingSoon}>
+					{t('comingSoon')}...
+				</Typography>
+			</Box>
 		</MainLayout>
 	)
 }
@@ -75,6 +84,9 @@ const useStyles = makeStyles((theme: Theme) =>
 				// marginTop: '30px',
 				marginBottom: '18px',
 			},
+		},
+		comingSoon: {
+			textTransform: 'uppercase',
 		},
 	}),
 )
