@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
 			background: '#403737',
 			border: 0,
 			borderRadius: 0,
-			color: 'white',
+			color: theme.palette.primary.contrastText,
 			minHeight: '60px',
 			width: '100%',
 			padding: `${theme.spacing(2)}px ${theme.spacing(4)}px`,
