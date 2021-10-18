@@ -8,6 +8,8 @@ import 'swiper/components/navigation/navigation.min.css'
 import 'swiper/components/pagination/pagination.min.css'
 
 import { FC, useEffect } from 'react'
+import Script from 'next/script'
+import { useRouter } from 'next/router'
 import type { AppProps } from 'next/app'
 import { Head } from '@components/common'
 import SwiperCore, { EffectFade, Navigation, Pagination } from 'swiper/core'
@@ -19,6 +21,8 @@ import { ThemeProvider } from '@material-ui/core/styles'
 import { themeSettigs } from '@burnna/theme'
 import NextNprogress from 'nextjs-progressbar'
 import { appWithTranslation } from 'next-i18next'
+import * as gtag from '../lib/gtag'
+import { GAScripts } from '@burnna/components/GA'
 
 const theme = themeSettigs({})
 
@@ -28,14 +32,27 @@ const Noop: FC = ({ children }) => <>{children}</>
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
 	const Layout = (Component as any).Layout || Noop
+	const router = useRouter()
 
 	useEffect(() => {
 		document.body.classList?.remove('loading')
+		if (process.env.NODE_ENV === 'production') {
+			const handleRouteChange = (url: URL) => {
+				gtag.pageview(url)
+			}
+			router.events.on('routeChangeComplete', handleRouteChange)
+			return () => {
+				router.events.off('routeChangeComplete', handleRouteChange)
+			}
+		}
 	}, [])
 
 	return (
 		<>
 			<Head />
+			{/* Google Analytics */}
+			{process.env.NODE_ENV === 'production' && <GAScripts />}
+			{/* App */}
 			<ThemeProvider theme={theme}>
 				{/* <ManagedUIContext> */}
 				<DrawerContextProvider>
