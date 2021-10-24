@@ -18,6 +18,7 @@ const ProductImageDesktop: FC<Props> = ({ images }) => {
 			</div> */}
 			{images.map(img => (
 				<Image
+					quality="100"
 					key={img.url}
 					src={img.url}
 					alt={img.altText || 'product image'}

@@ -55,7 +55,7 @@ const normalizeProductOption = ({
 }
 
 const normalizeProductImages = ({ edges }: ImageConnection) =>
-	edges?.map(({ node: { originalSrc: url, ...rest } }) => ({
+	edges?.map(({ node: { transformedSrc: url, ...rest } }) => ({
 		url,
 		...rest,
 	}))
@@ -177,7 +177,7 @@ function normalizeLineItem({
 			sku: variant?.sku ?? '',
 			name: variant?.title!,
 			image: {
-				url: variant?.image?.originalSrc || '/product-img-placeholder.svg',
+				url: variant?.image?.transformedSrc || '/product-img-placeholder.svg',
 			},
 			requiresShipping: variant?.requiresShipping ?? false,
 			price: variant?.priceV2?.amount,

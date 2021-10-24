@@ -30,6 +30,7 @@ const ProductImageMobile: FC<Props> = ({ images }) => {
 			{images.map(img => (
 				<SwiperSlide key={img.url}>
 					<Image
+						quality="100"
 						src={img.url}
 						alt={img.altText || 'product image'}
 						width={img.width}
