@@ -22,7 +22,7 @@ const AddToCart: FC<Props> = ({ addToCart, variant, loading, price }) => {
 			disabled={variant?.availableForSale === false}>
 			{variant?.availableForSale === false ? (
 				<Typography color="secondary" variant="h5">
-					{t('notAvailable')}
+					{t('soldOut')}
 				</Typography>
 			) : (
 				<Grid container justifyContent="space-between">
