@@ -18,6 +18,7 @@ import {
 	selectDefaultOptionFromProduct,
 	SelectedOptions,
 } from '@components/product/helpers'
+import { AiOutlinePlus } from 'react-icons/ai'
 
 interface Props {
 	product: Product
@@ -114,6 +115,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 									onClick={() => setInfoSidebar({ open: true, view: 'details' })}>
 									{t('details')}
 								</Link>
+								<AiOutlinePlus color={theme.palette.primary.main} />
 							</div>
 						</div>
 					</div>
@@ -179,8 +181,12 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		infoItem: {
+			display: 'flex',
+			justifyContent: 'space-between',
+			alignItems: 'center',
 			borderBottom: `solid 1px ${theme.palette.neutral.main}`,
 			padding: `${theme.spacing(2)}px 0`,
+			paddingRight: theme.spacing(1),
 			[theme.breakpoints.down('sm')]: {
 				padding: `${theme.spacing(1)}px 0`,
 			},
