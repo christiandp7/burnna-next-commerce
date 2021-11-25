@@ -300,6 +300,9 @@ const useStyles = makeStyles(theme => ({
 		marginLeft: theme.spacing(1),
 		textDecoration: 'line-through',
 		color: theme.palette.text.secondary,
+		[theme.breakpoints.down('md')]: {
+			marginLeft: '5px',
+		},
 	},
 }))
 
