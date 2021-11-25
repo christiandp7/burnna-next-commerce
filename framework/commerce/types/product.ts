@@ -34,6 +34,7 @@ export type ProductVariant = {
 	options: ProductOption[]
 	availableForSale?: boolean
 	price: number
+	listPrice?: number
 }
 
 export type Product = {

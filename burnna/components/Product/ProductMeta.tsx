@@ -36,7 +36,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
 	// console.log(selectedOptions)
-	// console.log(product)
+	console.log(product)
 
 	useEffect(() => {
 		selectDefaultOptionFromProduct(product, setSelectedOptions)
@@ -60,6 +60,12 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const { price } = usePrice({
 		// amount: product.price.value,
 		amount: variant?.price ? variant?.price : product.price.value,
+		baseAmount: product.price.retailPrice,
+		currencyCode: product.price.currencyCode!,
+	})
+
+	const { price: comparePrice } = usePrice({
+		amount: variant?.listPrice ? variant?.listPrice : product.price.value,
 		baseAmount: product.price.retailPrice,
 		currencyCode: product.price.currencyCode!,
 	})
@@ -93,6 +99,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 										loading={loading}
 										variant={variant}
 										price={price}
+										comparePrice={comparePrice}
 									/>
 								)}
 							</div>

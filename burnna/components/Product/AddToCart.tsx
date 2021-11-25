@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import { makeStyles, createStyles, Theme } from '@material-ui/core'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import type { ProductVariant } from '@commerce/types/product'
@@ -10,10 +11,19 @@ interface Props {
 	variant: ProductVariant
 	loading: boolean
 	price: string
+	comparePrice: string
 }
 
-const AddToCart: FC<Props> = ({ addToCart, variant, loading, price }) => {
+const AddToCart: FC<Props> = ({
+	addToCart,
+	variant,
+	loading,
+	price,
+	comparePrice,
+}) => {
+	const classes = useStyles()
 	const { t } = useTranslation('common')
+
 	return (
 		<AddToCartButton
 			aria-label="Add to Cart"
@@ -30,12 +40,33 @@ const AddToCart: FC<Props> = ({ addToCart, variant, loading, price }) => {
 						<Typography variant="h5">{t('add')}</Typography>
 					</Grid>
 					<Grid item>
-						<Typography variant="h5">{price}</Typography>
+						<Typography variant="h5">
+							{variant.listPrice ? (
+								<>
+									<span className={classes.priceWithCompareAtPrice}>{price}</span>
+									<span className={classes.compareAtPrice}>{comparePrice}</span>
+								</>
+							) : (
+								price
+							)}
+						</Typography>
 					</Grid>
 				</Grid>
 			)}
 		</AddToCartButton>
 	)
 }
+
+const useStyles = makeStyles((theme: Theme) =>
+	createStyles({
+		priceWithCompareAtPrice: {
+			color: '#ffb9b9',
+		},
+		compareAtPrice: {
+			marginLeft: theme.spacing(1),
+			textDecoration: 'line-through',
+		},
+	}),
+)
 
 export default AddToCart
