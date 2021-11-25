@@ -36,7 +36,7 @@ const ProductMeta: FC<Props> = ({ product }) => {
 	const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>({})
 
 	// console.log(selectedOptions)
-	console.log(product)
+	// console.log(product)
 
 	useEffect(() => {
 		selectDefaultOptionFromProduct(product, setSelectedOptions)
