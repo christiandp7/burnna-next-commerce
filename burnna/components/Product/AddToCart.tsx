@@ -41,13 +41,9 @@ const AddToCart: FC<Props> = ({
 					</Grid>
 					<Grid item>
 						<Typography variant="h5">
-							{variant.listPrice ? (
-								<>
-									<span className={classes.priceWithCompareAtPrice}>{price}</span>
-									<span className={classes.compareAtPrice}>{comparePrice}</span>
-								</>
-							) : (
-								price
+							{price}
+							{variant.listPrice && (
+								<span className={classes.compareAtPrice}>{comparePrice}</span>
 							)}
 						</Typography>
 					</Grid>
@@ -59,10 +55,8 @@ const AddToCart: FC<Props> = ({
 
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
-		priceWithCompareAtPrice: {
-			color: '#ffb9b9',
-		},
 		compareAtPrice: {
+			color: '#c7c7c7',
 			marginLeft: theme.spacing(1),
 			textDecoration: 'line-through',
 		},
