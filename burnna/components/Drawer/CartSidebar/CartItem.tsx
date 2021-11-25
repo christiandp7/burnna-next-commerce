@@ -45,6 +45,12 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 		currencyCode,
 	})
 
+	const { price: comparePrice } = usePrice({
+		amount: item.variant.listPrice * item.quantity,
+		baseAmount: item.variant.listPrice * item.quantity,
+		currencyCode,
+	})
+
 	const increaseQuantity = async (n = 1) => {
 		const val = Number(quantity) + n
 		setQuantity(val)
@@ -131,8 +137,14 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 					alignItems="flex-end"
 					justify="space-between">
 					<Grid item>
-						<Typography variant="body1" color="inherit">
-							{price}
+						<Typography
+							className={classes.priceContainer}
+							variant="body1"
+							color="inherit">
+							{item.variant.listPrice && (
+								<span className={classes.compareAtPrice}>{comparePrice}</span>
+							)}
+							<span className={classes.price}>{price}</span>
 						</Typography>
 					</Grid>
 					<Grid item>
@@ -188,6 +200,18 @@ const useStyles = makeStyles((theme: Theme) =>
 		option: {
 			display: 'block',
 			width: '100%',
+		},
+		priceContainer: {
+			lineHeight: '1.25',
+			paddingTop: 1,
+		},
+		price: {
+			display: 'block',
+		},
+		compareAtPrice: {
+			display: 'block',
+			color: '#c7c7c7',
+			textDecoration: 'line-through',
 		},
 	}),
 )
