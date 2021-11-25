@@ -135,7 +135,7 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 					direction="column"
 					className={classes.priceWrapper}
 					alignItems="flex-end"
-					justify="space-between">
+					justifyContent="space-between">
 					<Grid item>
 						<Typography
 							className={classes.priceContainer}
