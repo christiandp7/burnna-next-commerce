@@ -32,6 +32,12 @@ export const productConnectionFragment = /* GraphQL */ `
 						currencyCode
 					}
 				}
+				compareAtPriceRange {
+					minVariantPrice {
+						amount
+						currencyCode
+					}
+				}
 				images(first: 1) {
 					pageInfo {
 						hasNextPage

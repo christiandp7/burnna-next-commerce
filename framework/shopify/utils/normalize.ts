@@ -21,7 +21,7 @@ import { colorMap, checkHexAndColors } from '@lib/colors'
 
 const money = ({ amount, currencyCode }: MoneyV2) => {
 	return {
-		value: +amount,
+		value: amount ? +amount : 0,
 		currencyCode,
 	}
 }
@@ -119,6 +119,7 @@ export function normalizeProduct({
 	descriptionHtml,
 	handle,
 	priceRange,
+	compareAtPriceRange,
 	options,
 	metafields,
 	...rest
@@ -130,6 +131,9 @@ export function normalizeProduct({
 		path: `/${handle}`,
 		slug: handle?.replace(/^\/+|\/+$/g, ''),
 		price: money(priceRange?.minVariantPrice),
+		listPrice: compareAtPriceRange
+			? money(compareAtPriceRange?.minVariantPrice)
+			: null,
 		images: normalizeProductImages(images),
 		variants: variants ? normalizeProductVariants(variants) : [],
 		metafields: metafields ? normalizeProductMetafields(metafields) : [],

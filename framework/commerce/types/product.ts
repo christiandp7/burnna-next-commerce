@@ -48,6 +48,7 @@ export type Product = {
 	images: ProductImage[]
 	variants: ProductVariant[]
 	price: ProductPrice
+	listPrice: ProductPrice
 	options: ProductOption[]
 	metafields: Metafield[]
 }

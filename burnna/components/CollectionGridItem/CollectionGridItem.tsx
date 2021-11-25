@@ -34,7 +34,7 @@ interface Props {
 const placeholderImg = '/product-img-placeholder.svg'
 
 const CollectionGridItem: FC<Props> = ({ product }) => {
-	// console.log(product)
+	console.log(product)
 
 	const [showDetails, setShowDetails] = useState(false)
 	const [colorOptions, setColorOptions] = useState<ProductOption | null>(null)
@@ -63,6 +63,12 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 		amount: product.price.value,
 		baseAmount: product.price.retailPrice,
 		currencyCode: product.price.currencyCode!,
+	})
+
+	const { price: comparePrice } = usePrice({
+		amount: product.listPrice.value,
+		baseAmount: product.listPrice.value!,
+		currencyCode: product.listPrice.currencyCode!,
 	})
 
 	const classes = useStyles()
@@ -157,6 +163,9 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 				</NextLink>
 				<Typography component="h4" className={classes.productPrice}>
 					{price}
+					{product.listPrice.value > 0 && (
+						<span className={classes.compareAtPrice}>{comparePrice}</span>
+					)}
 				</Typography>
 			</div>
 		</div>
@@ -286,6 +295,11 @@ const useStyles = makeStyles(theme => ({
 		[theme.breakpoints.up(1536)]: {
 			fontSize: theme.typography.body1.fontSize,
 		},
+	},
+	compareAtPrice: {
+		marginLeft: theme.spacing(1),
+		textDecoration: 'line-through',
+		color: theme.palette.text.secondary,
 	},
 }))
 
