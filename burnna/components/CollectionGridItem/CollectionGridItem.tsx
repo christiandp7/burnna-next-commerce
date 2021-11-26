@@ -85,7 +85,7 @@ const CollectionGridItem: FC<Props> = ({ product }) => {
 					<NextLink href={`/product/${product.slug}`}>
 						<a className={classes.imageContainer}>
 							<Image
-								quality="100"
+								unoptimized
 								alt={product.name || 'Product Image'}
 								src={product.images[0]?.url || placeholderImg}
 								width={product.images[0]?.width || 800}
