@@ -13,6 +13,7 @@ export { default as ProductMeta } from './Product/ProductMeta'
 export { default as AddToCart } from './Product/AddToCart'
 export { AddToCartButton, ColorSelectorButton } from './Button'
 import { default as SkeletonGrid } from './Skeleton'
+import { default as TopBanner } from './TopBanner'
 export {
 	ProductColorSelector,
 	ProductSizeSelector,

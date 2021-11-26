@@ -19,6 +19,7 @@ import { Burguer, LogoText } from '@burnna/svg'
 import { useDrawer } from '@burnna/context/DrawerContext'
 import useCart from '@framework/cart/use-cart'
 import LocaleSwitcher from '../LocaleSwitcher'
+import TopBanner from '../TopBanner'
 
 const HEADER_HEIGHT: number = 40
 interface Props {
@@ -50,103 +51,110 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 			<AppBar
 				className={cx({ infoLayoutHeader: faqLayout }, classes.appBar)}
 				position="fixed">
-				<Container>
-					<Toolbar className={classes.toolbar} disableGutters={true}>
-						<Grid container spacing={0}>
-							<Grid item container alignItems="center" xs>
-								{faqLayout ? (
-									<Hidden lgUp>
+				<TopBanner />
+				<div className={classes.toolbarContainer}>
+					<Container>
+						<Toolbar className={classes.toolbar} disableGutters={true}>
+							<Grid container spacing={0}>
+								<Grid item container alignItems="center" xs>
+									{faqLayout ? (
+										<Hidden lgUp>
+											<IconButton
+												edge="start"
+												className={classes.menuButton}
+												color="inherit"
+												aria-label="menu"
+												onClick={() => setFaqSidebarOpen(true)}>
+												<Burguer />
+											</IconButton>
+										</Hidden>
+									) : (
 										<IconButton
 											edge="start"
 											className={classes.menuButton}
 											color="inherit"
 											aria-label="menu"
-											onClick={() => setFaqSidebarOpen(true)}>
+											onClick={() => setSidebarOpen(true)}>
 											<Burguer />
 										</IconButton>
+									)}
+									<Hidden mdDown>
+										<ul className={`${classes.linklist} ${classes.linklistLeft}`}>
+											<li>
+												<NextLink href="/collection/women" passHref>
+													<Link className={classes.link}>{t('women')}</Link>
+												</NextLink>
+											</li>
+											<li>
+												<NextLink href="/collection/men" passHref>
+													<Link className={classes.link}>{t('men')}</Link>
+												</NextLink>
+											</li>
+											<li className={classes.hasChild}>
+												<Link className={classes.link} underline="none" href="#">
+													{t('ourWorld')}
+												</Link>
+												<ul className={cx(classes.dropdown, 'dropdown')}>
+													<li>
+														<NextLink href="/about" passHref>
+															<Link>{t('about')}</Link>
+														</NextLink>
+													</li>
+													<li>
+														<NextLink href="/campaign" passHref>
+															<Link>{t('campaign')}</Link>
+														</NextLink>
+													</li>
+													<li>
+														<NextLink href="/explore" passHref>
+															<Link>{t('explore')}</Link>
+														</NextLink>
+													</li>
+													<li>
+														<NextLink href="/faq/payment" passHref>
+															<Link>FAQ</Link>
+														</NextLink>
+													</li>
+												</ul>
+											</li>
+										</ul>
 									</Hidden>
-								) : (
-									<IconButton
-										edge="start"
-										className={classes.menuButton}
-										color="inherit"
-										aria-label="menu"
-										onClick={() => setSidebarOpen(true)}>
-										<Burguer />
-									</IconButton>
-								)}
-								<Hidden mdDown>
-									<ul className={`${classes.linklist} ${classes.linklistLeft}`}>
-										<li>
-											<NextLink href="/collection/women" passHref>
-												<Link className={classes.link}>{t('women')}</Link>
-											</NextLink>
-										</li>
-										<li>
-											<NextLink href="/collection/men" passHref>
-												<Link className={classes.link}>{t('men')}</Link>
-											</NextLink>
-										</li>
-										<li className={classes.hasChild}>
-											<Link className={classes.link} underline="none" href="#">
-												{t('ourWorld')}
+								</Grid>
+								<Grid item container justifyContent="center" xs={4} sm={2}>
+									<div className={cx(classes.logoContainer, 'fixed')}>
+										<NextLink href="/" passHref>
+											<Link className={classes.logoLink}>
+												<LogoText className={classes.logo} />
 											</Link>
-											<ul className={cx(classes.dropdown, 'dropdown')}>
-												<li>
-													<NextLink href="/about" passHref>
-														<Link>{t('about')}</Link>
-													</NextLink>
-												</li>
-												<li>
-													<NextLink href="/campaign" passHref>
-														<Link>{t('campaign')}</Link>
-													</NextLink>
-												</li>
-												<li>
-													<NextLink href="/explore" passHref>
-														<Link>{t('explore')}</Link>
-													</NextLink>
-												</li>
-												<li>
-													<NextLink href="/faq/payment" passHref>
-														<Link>FAQ</Link>
-													</NextLink>
-												</li>
-											</ul>
-										</li>
-									</ul>
-								</Hidden>
-							</Grid>
-							<Grid item container justifyContent="center" xs={4} sm={2}>
-								<div className={cx(classes.logoContainer, 'fixed')}>
-									<NextLink href="/" passHref>
-										<Link className={classes.logoLink}>
-											<LogoText className={classes.logo} />
-										</Link>
-									</NextLink>
-								</div>
-							</Grid>
-							<Grid item container xs justifyContent="flex-end" alignItems="center">
-								<Hidden mdDown>
-									<ul className={classes.linklist}>
-										<li>
-											<LocaleSwitcher />
-										</li>
-										<li>
-											<Button
-												className={classes.link}
-												variant="text"
-												disableRipple={true}
-												onClick={() => setCartOpen(true)}>
-												{data && data.lineItems && data.lineItems.length > 0
-													? `${t('bag')} ${pad(data.lineItems.length)}`
-													: `${t('bag')} 00`}
-											</Button>
-										</li>
-									</ul>
-								</Hidden>
-								<Hidden lgUp>
-									{/* <IconButton
+										</NextLink>
+									</div>
+								</Grid>
+								<Grid
+									item
+									container
+									xs
+									justifyContent="flex-end"
+									alignItems="center">
+									<Hidden mdDown>
+										<ul className={classes.linklist}>
+											<li>
+												<LocaleSwitcher />
+											</li>
+											<li>
+												<Button
+													className={classes.link}
+													variant="text"
+													disableRipple={true}
+													onClick={() => setCartOpen(true)}>
+													{data && data.lineItems && data.lineItems.length > 0
+														? `${t('bag')} ${pad(data.lineItems.length)}`
+														: `${t('bag')} 00`}
+												</Button>
+											</li>
+										</ul>
+									</Hidden>
+									<Hidden lgUp>
+										{/* <IconButton
 										edge="end"
 										className={classes.cartButton}
 										color="inherit"
@@ -163,19 +171,20 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 											<HiOutlineShoppingBag size="28" />
 										)}
 									</IconButton> */}
-									<Link
-										className={cx(classes.link, classes.bagMobile)}
-										// variant="text"
-										onClick={() => setCartOpen(true)}>
-										{data && data.lineItems && data.lineItems.length > 0
-											? `${t('bag')} ${pad(data.lineItems.length)}`
-											: `${t('bag')} 00`}
-									</Link>
-								</Hidden>
+										<Link
+											className={cx(classes.link, classes.bagMobile)}
+											// variant="text"
+											onClick={() => setCartOpen(true)}>
+											{data && data.lineItems && data.lineItems.length > 0
+												? `${t('bag')} ${pad(data.lineItems.length)}`
+												: `${t('bag')} 00`}
+										</Link>
+									</Hidden>
+								</Grid>
 							</Grid>
-						</Grid>
-					</Toolbar>
-				</Container>
+						</Toolbar>
+					</Container>
+				</div>
 			</AppBar>
 		</div>
 	)
@@ -199,6 +208,9 @@ const useStyles = makeStyles((theme: Theme) =>
 			},
 		},
 		// Toolbar
+		toolbarContainer: {
+			backgroundColor: theme.palette.cream.main,
+		},
 		toolbar: {
 			position: 'relative',
 			justifyContent: 'space-between',
