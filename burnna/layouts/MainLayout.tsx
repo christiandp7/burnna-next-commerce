@@ -28,11 +28,13 @@ const MainLayout: FC<Props> = ({ children, ...props }) => {
 const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		main: {
-			paddingTop: '40px',
+			// paddingTop: '40px',
+			paddingTop: '70px', // with topBanner
 			paddingBottom: '30px',
 			minHeight: '70vh',
 			[theme.breakpoints.down('md')]: {
-				paddingTop: '40px',
+				// paddingTop: '40px',
+				paddingTop: '60px', // with topBanner
 				paddingBottom: '12px',
 			},
 		},

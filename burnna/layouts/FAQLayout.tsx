@@ -49,13 +49,15 @@ const useStyles = makeStyles((theme: Theme) =>
 			display: 'flex',
 		},
 		main: (props: Props) => ({
-			paddingTop: props.top || '50px',
+			// paddingTop: props.top || '50px',
+			paddingTop: props.top || '70px', // with TopBanner
 			paddingBottom: props.bottom || '30px',
 			minHeight: 'calc(100vh - 40px)',
 			display: props.alignItemsCenter ? 'flex' : 'block',
 			alignItems: 'center',
 			[theme.breakpoints.down('md')]: {
-				paddingTop: props.mobTop || '40px',
+				// paddingTop: props.mobTop || '40px',
+				paddingTop: props.mobTop || '60px', // with TopBanner
 				paddingBottom: props.bottom || '12px',
 			},
 		}),
