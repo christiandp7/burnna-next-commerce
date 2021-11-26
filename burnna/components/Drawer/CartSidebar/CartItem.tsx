@@ -90,7 +90,7 @@ const CartItem: FC<Props> = ({ item, currencyCode }) => {
 							height={110}
 							src={item.variant.image!.url}
 							alt={item.variant.image!.altText}
-							unoptimized
+							quality={85}
 							objectFit="cover"
 						/>
 					</a>
