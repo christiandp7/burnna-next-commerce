@@ -20,11 +20,16 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			backgroundColor: theme.palette.primary.main,
-			padding: '4px 8px',
+			padding: '8px 12px',
 			textAlign: 'center',
+			lineHeight: 1,
+			[theme.breakpoints.down('md')]: {
+				padding: '5px 12px',
+			},
 		},
 		text: {
-			letterSpacing: '0.03rem',
+			letterSpacing: '0.05rem',
+			lineHeight: 1,
 		},
 	}),
 )
