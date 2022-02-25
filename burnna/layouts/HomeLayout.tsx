@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 import { Footer, HomeHeader } from '@burnna/components'
 import { CartSidebar } from '@burnna/components/Drawer'
+import { Newsletter } from '@burnna/components/Modal'
 
 interface Props {
 	children: React.ReactNode
@@ -19,6 +20,7 @@ const HomeLayout: FC<Props> = ({ children }) => {
 			<HomeHeader />
 			<main className={classes.main}>{children}</main>
 			<Footer />
+			<Newsletter />
 		</>
 	)
 }

@@ -6,6 +6,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles'
 // import Cart from '../components/Cart/Cart'
 import { Footer, Header } from '@burnna/components'
 import { CartSidebar, Sidebar } from '@burnna/components/Drawer'
+import { Newsletter } from '@burnna/components/Modal'
 
 interface Props {
 	children: React.ReactNode
@@ -18,6 +19,7 @@ const MainLayout: FC<Props> = ({ children, ...props }) => {
 		<>
 			<Sidebar />
 			<CartSidebar />
+			<Newsletter />
 			<Header />
 			<main className={classes.main}>{children}</main>
 			<Footer />
