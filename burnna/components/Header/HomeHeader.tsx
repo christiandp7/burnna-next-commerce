@@ -49,6 +49,11 @@ const HomeHeader: FC = () => {
 						</NextLink>
 					</li>
 					<li>
+						<NextLink href="/ss22" passHref>
+							<Link variant="h5">SS22</Link>
+						</NextLink>
+					</li>
+					<li>
 						<NextLink href="/explore" passHref>
 							<Link variant="h5">{t('explore')}</Link>
 						</NextLink>
