@@ -94,6 +94,7 @@ const Campaign22 = () => {
 				<div className={cn(classes.row, classes.row4)}>
 					<div className="rte">
 						<div>
+							{/* Credits */}
 							<Typography variant="h5">CREDITS</Typography>
 							<br />
 							<Typography variant="h5">
