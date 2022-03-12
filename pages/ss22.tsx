@@ -29,9 +29,9 @@ const Campaign22 = () => {
 							unoptimized
 							width={1601}
 							height={2400}
-							src="/images/ss22/a1.jpg"
+							src="/images/ss22/b2.jpg"
 							placeholder="blur"
-							blurDataURL="/images/ss22/a1.jpg"
+							blurDataURL="/images/ss22/b2.jpg"
 							layout="responsive"
 						/>
 						<div className="caption">
@@ -83,9 +83,9 @@ const Campaign22 = () => {
 							unoptimized
 							width={1601}
 							height={2400}
-							src="/images/ss22/b2.jpg"
+							src="/images/ss22/a1.jpg"
 							placeholder="blur"
-							blurDataURL="/images/ss22/b2.jpg"
+							blurDataURL="/images/ss22/a1.jpg"
 							layout="responsive"
 						/>
 					</div>
@@ -98,17 +98,17 @@ const Campaign22 = () => {
 							<Typography variant="h5">CREDITS</Typography>
 							<br />
 							<Typography variant="h5">
-								CREATIVE DIRECTORS: LAURA HARADA, ANTONELLA CAMARGO
+								CREATIVE DIRECTORS: LAURA HARADA & ANTONELLA CAMARGO
 							</Typography>
 							<Typography variant="h5">
-								PHOTOGRAPHERS: LESLIE SOTO, PEPE MELO
+								PHOTOGRAPHERS: OSCAR FONSECA
 							</Typography>
 							<Typography variant="h5">
-								MODELS: MARIA GOMEZ, ANNETTE LUNA, ACUARELA BEARD, ISABEL PLANAS
+								MODELS: SILVIA ORDUZ, MARTINA DIECK
 							</Typography>
-							<Typography variant="h5">STYLIST: CAVOLO</Typography>
-							<Typography variant="h5">MAKEUP ARTIST: ZOE MARIE</Typography>
-							<Typography variant="h5">HAIR STYLIST: YSIANA JIMENEZ</Typography>
+							<Typography variant="h5">STYLIST: LAURA HARADA & ANTONELLA CAMARGO </Typography>
+							<Typography variant="h5">MAKEUP ARTIST: MARTINA DIECK</Typography>
+							<Typography variant="h5">HAIR STYLIST: MARTINA DIECK</Typography>
 						</div>
 					</div>
 					<div className={classes.imageContainer}>
