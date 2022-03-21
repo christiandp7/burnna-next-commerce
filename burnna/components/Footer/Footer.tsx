@@ -166,8 +166,13 @@ const Footer: FC = () => {
 										</NextLink>
 									</ListItem>
 									<ListItem>
-										<NextLink passHref href="/campaign">
-											<Link className={classes.link}>{t('campaign')}</Link>
+										<NextLink passHref href="/ss21">
+											<Link className={classes.link}>SS21</Link>
+										</NextLink>
+									</ListItem>
+									<ListItem>
+										<NextLink passHref href="/ss22">
+											<Link className={classes.link}>SS22</Link>
 										</NextLink>
 									</ListItem>
 									<ListItem>
