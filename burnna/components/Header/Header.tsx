@@ -101,16 +101,6 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 														</NextLink>
 													</li>
 													<li>
-														<NextLink href="/campaign" passHref>
-															<Link>{t('campaign')}</Link>
-														</NextLink>
-													</li>
-													<li>
-														<NextLink href="/ss22" passHref>
-															<Link>SS22</Link>
-														</NextLink>
-													</li>
-													<li>
 														<NextLink href="/explore" passHref>
 															<Link>{t('explore')}</Link>
 														</NextLink>
@@ -118,6 +108,23 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 													<li>
 														<NextLink href="/faq/payment" passHref>
 															<Link>FAQ</Link>
+														</NextLink>
+													</li>
+												</ul>
+											</li>
+											<li className={classes.hasChild}>
+												<Link className={classes.link} underline="none" href="#">
+													{t('campaign')}
+												</Link>
+												<ul className={cx(classes.dropdown, 'dropdown')}>
+													<li>
+														<NextLink href="/campaign" passHref>
+															<Link>SS21</Link>
+														</NextLink>
+													</li>
+													<li>
+														<NextLink href="/ss22" passHref>
+															<Link>SS22</Link>
 														</NextLink>
 													</li>
 												</ul>
