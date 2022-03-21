@@ -17,7 +17,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
 	}
 }
 
-const Campaign = () => {
+const Campaign21 = () => {
 	const classes = useStyles()
 	return (
 		<MainLayout>
@@ -304,6 +304,6 @@ const useStyles = makeStyles((theme: Theme) =>
 	}),
 )
 
-export default Campaign
+export default Campaign21
 
-Campaign.Layout = Layout
+Campaign21.Layout = Layout
