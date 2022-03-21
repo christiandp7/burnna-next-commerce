@@ -118,7 +118,7 @@ const Header: FC<Props> = ({ faqLayout = false }) => {
 												</Link>
 												<ul className={cx(classes.dropdown, 'dropdown')}>
 													<li>
-														<NextLink href="/campaign" passHref>
+														<NextLink href="/ss21" passHref>
 															<Link>SS21</Link>
 														</NextLink>
 													</li>

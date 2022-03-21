@@ -44,16 +44,6 @@ const HomeHeader: FC = () => {
 						</NextLink>
 					</li>
 					<li>
-						<NextLink href="/campaign" passHref>
-							<Link variant="h5">{t('campaign')}</Link>
-						</NextLink>
-					</li>
-					<li>
-						<NextLink href="/ss22" passHref>
-							<Link variant="h5">SS22</Link>
-						</NextLink>
-					</li>
-					<li>
 						<NextLink href="/explore" passHref>
 							<Link variant="h5">{t('explore')}</Link>
 						</NextLink>
@@ -61,6 +51,25 @@ const HomeHeader: FC = () => {
 					<li>
 						<NextLink href="/faq/payment" passHref>
 							<Link variant="h5">FAQ</Link>
+						</NextLink>
+					</li>
+				</ul>
+			</li>
+			<li className={classes.hasChild}>
+				<Link href="#">
+					<Typography variant="h5" color="primary">
+						{t('campaign')}
+					</Typography>
+				</Link>
+				<ul className={cx(classes.dropdown, 'dropdown')}>
+					<li>
+						<NextLink href="/ss21" passHref>
+							<Link variant="h5">SS21</Link>
+						</NextLink>
+					</li>
+					<li>
+						<NextLink href="/ss22" passHref>
+							<Link variant="h5">SS22</Link>
 						</NextLink>
 					</li>
 				</ul>
